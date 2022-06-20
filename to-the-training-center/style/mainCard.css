@@ -1,0 +1,54 @@
+/* 카드의 큰 모양 */
+
+.card{
+    width: 30vh;
+    height: 40vh;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.margin{
+    margin: 20px;
+}
+
+.box-shadow{
+    box-shadow: 0 1px 2px rgb(60 64 67 / 30%), 0 1px 3px rgb(60 64 67 / 15%);
+}
+
+
+
+
+/* 카드 안 이미지*/
+.img-wrap{
+    width: 100%;
+    height: 50%;
+    border: 3px solid red;
+    
+}
+
+.img-wrap img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid yellow;
+    
+}
+
+
+
+
+/* 카드 안 내용 */
+
+.card-title{
+    width: 100%;
+    height: 50%;
+    border: 3px solid blue;
+}
+
+.card-title .sub-title{
+
+}
+
+.card-title .contents{
+
+}
