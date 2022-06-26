@@ -1,0 +1,14 @@
+.load{
+    display: inline-block; 
+    position: relative;
+    
+    width: 10vh;
+    height: 90vh;
+    border-radius: 0px 0px 20px 20px;
+    background-color: blue;
+    transition: all 0.5s;
+}
+
+.load:hover{
+    height: 100vh;
+}
