@@ -15,28 +15,27 @@
 .card{
     width: 30vh;
     height: 40vh;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+    display: inline-block;
     border-radius: 15px;
     background-color: #fff;
     overflow: hidden;
     transition: all 0.5s;
     cursor: pointer;
+
 }
 
 .left{
-    top: 10px;
+    
     float: left;
+    left: 4vw;
+
 }
 
 .right{
-    top:10px;
     float: right;
-}
-.right::after{
-    clear: both;
+    right: 4vw;
+
 }
 
 .card:hover{
@@ -44,6 +43,7 @@
 }
 
 .margin{
+    
     margin: 20px;
 }
 
