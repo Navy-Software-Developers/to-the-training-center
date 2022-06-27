@@ -8,12 +8,17 @@ export class Card {
       contents: contents,
       imgSrc: imgSrc,
     };
+  
+  
+  
+  this.startPointX = 0;
+  this.startPointY = 0;
+  
   }
-
+  
   create() {
-    
-    
-    
+  
+  
     let card = `
         <div class="card margin box-shadow margin">
 
@@ -39,9 +44,19 @@ export class Card {
 
 
 
-    </div>
-        `;
-
-       this.parent.innerHTML += card;
+    </div>`;
+      
+       this.parent.innerHTML += card; 
   }
+  
+  getData(){
+    let el = document.querySelector('.card');
+    this.startPointX = el.offsetWidth + el.offsetLeft;
+    this.startPointY = el.offsetHeight + el.offsetTop;
+    console.log(this.startPointX,this.startPointY);
+  }
+  
+  
+
+
 }
