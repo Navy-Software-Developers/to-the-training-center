@@ -11,9 +11,11 @@ export class Card {
   }
 
   create() {
-    console.log(this.parent);
+    
+    
+    
     let card = `
-        <div class="card margin box-shadow">
+        <div class="card margin box-shadow margin">
 
 
 
