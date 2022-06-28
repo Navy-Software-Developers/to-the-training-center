@@ -16,7 +16,7 @@ export class Card {
   
   }
   
-  create() {
+  create(ctx) {
   
   
     let card = `
@@ -49,11 +49,18 @@ export class Card {
        this.parent.innerHTML += card; 
   }
   
-  getData(){
-    let el = document.querySelector('.card');
+  getData(ctx){
+    let el = document.querySelectorAll('.card');
     this.startPointX = el.offsetWidth + el.offsetLeft;
     this.startPointY = el.offsetHeight + el.offsetTop;
-    console.log(this.startPointX,this.startPointY);
+   
+    // ctx.fillStyle = 'red';
+    // ctx.beginPath();
+    // ctx.arc(this.startPointX,this.startPointY,20,0,Math.PI*2,false);
+    // ctx.fill();
+
+    return el;
+
   }
   
   

@@ -33,14 +33,21 @@ let data = [
 
 class App{
     constructor(){
+        this.main = document.getElementById('main');
+        this.canvas = document.createElement('canvas');
+        document.body.appendChild(this.canvas);
+        this.ctx = this.canvas.getContext('2d');
+
+
+
         this.itemBar = document.querySelectorAll('.item_bar');
         
         
         window.addEventListener('resize',this.resize.bind(this));
+        this.resize();
         window.requestAnimationFrame(this.animate.bind(this));
     
         console.log(this.itemBar[0])
-
 
        this.card = new Array();
        let count = 0;
@@ -54,17 +61,24 @@ class App{
        }
         
         this.update();
+        
     }
 
 
     update(){
         for(let i =0 ; i <this.card.length; i++ ){
-            this.card[i].create();
+            this.card[i].create(this.ctx);
+        }
+        
+        for(let j = 0; j < this.card.length;j++){
+            let el = this.card[i].getData(this.canvas);
+            
         }
     }
 
     resize(){
-        
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
     }
 
     animate(){
