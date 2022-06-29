@@ -1,13 +1,15 @@
 .load{
     display: inline-block; 
     position: relative;
-    width: 10vh;
-    height: 90vh;
+    width: 5vh;
+    height: 95vh;
     border-radius: 0px 0px 20px 20px;
-    background-color: blue;
+    background-color: #D9E4DD;
+    /* background-color: rgba(173, 255, 166, 0.4); */
     transition: all 0.5s;
+    z-index: 0;
 }
 
-.load:hover{
+/* .load:hover{
     height: 100vh;
-}
+} */

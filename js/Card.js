@@ -24,7 +24,7 @@ export class Card {
 
 
     let card = `
-    <div class='card margin box-shadow margin ${this.cardData.position}'>
+    <div class='card box-shadow margin '>
 
 
 
@@ -69,24 +69,25 @@ export class Card {
   }
 
   drawLine(ctx) {
-
-    this.point(ctx,this.startPointX,this.startPointY);
-    this.point(ctx,this.endPointX,this.endPointY);
     
 
-    ctx.strokeStyle = 'red';
-    ctx.lineWidth = 3;
+    // ctx.strokeStyle = `rgba(255,0,0,0.5)`;
+    ctx.strokeStyle = `#CDC9C3`;
+    ctx.lineWidth = 2;
     ctx.beginPath();
     //ctx.arc(this.startPointX, this.startPointY, 20, 0, Math.PI * 2, false);
     ctx.moveTo(this.startPointX,this.startPointY);
     ctx.lineTo(this.endPointX,this.endPointY);
     ctx.stroke();
+
+    this.point(ctx,this.startPointX,this.startPointY);
+    this.point(ctx,this.endPointX,this.endPointY);
   }
 
   point(ctx,x,y){
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = '#FBF7F0';
     ctx.beginPath();
-    ctx.arc(x,y,10,0,Math.PI*2,false);
+    ctx.arc(x,y,5,0,Math.PI*2,false);
     ctx.fill();
   }
 
