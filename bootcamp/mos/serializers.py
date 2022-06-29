@@ -4,4 +4,4 @@ from .models import Mos
 class MosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mos
-        fields = ('gsteukgiCd', 'gsteukgiNm', 'gunGbcd')
+        fields = ('pk', 'gsteukgiCd', 'gsteukgiNm', 'gunGbcd')

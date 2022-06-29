@@ -35,8 +35,9 @@ def update(request):
         print(len(items))
         for item in items:
             obj, created = Mos.objects.get_or_create(
+                gunGbcd = item['gunGbcd'],
                 gsteukgiCd = item['gsteukgiCd'],
-                defaults={'gsteukgiNm': item['gsteukgiNm'], 'gunGbcd': item['gunGbcd']})
+                defaults={'gsteukgiNm': item['gsteukgiNm']})
             print(obj, created)
 
         if i == 1:
