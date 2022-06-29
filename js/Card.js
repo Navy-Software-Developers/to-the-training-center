@@ -20,7 +20,33 @@ export class Card {
 
   }
 
-  create() {
+create(){
+  let card =`
+  <div class='card box-shadow '>
+  <img class="image" src="${this.cardData.imgSrc}" alt="">
+  <div class="text_box">
+     
+      <span class="subtitle">
+      ${this.cardData.subTitle}
+      </span>
+      <p class="contents">
+      ${this.cardData.contents}
+      </p>
+      <svg width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+              d="M20 0L16.5631 3.43688L30.1644 17.0625H0.5V21.9375H30.1644L16.5631 35.5631L20 39L39.5 19.5L20 0Z"
+              fill="rgb(26, 115, 232)"></path>
+      </svg>
+  </div>
+
+
+</div>
+  `
+
+  this.parent.innerHTML += card;
+}
+
+  testcreate() {
 
 
     let card = `
