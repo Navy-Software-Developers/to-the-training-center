@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/job/job.css" />
-    <link rel="stylesheet" href="./style/style.css" />
-    <title>JOB</title>
-  </head>
-  <body>
-    <div id="chart">
-      <canvas id="myChart"></canvas>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style/job/job.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <title>JOB</title>
+</head>
+
+<body>
+
+  <div class="job_contents">
+
+    <div class="info">
+      <div class="title_bar">
+        <p class="position chart_title">
+          SW개발병
+        </p>
+        svg
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-    <script type="module" src="./js/job/app.js"></script>
-  </body>
+    <div id="chart">
+      <div class="title_bar">
+        <p class="chart_title">경쟁률</p>
+      </div>
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+  <script type="module" src="./js/job/app.js"></script>
+</body>
+
 </html>
