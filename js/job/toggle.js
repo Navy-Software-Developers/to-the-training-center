@@ -32,7 +32,16 @@
  //     new Toggle();
  //  }
 
- new Toggle()
+ new Toggle();
+
+/*
+  <div class="toggle">
+          <p>관심추가</p>
+          <div class="toggle_box">
+            <div class="toggle_btn"></div>
+          </div>
+        </div>
+*/
  /* 활성화 색  rgba(107,213,92,1) > 초록*/
  /* 비활성화 색  rgba(214,214,214,1) > 회색*/
  /* 버튼 색  rgba(247,247,247,1) > 흰색*/

@@ -18,6 +18,8 @@
 }
 
 
+
+
 /* chart */
 #myChart {
   width: 80%;
@@ -43,10 +45,20 @@
   color: rgba(89, 160, 253,1) ;
 }
 
+
+
+/* 보직 설명 */
 .title_bar{
   display: flex;
   flex-direction: row;
 justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+
+.position_content{
+ 
+  margin-top: 3%;
+  
 }
