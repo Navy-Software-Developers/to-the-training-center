@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style/job/job.css" />
   <link rel="stylesheet" href="./style/style.css" />
+  <link rel="stylesheet" href="./style/job/toggle.css">
   <title>JOB</title>
 </head>
 
@@ -19,7 +20,12 @@
         <p class="position chart_title">
           SW개발병
         </p>
-        svg
+        <div class="toggle">
+          <p>관심추가</p>
+          <div class="toggle_box">
+            <div class="toggle_btn"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -32,6 +38,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
   <script type="module" src="./js/job/app.js"></script>
+  <script type="module" src="./js/job/toggle.js"></script>
 </body>
 
 </html>
