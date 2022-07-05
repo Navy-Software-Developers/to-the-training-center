@@ -1,6 +1,6 @@
 let chart = document.getElementById('myChart');
 
-let label = ['sun','mon','tue','wed','thi','fri','sat'];
+let label = ['2015','2016','2017','2018','2019','2020','2021'];
 let data = [1,2,3,4,5,6,7];
 
 let config = {
