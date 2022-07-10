@@ -6,6 +6,7 @@
          this.toggle_box.forEach((element , index)=> {
           element.addEventListener('click', ()=>{
             this.onClick(element,this.toggle_btn[index]);
+            
           });
          });
 
@@ -23,8 +24,8 @@
 
          
          if (!this.toggle_default) {
-            this.toggle_btn.style.transform = `translateX(0%)`;
-            this.toggle_box.style.backgroundColor = ` rgba(214,214,214,1)`;
+            toggle_btn.style.transform = `translateX(0%)`;
+            toggle_box.style.backgroundColor = ` rgba(214,214,214,1)`;
             this.toggle_default = true;
             return false;
         }

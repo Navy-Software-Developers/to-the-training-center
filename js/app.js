@@ -136,7 +136,9 @@ class App {
 
     this.canvas.width = this.stageWidth * this.pixelRatio;
     this.canvas.height = this.stageHeight * this.pixelRatio;
-    this.ctx.scale(this.pixelRatio, this.pixelRatio);
+   // this.ctx.scale(this.pixelRatio, this.pixelRatio);
+
+    console.log(this.stageWidth,this.stageHeight);
 
     for (let i = 0; i < this.card.length; i++) {
       this.card[i].drawPointLine(this.ctx, this.cardElement[i], this.load);
