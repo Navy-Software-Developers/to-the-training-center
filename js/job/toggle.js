@@ -3,30 +3,48 @@
          this.toggle_box = document.querySelectorAll('.toggle_box');
          this.toggle_btn = document.querySelectorAll('.toggle_btn');
 
-         this.toggle_box.forEach((element , index)=> {
+         
+         this.toggle_status = new Array();
+
+         for(let i =0 ;i  <this.toggle_box.length;i++){
+         
+          const data = {
+            'element':this.toggle_box[i],
+            'toggle_click':true,
+            'data':''
+          };
+          
+          this.toggle_status.push(data);
+         }
+
+        
+         this.toggle_box.forEach((element , index,d)=> {
           element.addEventListener('click', ()=>{
-            this.onClick(element,this.toggle_btn[index]);
-            
+            this.onClick(element,
+                        this.toggle_btn[index],
+                        this.toggle_status[index]);
+          
           });
          });
 
-         this.toggle_default = true;
+         //this.toggle_default = false;
 
      }
 
-     onClick(toggle_box,toggle_btn) {
-         if (this.toggle_default) {
+     onClick(toggle_box,toggle_btn,toggle_status) {
+
+         if (toggle_status.toggle_click) {
              toggle_btn.style.transform = `translateX(99%)`;
              toggle_box.style.backgroundColor = ` rgba(107,213,92,1) `;
-             this.toggle_default = false;
+             toggle_status.toggle_click = false;
              return true;
          }
 
          
-         if (!this.toggle_default) {
+         if (!toggle_status.toggle_click) {
             toggle_btn.style.transform = `translateX(0%)`;
             toggle_box.style.backgroundColor = ` rgba(214,214,214,1)`;
-            this.toggle_default = true;
+            toggle_status.toggle_click = true;
             return false;
         }
      }
