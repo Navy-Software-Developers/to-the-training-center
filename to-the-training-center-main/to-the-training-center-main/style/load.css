@@ -1,0 +1,22 @@
+.load {
+  display: inline-block;
+  position: relative;
+  width: 5vh;
+  height: 0vh;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #d9e4dd;
+  /* background-color: rgba(173, 255, 166, 0.4); */
+  transition: all 0.5s;
+  z-index: -5;
+  animation: slidedown 1.5s both;
+}
+
+@keyframes slidedown {
+  100% {
+    height: 150vh;
+  }
+}
+
+/* .load:hover{
+    height: 100vh;
+} */
