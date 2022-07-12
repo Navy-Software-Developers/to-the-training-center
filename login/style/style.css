@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    overflow: hidden;
+    background-color: #f7f7f7;
+}
+
+
+/* login box */
+.login_box{
+    width: 45%;
+    height: 50vh;
+ 
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-top: 20vh;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+
+.content{
+ 
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login_title{
+    font-weight: bold;
+    font-size: 1.6rem;
+    
+}
+
+.input{
+    width: 100%;
+    height: 100%;
+}
+.submit{
+    width: 100%;
+    height: 10%;
+}
+.input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    margin-left: 10px;
+    transition: all 0.5s;
+    padding-left: 10px;
+}
+.input:focus{
+    border-radius: 5px;
+    outline: 1px solid rgb(193, 227, 255);
+    border: none;
+}
+
+.submit{
+    border: none;
+    background-color: #06a742;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.id_box,.pw_box,.pw_chekbox{
+     
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+.loginimg{
+  
+    width: 7%;
+}
+
+
+ 
+.register{
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.register:hover{
+    text-decoration: underline;
+}
