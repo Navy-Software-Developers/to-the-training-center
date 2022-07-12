@@ -1,27 +1,49 @@
 let chart = document.getElementById('myChart');
 
-let label = ['2015','2016','2017','2018','2019','2020','2021'];
-let data = [1,2,3,4,5,6,7];
+const month_label = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+
+let member = [{
+    total:[46,10,12,0,12,0,5,10,10,11,30,22],
+    color:'rgba(255,99,132,1)'
+},{
+    pass:[6,7,2,0,6,0,1,2,3,1,10,22],
+    color:'rgba(0,255,10,1)'
+}]
+const color = 'rgba(255, 99, 132, 1)'
+
 
 let config = {
     type: 'line',
     // ②차트의 데이터(Object)
     data: {
         // ③x축에 들어갈 이름들(Array)
-        labels: label,
+        labels: month_label,
         // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
         datasets: [{
             // ⑤dataset의 이름(String)
-            label: '# of Votes',
+            label: '지원률 현황',
             // ⑥dataset값(Array)
-            data: [1,12, 19, 3, 5, 2, 3],
+            data: member[0].total,
             // ⑦dataset의 배경색(rgba값을 String으로 표현)
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             // ⑧dataset의 선 색(rgba값을 String으로 표현)
-            borderColor: 'rgba(255, 99, 132, 1)',
+            borderColor: member[0].color,
             // ⑨dataset의 선 두께(Number)
             borderWidth: 1
-        }]
+        },
+    {
+        // ⑤dataset의 이름(String)
+        label: '합격 현황',
+        // ⑥dataset값(Array)
+        data: member[1].pass,
+        // ⑦dataset의 배경색(rgba값을 String으로 표현)
+        backgroundColor: 'rgba(0,255,10,0.2)',
+        // ⑧dataset의 선 색(rgba값을 String으로 표현)
+        borderColor: member[1].color,
+        // ⑨dataset의 선 두께(Number)
+        borderWidth: 1
+    }
+]
     },
     // ⑩차트의 설정(Object)
     options: {
@@ -35,10 +57,9 @@ let config = {
         }
     }
 }
-
-AnimationEffect
+ 
 window.onload = ()=>{
-    console.log(config);
+   
     new Chart(chart,config)
 }
 
