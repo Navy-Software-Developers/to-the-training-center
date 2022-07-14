@@ -15,8 +15,9 @@ function register() {
         </div>
 
         <div class="pw_chekbox">
-            <img class="loginimg" src="./media/checkpw.png" alt="">
+            <img class="loginimg" src="./media/id.png" alt="">
         <input class="input pw2" type="password" placeholder="Password" name="password2">
+  
         </div>
         <button class="submit">
             가입하기
@@ -57,7 +58,10 @@ window.onload = () => {
     id: "./media/id.png",
     pw: "./media/password.png",
     checkpw: "./media/checkpw.png",
+    error:"./media/error.png"
   };
+
+  let login_image = document.querySelectorAll('.loginimg');
 
 
 
@@ -75,9 +79,12 @@ window.onload = () => {
   let regisetClick = ()=>{
     if (click == false) {
         register();
+        login_image = document.querySelectorAll('.loginimg');
         joinpw1 = document.querySelector('.pw1');
         joinpw2 = document.querySelector('.pw2');
-        joinpw2.addEventListener('keyup',checkPw)
+        joinpw1.addEventListener('keyup',checkPw);
+        joinpw2.addEventListener('keyup',checkPw);
+        
         click = true;
       } else if (click == true) {
         signin();
@@ -88,17 +95,18 @@ window.onload = () => {
   let checkPw = ()=>{
       const joinpw1_data = joinpw1.value;
       const joinpw2_data = joinpw2.value;
-    
+      
       if(joinpw1_data == joinpw2_data){
-        console.log('same');
-   
+        joinpw2.style.border = `2px solid rgba(0,200,1,0.5)`;
+        joinpw1.style.border = `2px solid rgba(0,200,1,0.5)`;
+        login_image[2].src = './media/checkpw.png';
       }else if(
         joinpw1_data != joinpw2_data){
-            joinpw2.style.border = `1px solid rgba(200,1,1,0.5)`;
-            
+
+            joinpw2.style.border = `2px solid rgba(200,1,1,0.5)`;
+          
+            login_image[2].src = './media/error.png';
         }
-      
-      
   }
 
   join.addEventListener("click", regisetClick);

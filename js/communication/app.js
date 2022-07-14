@@ -1,5 +1,5 @@
 // const url = 'https://jsonplaceholder.typicode.com/posts';
-function run(){
+
   const url = 'http://my.parkjeongseop.com:8000/api/accounts/v1/registration/';
 const method = 'POST';
 let data = [];
@@ -7,6 +7,7 @@ let data = [];
 //username, password1, password2 ,
 let option = {
     method: 'POST',
+    mode:'cors',
     headers: { 
         "Content-Type": "application/json" 
     },
@@ -18,21 +19,41 @@ let option = {
 
 }
 
- 
-
-fetch(url,option)
-    .then(response => {
-       console.log('success!!',response)  
-      // return response.json();
-    })   
-    .catch(err => {
-        console.error('error!!!',err)
-    })
-    // .then(data =>{
-    //     console.log(data)
-    // })
+let request = {
+    get(url){
+        return fetch(url);
+    }
+    ,
+    post(url,option){
+        return fetch(
+            url,
+            option
+        )
+        .then(response=>{
+            return response.json();
+        })
+        .catch(err=>{
+            return err;
+        })
+    }
 }
+
+request.post(url,option).then(data => console.log(data));
+
+// fetch(url,option)
+//     .then(response => {
+//        console.log('success!!',response)  
+//       // return response.json();
+//     })   
+//     .catch(err => {
+//         console.error('error!!!',err)
+//     })
+//     // .then(data =>{
+//     //     console.log(data)
+//     // })
+
     
+
 
 
  
