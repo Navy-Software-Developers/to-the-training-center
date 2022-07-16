@@ -3,8 +3,8 @@ from django.forms.models import model_to_dict
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from .models import Mos, Recurit, Wiki
-from .serializers import MosSerializer, WikiSerializer
+from .models import *
+from .serializers import *
 
 
 
@@ -64,7 +64,7 @@ def update_mos(request):
             total = int(xml_dict['response']['body']['totalCount'])
         i += 1
 
-    return Response("updated!")
+    return Response({'status': 'success'})
 
 
 @api_view(['GET'])
@@ -106,20 +106,59 @@ def update_recurit(request):
             total = int(xml_dict['response']['body']['totalCount'])
         i += 1
 
-    return Response("updated!")
-
+    return Response({'status': 'success'})
 
 @api_view(['GET', 'POST'])
 def wiki(request, pk):
-    if request.method == 'GET':
+    try:
         mos = Mos.objects.get(pk=pk)
-        return Response(WikiSerializer(Wiki.objects.get(mos=mos)).data)
+    except Mos.DoesNotExist:
+        return Response({'status': 'details'}, status=status.HTTP_404_NOT_FOUND)
 
+    if request.method == 'GET':
+        return Response(WikiSerializer(Wiki.objects.get(mos=mos)).data)
     elif request.method == 'POST':
-        mos = Mos.objects.get_object_or_404(pk=pk)
         new = Wiki.objects.create(mos=mos, content=request.POST['content'], modifier=request.user)
         mos['currentWiki'] = new
         mos.save()
 
-        return Response("success!")
+        return Response({'status': 'success'})
+
+
+@api_view(['GET', 'POST', 'DELETE'])
+def like(request, pk):
+    try:
+        mos = Mos.objects.get(pk=pk)
+    except Mos.DoesNotExist:
+        return Response({'status': 'details'}, status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        try:
+            like = Like.objects.get(mos=mos, user=request.user)
+            return Response(LikeSerializer(like).data)
+        except Like.DoesNotExist:
+            return Response({'result': 'notLike'})
+        except:
+            return Response({'status': 'failed'})
+
+    elif request.method == 'POST':
+        Like.objects.create(mos=mos, user=request.user)
+
+        return Response({'status': 'success'})
+
+    elif request.method == 'PUT':
+        try:
+            Like.objects.get(mos=mos, user=request.user).notification = bool(request.POST['notification'])
+
+            return Response({'status': 'success'})
+        except:
+            return Response({'status': 'failed'})
+
+    elif request.method == 'DELETE':
+        try:
+            Like.objects.get(mos=mos, user=request.user).delete()
+
+            return Response({'status': 'success'})
+        except:
+            return Response({'status': 'failed'})
 

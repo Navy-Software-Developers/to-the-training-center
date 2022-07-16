@@ -43,3 +43,12 @@ class Wiki(models.Model):
 
     def __str__(self) -> str:
         return f"[{self.mos}] {self.content[:20]}..."
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    mos = models.ForeignKey(Mos, on_delete=models.CASCADE) # 관심보직
+    notification = models.BooleanField(default=True) # 알림설정
+
+    def __str__(self) -> str:
+        return f"{self.user} {self.mos} {self.notification}"
