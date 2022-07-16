@@ -52,34 +52,41 @@ class App {
           this.itemRepeatCheck.push(element.index);
           this.purchaseData.push(new ProductList(element.click(), this.count));
           this.createPurchaseList(element.index, this.count);
-          
           this.count++;
-          this.calcTotalMoney(index);
+
+          this.calcTotalMoney(index,false);
           return;
         }
         
-        this.calcTotalMoney(index);
+        this.calcTotalMoney(index,true);
          
         });
     });
   }
 
-  calcTotalMoney(index){
+  calcTotalMoney(index,increase){
+    //increase 변수는 함수가 시작 됐을때 값을 증가시킬 지 여부
+
     const purchasIndex = this.itemRepeatCheck.indexOf(index);
-    this.purchaseData[purchasIndex].upClick();
+    if(increase === true) this.purchaseData[purchasIndex].upClick();
     this.priceCalc += this.purchaseData[purchasIndex].price;
     this.totalPrice.textContent = `
     Total : ${this.priceCalc.toLocaleString()} 원
     `
-  }
+    return ;
+}
 
-  calcMinusMoney(index){
+  calcMinusMoney(index,decrease){
+    //decrease 변수는 함수가 시작 됐을때 값을 감소시킬 지 여부
     const purchasIndex = this.itemRepeatCheck.indexOf(index);
-    this.purchaseData[purchasIndex].upClick();
+    
+    if(decrease === true) this.purchaseData[purchasIndex].downClick();      
+
     this.priceCalc -= this.purchaseData[purchasIndex].price;
     this.totalPrice.textContent = `
     Total : ${this.priceCalc.toLocaleString()} 원
     `
+    return ;
   }
 
   createPurchaseList(elementIndex, i) {
@@ -89,11 +96,11 @@ class App {
       element.updateSelector();
       element.down.onpointerdown = () => {
         element.downClick();
-        this.calcMinusMoney(elementIndex);
+        this.calcMinusMoney(elementIndex,false);
       };
       element.up.onpointerdown = () => {
         element.upClick();
-        this.calcTotalMoney(elementIndex);
+        this.calcTotalMoney(elementIndex,false);
       };
     });
   }
