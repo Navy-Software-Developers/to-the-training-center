@@ -10,7 +10,7 @@ class App {
     this.totalPrice = document.querySelector(".now_price");
     this.priceCalc = 0;
     this.purchase = document.querySelector(".purchase");
-
+    
     this.count = 0;
 
     //제품 목록
@@ -78,6 +78,9 @@ class App {
 
   calcMinusMoney(index,decrease){
     //decrease 변수는 함수가 시작 됐을때 값을 감소시킬 지 여부
+    if(this.priceCalc < 0){
+        return;
+    }
     const purchasIndex = this.itemRepeatCheck.indexOf(index);
     
     if(decrease === true) this.purchaseData[purchasIndex].downClick();      
@@ -134,7 +137,46 @@ window.onload = () => {
       name: "Apple Watch",
       star: 2,
       price: 600000,
-    },
+    },{
+      image:'./media/product4.jfif',
+      name: "AirPods Max",
+      star:4,
+      price:300000
+    },{
+        image:'./media/product5.jfif',
+        name:'ironman',
+        star:5,
+        price:99
+    },{
+        image:'./media/product5.jfif',
+        name:'ironman',
+        star:5,
+        price:99
+    }
+    ,{
+        image:'./media/product5.jfif',
+        name:'ironman',
+        star:5,
+        price:99
+    }
+    ,{
+        image:'./media/product5.jfif',
+        name:'ironman',
+        star:5,
+        price:99
+    }
+    ,{
+        image:'./media/product5.jfif',
+        name:'ironman',
+        star:5,
+        price:99
+    }
+    ,{
+        image:'./media/product5.jfif',
+        name:'ironman',
+        star:5,
+        price:99
+    }
   ];
 
   new App(product_data);
