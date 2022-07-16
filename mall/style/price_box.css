@@ -4,11 +4,12 @@
     z-index: 5;
     right: 0px;
     width: 35%;
-    height: 100%;
+    height: 90vh;
     background-color: #FFF6EA;
     transition: all 0.5s;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 1rem;
+    overflow: scroll;
 
 }
 
