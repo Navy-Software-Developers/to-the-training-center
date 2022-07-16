@@ -1,10 +1,11 @@
 .price_box{
-    position: absolute;
-    top: 0px;
+    display: block;
+    position: relative;
+    z-index: 5;
     right: 0px;
-    width: 100px;
-    height: 100px;
-    border: 3px solid red;
+    width: 35%;
+    height: 100%;
+    background-color: #FFF6EA;
     transition: all 0.5s;
-    
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
