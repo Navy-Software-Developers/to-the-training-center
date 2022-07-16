@@ -162,3 +162,12 @@ def like(request, pk):
         except:
             return Response({'status': 'failed'})
 
+
+
+@api_view(['GET'])
+def likes(request):
+    try:
+        like = Like.objects.filter(user=request.user)
+        return Response(LikeSerializer(like, many=True).data)
+    except:
+        return Response({'status': 'failed'})

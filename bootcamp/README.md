@@ -122,6 +122,26 @@ REST API는 아래 기술되어있습니다.
 
     {'status': 'success'}
 
+## 로그인한 유저의 병과 관심 목록 조회하기
+
+### Request
+
+`GET /api/mos/likes`
+
+### Response
+
+    [
+        {
+            "user": 9,
+            "mos": 196,
+            "notification": true
+        },
+        {
+            "user": 9,
+            "mos": 318,
+            "notification": true
+        }
+    ]
 
 ## 특정 병과 관심에 추가
 
