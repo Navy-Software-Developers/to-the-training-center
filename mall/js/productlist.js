@@ -51,8 +51,8 @@ export class ProductList {
     downClick() {
       --this.num;
   
-      if (this.num < 1) {
-        this.num = 1;
+      if (this.num < 0) {
+        this.num = 0;
         this.count.textContent=this.num;
       }
 

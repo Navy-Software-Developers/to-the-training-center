@@ -48,22 +48,30 @@ class App {
     // itemRepeatCheck
     this.itemArray.forEach((element, index) => {
       element.buy.addEventListener("click", () => {
-        if (this.itemRepeatCheck.indexOf(index) === -1) {
+        //이미 선택한 아이템이 있는지 확인  없으면 -1
+        if (this.itemRepeatCheck.indexOf(index) === -1) {     
           this.itemRepeatCheck.push(element.index);
-          this.purchaseData.push(new ProductList(element.click(), this.count));
+          this.purchaseData.push(
+            new ProductList(
+              element.click(),
+              this.count
+            )
+          );
+          
           this.createPurchaseList(element.index, this.count);
           this.count++;
+          element.basket.src = './media/basket/basketok.svg'
 
           this.calcTotalMoney(index,false);
           return;
         }
-        
+        //이미 선택한 아이템이 있을 시 실행
         this.calcTotalMoney(index,true);
          
         });
     });
   }
-
+ 
   calcTotalMoney(index,increase){
     //increase 변수는 함수가 시작 됐을때 값을 증가시킬 지 여부
 
@@ -78,11 +86,8 @@ class App {
 
   calcMinusMoney(index,decrease){
     //decrease 변수는 함수가 시작 됐을때 값을 감소시킬 지 여부
-    if(this.priceCalc < 0){
-        return;
-    }
     const purchasIndex = this.itemRepeatCheck.indexOf(index);
-    
+   
     if(decrease === true) this.purchaseData[purchasIndex].downClick();      
 
     this.priceCalc -= this.purchaseData[purchasIndex].price;
@@ -92,12 +97,20 @@ class App {
     return ;
   }
 
+
+  //element Index가 마지막 애를 가리킴
   createPurchaseList(elementIndex, i) {
     this.showItem.innerHTML += this.purchaseData[i].update();
 
     this.purchaseData.forEach((element) => {
       element.updateSelector();
       element.down.onpointerdown = () => {
+       
+        const purchasIndex = this.itemRepeatCheck.indexOf(element.index);
+        if(this.purchaseData[element.index].num <= 0){
+          return;
+        } 
+ 
         element.downClick();
         this.calcMinusMoney(elementIndex,false);
       };

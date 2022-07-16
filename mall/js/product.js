@@ -7,6 +7,7 @@ export class Product {
       this.index = index;
       this.buy = null;
       this.basket = null;
+  
     }
   
     update() {
@@ -46,7 +47,7 @@ export class Product {
     //생성되고 난 후 실행
     updateSelector() {
       this.buy = document.querySelectorAll(".buy")[this.index];
-      this.basket = document.querySelectorAll(".basket")[this.index];
+      this.basket = document.querySelectorAll(".basket > img")[this.index];
     }
   
     click(e) {
