@@ -32,7 +32,12 @@ class App {
     }
     this.itemArray.forEach((e) => {
       e.updateSelector();
+  
     });
+
+    this.itemArray.forEach(e=>{
+      e.evaluationInsert();
+    })
   }
 
   createItem() {

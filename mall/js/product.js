@@ -5,6 +5,7 @@ export class Product {
       this.star = product.star;
       this.price = product.price;
       this.index = index;
+      this.evaluation = null;
       this.buy = null;
       this.basket = null;
   
@@ -21,11 +22,7 @@ export class Product {
                   ${this.name}
               </p>
               <div class="evaluation">
-                  <img src="./media/star/yesStar.svg" alt="">
-                  <img src="./media/star/yesStar.svg" alt="">
-                  <img src="./media/star/yesStar.svg" alt="">
-                  <img src="./media/star/yesStar.svg" alt="">
-                  <img src="./media/star/noStar.svg" alt="">
+           
             </div>
               <div class="product_buy">
                   <p class="price">
@@ -43,11 +40,28 @@ export class Product {
   
       return html;
     }
+
+    evaluationInsert(){
+      console.log(this.star);
+      for(let i =0; i < 5;i++){
+        if(i > this.star){
+          this.evaluation.innerHTML += 
+        `
+        <img src="./media/star/yesStar.svg" alt="">
+        `
+        }else{
+          this.evaluation.innerHTML += `
+          <img src="./media/star/noStar.svg" alt="">
+          `
+        }
+      }
+    }
   
     //생성되고 난 후 실행
     updateSelector() {
       this.buy = document.querySelectorAll(".buy")[this.index];
       this.basket = document.querySelectorAll(".basket > img")[this.index];
+      this.evaluation = document.querySelectorAll('.evaluation')[this.index];
     }
   
     click(e) {
