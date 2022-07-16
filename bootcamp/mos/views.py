@@ -1,11 +1,10 @@
-from sre_constants import BRANCH
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.forms.models import model_to_dict
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from .models import Mos, Recurit
-from .serializers import MosSerializer
+from .models import Mos, Recurit, Wiki
+from .serializers import MosSerializer, WikiSerializer
 
 
 
@@ -108,4 +107,19 @@ def update_recurit(request):
         i += 1
 
     return Response("updated!")
+
+
+@api_view(['GET', 'POST'])
+def wiki(request, pk):
+    if request.method == 'GET':
+        mos = Mos.objects.get(pk=pk)
+        return Response(WikiSerializer(Wiki.objects.get(mos=mos)).data)
+
+    elif request.method == 'POST':
+        mos = Mos.objects.get_object_or_404(pk=pk)
+        new = Wiki.objects.create(mos=mos, content=request.POST['content'], modifier=request.user)
+        mos['currentWiki'] = new
+        mos.save()
+
+        return Response("success!")
 
