@@ -1,0 +1,10 @@
+<svg width="73" height="93" viewBox="0 0 73 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M47.9331 23C47.9772 22.3972 48 21.7834 48 21.16C48 16.0769 46.4852 11.6356 44.2333 8.56136C41.9794 5.48452 39.1978 4 36.5 4C33.8022 4 31.0206 5.48452 28.7667 8.56136C26.5148 11.6356 25 16.0769 25 21.16C25 21.7834 25.0228 22.3972 25.0669 23H21.0578C21.0195 22.3936 21 21.7799 21 21.16C21 9.47365 27.9396 0 36.5 0C45.0604 0 52 9.47365 52 21.16C52 21.7799 51.9805 22.3936 51.9422 23H47.9331Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M69 27H4V73C4 81.8366 11.1634 89 20 89H53C61.8366 89 69 81.8366 69 73V27ZM4 23H0V27V73C0 84.0457 8.95431 93 20 93H53C64.0457 93 73 84.0457 73 73V27V23H69H4Z" fill="black"/>
+<line x1="19" y1="28" x2="19" y2="88" stroke="black" stroke-width="4"/>
+<line x1="38" y1="28" x2="38" y2="88" stroke="black" stroke-width="4"/>
+<line x1="54" y1="28" x2="54" y2="88" stroke="black" stroke-width="4"/>
+<line x1="69" y1="44" x2="3" y2="44" stroke="black" stroke-width="4"/>
+<line x1="69" y1="62" x2="3" y2="62" stroke="black" stroke-width="4"/>
+<line x1="69" y1="78" x2="3" y2="78" stroke="black" stroke-width="4"/>
+</svg>

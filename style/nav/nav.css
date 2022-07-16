@@ -24,14 +24,20 @@
 .navbox a {
   color: rgb(32, 33, 36);
   text-decoration: none;
-  width: 8%;
-  height: 65%;
+  width: 10rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.5s;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.logo{
+  font-family: 'ChosunCentennial';
+ 
+
 }
 
 .login_btn:hover {

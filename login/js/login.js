@@ -96,12 +96,12 @@ window.onload = () => {
       const joinpw1_data = joinpw1.value;
       const joinpw2_data = joinpw2.value;
       
-      if(joinpw1_data == joinpw2_data){
+      if(joinpw1_data === joinpw2_data){
         joinpw2.style.border = `2px solid rgba(0,200,1,0.5)`;
         joinpw1.style.border = `2px solid rgba(0,200,1,0.5)`;
         login_image[2].src = './media/checkpw.png';
       }else if(
-        joinpw1_data != joinpw2_data){
+        joinpw1_data !== joinpw2_data){
 
             joinpw2.style.border = `2px solid rgba(200,1,1,0.5)`;
           
