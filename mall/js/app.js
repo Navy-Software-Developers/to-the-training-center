@@ -1,5 +1,5 @@
-import {Product} from './product.js';
-import {ProductList} from './productlist.js';
+import { Product } from "./product.js";
+import { ProductList } from "./productlist.js";
 
 class App {
   constructor(product_data) {
@@ -7,18 +7,24 @@ class App {
     this.main = document.querySelector(".main");
     this.showItem = document.querySelector(".show_item");
 
+    this.totalPrice = document.querySelector(".now_price");
+    this.priceCalc = 0;
+    this.purchase = document.querySelector(".purchase");
+
     this.count = 0;
 
     //제품 목록
     this.itemArray = [];
-
+    this.itemRepeatCheck = [];
     //구매 하려는 제품 목록
     this.purchaseData = [];
     this.priceStack = [];
 
     this.createItem();
     this.clickEvent();
-  }
+    
+    this.purchase.addEventListener('click',this.purchaseAlert.bind(this));
+}
 
   render() {
     for (let i = 0; i < this.product_data.length; i++) {
@@ -37,27 +43,70 @@ class App {
     this.render();
   }
 
+  // 구매창 쪽 기능
   clickEvent() {
-
+    // itemRepeatCheck
     this.itemArray.forEach((element, index) => {
       element.buy.addEventListener("click", () => {
-        this.purchaseData.push(new ProductList(element.click(), index));
-        this.createPurchaseList(this.count);
-        this.count++;
-    });
+        if (this.itemRepeatCheck.indexOf(index) === -1) {
+          this.itemRepeatCheck.push(element.index);
+          this.purchaseData.push(new ProductList(element.click(), this.count));
+          this.createPurchaseList(element.index, this.count);
+          
+          this.count++;
+          this.calcTotalMoney(index);
+          return;
+        }
+        
+        this.calcTotalMoney(index);
+         
+        });
     });
   }
 
-  createPurchaseList(i) {
-    this.showItem.innerHTML += this.purchaseData[i].update();
-    
-    this.purchaseData.forEach((e,index)=>{
-        e.updateSelector();
-    })
-  } 
-}
+  calcTotalMoney(index){
+    const purchasIndex = this.itemRepeatCheck.indexOf(index);
+    this.purchaseData[purchasIndex].upClick();
+    this.priceCalc += this.purchaseData[purchasIndex].price;
+    this.totalPrice.textContent = `
+    Total : ${this.priceCalc.toLocaleString()} 원
+    `
+  }
 
- 
+  calcMinusMoney(index){
+    const purchasIndex = this.itemRepeatCheck.indexOf(index);
+    this.purchaseData[purchasIndex].upClick();
+    this.priceCalc -= this.purchaseData[purchasIndex].price;
+    this.totalPrice.textContent = `
+    Total : ${this.priceCalc.toLocaleString()} 원
+    `
+  }
+
+  createPurchaseList(elementIndex, i) {
+    this.showItem.innerHTML += this.purchaseData[i].update();
+
+    this.purchaseData.forEach((element) => {
+      element.updateSelector();
+      element.down.onpointerdown = () => {
+        element.downClick();
+        this.calcMinusMoney(elementIndex);
+      };
+      element.up.onpointerdown = () => {
+        element.upClick();
+        this.calcTotalMoney(elementIndex);
+      };
+    });
+  }
+
+  purchaseAlert(){
+   if(this.priceCalc === 0){
+    alert('물건을 담아주십시오');
+    return;
+    }
+
+    alert(`${this.priceCalc.toLocaleString()}원 을 결제하시겠습니까?`)
+  }
+}
 
 window.onload = () => {
   let product_data = [

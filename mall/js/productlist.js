@@ -7,6 +7,7 @@ export class ProductList {
       this.up = null;
       this.down = null;
       this.index = index;
+      this.price = product.price;
     }
   
     update() {
@@ -42,16 +43,19 @@ export class ProductList {
     }
   
     upClick() {
-      this.num++;
-      this.count.innerText = this.num;
+        ++this.num;
+        this.count.textContent=this.num;
+      
     }
   
     downClick() {
-      this.num--;
+      --this.num;
   
       if (this.num < 1) {
         this.num = 1;
-        this.count.innerText = this.num;
+        this.count.textContent=this.num;
       }
+
+      this.count.textContent=this.num;
     }
   }
