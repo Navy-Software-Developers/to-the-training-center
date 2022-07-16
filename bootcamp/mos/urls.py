@@ -2,7 +2,8 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path("hello/", HelloAPI),
-    path("update", update),
-    path("list", list),
+    path("", list, name='list_of_MOS'),
+    path("<int:pk>", detail, name='detail_of_MOS'),
+    path("update/mos", update_mos),
+    path("update/recurit", update_recurit),
 ]
