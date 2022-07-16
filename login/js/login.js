@@ -111,7 +111,4 @@ window.onload = () => {
 
   join.addEventListener("click", regisetClick);
 
- 
-
-
 };

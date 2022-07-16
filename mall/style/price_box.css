@@ -8,4 +8,97 @@
     background-color: #FFF6EA;
     transition: all 0.5s;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1rem;
+
+}
+
+
+.show_item{
+    background-color: #ffffff;
+    width: 100%;
+    height: auto;
+    padding:1rem 0 1rem 0;
+}
+
+
+
+
+
+/* 사려는 아이템 관리 */
+.cart_item{
+    list-style: none;
+    width: 100%;
+ 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    justify-content: space-around;
+    padding: 1rem 0 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.buy_img{
+ 
+    width: 20%;
+    height: 100%;
+}
+
+
+.buy_img img{
+    width: 100%;
+    
+}
+
+ 
+
+.product_title{
+ 
+ font-size: 1rem;
+ width: 50%;
+}
+
+.adpurchase{
+ 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.up,.down{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    transition: all 0.5s;
+}
+.up:hover,.down:hover{
+    background-color: #afafaf;
+}
+
+
+.buynow{
+ 
+    width: 100%;
+    margin-top: 1rem;
+    
+}
+
+.now_price{
+    font-size: 1rem;
+}
+
+.purchase{
+    background-color: rgba(42, 216, 51, 0.3);
+    border: none;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 60%;
+    height: 5vh;
+    transition: all 0.5s;
+}
+
+.purchase:hover{
+    background-color: rgb(232, 232, 250);
 }
