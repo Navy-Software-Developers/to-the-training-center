@@ -9,4 +9,5 @@ urlpatterns = [
     path("likes", likes, name='likes'),
     path("update/mos", update_mos),
     path("update/recurit", update_recurit),
+    path("update/point", update_point),
 ]

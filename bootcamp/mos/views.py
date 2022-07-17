@@ -108,6 +108,54 @@ def update_recurit(request):
 
     return Response({'status': 'success'})
 
+
+@api_view(['GET'])
+def update_point(request):
+    # BRANCH = ['', '육군', '해군', '공군', '해병대']
+    BRANCH = {'육군': 1, '해군': 2, '공군': 3, '해병':4}
+    # MMA_OPENAIP_0015 모집병 지원가능분야 조회_v7.0_영문
+
+    url = 'http://apis.data.go.kr/1300000/mjbJiWon/list'
+    numOfRows = 1000
+    total = numOfRows
+    i = 1
+
+    while i <= total//numOfRows:
+        params ={'serviceKey' : serviceKey, 'numOfRows' : str(numOfRows), 'pageNo' : str(i) }
+        response = requests.get(url, params=params)
+        xml_parse = xmltodict.parse(response.content.decode('utf-8'))
+        xml_dict = json.loads(json.dumps(xml_parse))
+        items = xml_dict['response']['body']['items']['item']
+
+        for item in items:
+            try:
+                mos, created = Mos.objects.get_or_create(
+                    branch = BRANCH[item['gtcdNm1']],
+                    code = item['gsteukgiCd'],
+                    defaults={'name': item['gsteukgiNm']})
+                print(mos, created)
+                
+                point, created = Point.objects.get_or_create(
+                    category = item['gubun'],
+                    name = item['gtcdNm2'],
+                    level = item['jgmyeonheoDg'])
+                print(point, created)
+
+                obj, created = MosPoint.objects.get_or_create(
+                    mos = mos,
+                    point = point,
+                    direct = True if item['jjganjeopGbcd'] == '직접' else False)
+                print(obj, created)
+            except:
+                print("찾을수없음", item)
+
+        if i == 1:
+            total = int(xml_dict['response']['body']['totalCount'])
+        i += 1
+
+    return Response({'status': 'success'})
+
+
 @api_view(['GET', 'POST'])
 def wiki(request, pk):
     try:
