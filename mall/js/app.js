@@ -112,7 +112,7 @@ class App {
 
     this.purchaseData.forEach((element) => {
       element.updateSelector();
-      element.down.onpointerdown = () => {
+      element.down.onpointerdown = (e) => {
         const purchasIndex = this.itemRepeatCheck.indexOf(element.index);
         if (this.purchaseData[element.index].num <= 0) {
           return;
@@ -120,6 +120,7 @@ class App {
 
         element.downClick();
         this.calcMinusMoney(elementIndex, false);
+        console.log(element);
       };
       element.up.onpointerdown = () => {
         element.upClick();
@@ -140,79 +141,79 @@ class App {
 
 window.onload = () => {
   const TESTNUM = 900;
-  const TESTSTAR = 1;
+  const TESTSTAR = 2;
 
   let product_data = [
     {
       image: "./media/product.jfif",
       name: "MacBookPro",
       star: Math.floor(Math.random() * 5) + TESTSTAR,
-      price: 198888,
+      price: 10000,
       userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
     },
     {
       image: "./media/product2.jfif",
       name: "ipad Pro",
-      star: Math.floor(Math.random() * 5),
-      price: 890000,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
+      star: Math.floor(Math.random() * 5) + TESTSTAR,
+      price: 5000,
+      userInfo: Math.floor(Math.random() * TESTNUM),
     },
     {
       image: "./media/product3.jfif",
       name: "Apple Watch",
-      star: Math.floor(Math.random() * 5),
-      price: 600000,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
+      star: Math.floor(Math.random() * 5) + TESTSTAR,
+      price: 1000,
+      userInfo: Math.floor(Math.random() * TESTNUM),
     },
-    {
-      image: "./media/product4.jfif",
-      name: "AirPods Max",
-      star: Math.floor(Math.random() * 5),
-      price: 300000,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
-    {
-      image: "./media/product5.jfif",
-      name: "ironman",
-      star: Math.floor(Math.random() * 5),
-      price: 990000,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
-    {
-      image: "./media/product5.jfif",
-      name: "ironman",
-      star: Math.floor(Math.random() * 5),
-      price: 99921,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
-    {
-      image: "./media/product5.jfif",
-      name: "ironman",
-      star: Math.floor(Math.random() * 5),
-      price: 99342872,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
-    {
-      image: "./media/product5.jfif",
-      name: "ironman",
-      star: Math.floor(Math.random() * 5),
-      price: 99,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
-    {
-      image: "./media/product5.jfif",
-      name: "ironman",
-      star: Math.floor(Math.random() * 5),
-      price: 99,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
-    {
-      image: "./media/product5.jfif",
-      name: "ironman",
-      star: Math.floor(Math.random() * 5),
-      price: 99,
-      userInfo: Math.floor(Math.random() * TESTNUM) + TESTSTAR,
-    },
+    // {
+    //   image: "./media/product4.jfif",
+    //   name: "AirPods Max",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 300000,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
+    // {
+    //   image: "./media/product5.jfif",
+    //   name: "ironman",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 990000,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
+    // {
+    //   image: "./media/product5.jfif",
+    //   name: "ironman",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 99921,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
+    // {
+    //   image: "./media/product5.jfif",
+    //   name: "ironman",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 99342872,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
+    // {
+    //   image: "./media/product5.jfif",
+    //   name: "ironman",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 99,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
+    // {
+    //   image: "./media/product5.jfif",
+    //   name: "ironman",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 99,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
+    // {
+    //   image: "./media/product5.jfif",
+    //   name: "ironman",
+    //   star: Math.floor(Math.random() * 5) + TESTSTAR,
+    //   price: 99,
+    //   userInfo: Math.floor(Math.random() * TESTNUM),
+    // },
   ];
 
   new App(product_data);
