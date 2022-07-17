@@ -1,126 +1,133 @@
-body{
-    background-color: #f2f2f4;
-    /* position: relative; */
+body {
+  background-color: #f2f2f4;
+  /* position: relative; */
 }
 
-.box{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    transition: all 0.5s;
+.box {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: all 0.5s;
 }
 
-.main{
-    width: 80%;
-    height: 90vh;
-    margin: 0 auto;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    flex-basis: auto;
-    flex-grow: 1;
+.main {
+  width: 80%;
+  height: 90vh;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-basis: auto;
+  flex-grow: 1;
 }
 
-
- .img_wrap{
- 
-    width: 100%;
-    height: 60%;
+.img_wrap {
+  width: 100%;
+  height: 60%;
 }
 
-
-.item{
-    list-style: none;
-    background-color: #ffffff;
-    width:10rem;
-    height: 14rem;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 5px;
-    transition: all 0.5s;
-    
-    
-}
- 
-.item:hover{
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+.item {
+  list-style: none;
+  background-color: #ffffff;
+  width: 10rem;
+  height: 14rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  transition: all 0.5s;
+  padding-bottom: 2rem;
 }
 
-.product_img{
-    width: 100%;
-    height: 100%;
-    object-fit: scale-down;
+.item:hover {
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-.product_info{
- 
-    width: 100%;
-    height: 40%;
-    height: auto;
-    
+.product_img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
 }
 
-.evaluation{
-    width:100%;
-    height: 10px;
- 
-    margin-top: 0.7rem;
-    margin-bottom: 0.7rem;
-    display: flex;
-    gap: 0.3rem;
-    flex-direction: row;
-    align-items: center;
-}
-.evaluation img{
-
-    width: 10%;
+.product_info {
+  width: 100%;
+  height: 40%;
+  height: auto;
 }
 
-.product_name{
-    font-size: 1.1rem;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
+.evaluation {
+  width: 100%;
+  height: 0.5rem;
+
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: row;
+  align-items: center;
 }
 
-.product_buy{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user {
+  font-size: 0.4rem;
+  width: 7rem;
+  height: 100%;
+  width: 50%;
+  color: rgb(255, 110, 110);
 }
 
-.buy{
-     
-    margin-bottom: 1rem;
-    width: 30%;
-    height: 1.5rem;
-    border-radius: 5px;
-    border: none;
-    font-size: 0.8rem;
-    transform: all 0.5s;
-}
-.buy:hover{
-    background-color: antiquewhite;
+.evaluation img {
+  width: 10%;
 }
 
-
-.price{
-    font-size: 0.8rem;
-    color: rgb(168, 168, 168);
-    margin-bottom: 1rem;
+.product_name {
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
-.basket{
-    width: 1rem;
-    height: 1rem;
-    margin-bottom: 1rem;
+.product_buy {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-.basket img{
-    width: 100%;
+
+.buy {
+  margin-bottom: 1rem;
+  width: 30%;
+  height: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.8rem;
+  transform: all 0.5s;
+}
+.buy:hover {
+  background-color: antiquewhite;
+}
+
+.price {
+  font-size: 0.8rem;
+  color: rgb(88, 88, 88);
+  margin-bottom: 1rem;
+}
+
+.basket {
+  width: 1rem;
+  height: 1rem;
+  margin-bottom: 1rem;
+}
+.basket img {
+  width: 100%;
 }
