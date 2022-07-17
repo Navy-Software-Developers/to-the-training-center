@@ -1,64 +1,34 @@
 import { Card } from "./Card.js";
 
-// let data = [
-
-//     {
-//         'src':`https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA1MTJfMTkg%2FMDAxNjUyMzMyNzEyMjUy.sajr9AW0UUDfYdLVMDYhCJIQSJ-dgDYWcagkJnNqy8kg.7wDD5pp7SJ1wPZlvqNHVHZZX6m0DJ6VZ1hvdf7dlXTMg.PNG.wlsry3085%2F%25C1%25A6%25B8%25F1%25C0%25BB-%25C0%25D4%25B7%25C2%25C7%25D8%25C1%25D6%25BC%25BC%25BF%25E4_-001_%25283%2529.png&type=sc960_832`,
-//         'contents':`Google Tistory`,
-//         'subTitle':'google hello',
-//         'position':`right`
-//     },
-//     {
-//         'src':`https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA1MTJfMTkg%2FMDAxNjUyMzMyNzEyMjUy.sajr9AW0UUDfYdLVMDYhCJIQSJ-dgDYWcagkJnNqy8kg.7wDD5pp7SJ1wPZlvqNHVHZZX6m0DJ6VZ1hvdf7dlXTMg.PNG.wlsry3085%2F%25C1%25A6%25B8%25F1%25C0%25BB-%25C0%25D4%25B7%25C2%25C7%25D8%25C1%25D6%25BC%25BC%25BF%25E4_-001_%25283%2529.png&type=sc960_832`,
-//         'contents':`Google Tistory`,
-//         'subTitle':'google hello',
-//         'position':`right`
-//     },
-//     {
-//         'src':'https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420',
-//         'contents':'출발',
-//         'subTitle':'출발 해봅시다',
-//         'position':'lefft'
-//     },
-
-//     {
-//         'src':'https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420',
-//         'contents':'출발',
-//         'subTitle':'출발 해봅시다',
-//         'position':'right'
-//     }
-
-// ];
-
 let data = [
   {
     src: "./media/bodycheck.svg",
-    contents: "신체검사를 받으러 가봅시다",
+    contents: "신체검사를 받으러 가봅시다 !!",
     subTitle: "STEP 1",
     position: "left",
   },
   {
     src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
-    contents: "출발",
-    subTitle: "출발 해봅시다",
+    contents: "하고싶은 직별을 신청해봅시다 !!",
+    subTitle: "STEP 3",
     position: "left",
   },
   {
     src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
-    contents: "출발",
-    subTitle: "출발 해봅시다",
+    contents: "입대 가즈아 !!",
+    subTitle: "STEP 5",
     position: "left",
   },
   {
     src: "https://assets.centralparknyc.org/media/images/_1200x630_crop_center-center_82_none/Sheep-Meadow-Aerial-Central-Park-credit-the-Central-Park-Conservancy.jpg?mtime=1597065139",
-    contents: "출발",
-    subTitle: "출발 해봅시다",
+    contents: "미리 하고싶은 업무 찾아보기 !!",
+    subTitle: "STEP 2",
     position: "right",
   },
   {
     src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
-    contents: "출발",
-    subTitle: "출발 해봅시다",
+    contents: "입대할 때 어떤걸 들고가야 할까 ??",
+    subTitle: "STEP 4",
     position: "right",
   },
 ];
