@@ -1,0 +1,23 @@
+<svg width="362" height="427" viewBox="0 0 362 427" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="177" cy="72.5" rx="29" ry="30.5" fill="#D9D9D9"/>
+<rect x="165" y="80" width="24" height="46" fill="#D9D9D9"/>
+<path d="M134 126H220V238H134V126Z" fill="#D9D9D9"/>
+<path d="M204 126L288.5 126C297.06 126 304 132.94 304 141.5V141.5C304 150.06 297.06 157 288.5 157L204 157V126Z" fill="#D9D9D9"/>
+<path d="M149 157H64.5C55.9396 157 49 150.06 49 141.5V141.5C49 132.94 55.9396 126 64.5 126L149 126V157Z" fill="#D9D9D9"/>
+<path d="M189 238H220L220 376.5C220 385.06 213.06 392 204.5 392V392C195.94 392 189 385.06 189 376.5L189 238Z" fill="#D9D9D9"/>
+<path d="M134 238H165L165 376.5C165 385.06 158.06 392 149.5 392V392C140.94 392 134 385.06 134 376.5L134 238Z" fill="#D9D9D9"/>
+<rect x="2.5" y="2.5" width="95" height="16" rx="8" fill="black" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="98.5" width="95" height="16" rx="8" transform="rotate(-90 2.5 98.5)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="264.5" y="3.5" width="95" height="16" rx="8" fill="black" stroke="black" stroke-width="5"/>
+<rect x="343.5" y="98.5" width="95" height="16" rx="8" transform="rotate(-90 343.5 98.5)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="264.5" y="408.5" width="95" height="16" rx="8" fill="black" stroke="black" stroke-width="5"/>
+<rect x="343.5" y="424.5" width="95" height="16" rx="8" transform="rotate(-90 343.5 424.5)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="408.5" width="95" height="16" rx="8" fill="black" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="424.5" width="95" height="16" rx="8" transform="rotate(-90 2.5 424.5)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="225" y="120" width="35" height="11" fill="#D9D9D9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M259.182 123.041C257.394 131.38 248.928 136.857 240.064 134.956C231.201 133.055 225.725 124.588 227.514 116.249C229.302 107.91 237.768 102.432 246.632 104.333C255.495 106.234 260.971 114.701 259.182 123.041ZM256.318 136.125C251.584 139.657 245.335 141.2 239.016 139.845C227.571 137.391 220.232 126.357 222.625 115.2C225.017 104.044 236.235 96.9898 247.68 99.4443C259.125 101.899 266.464 112.933 264.071 124.089C263.616 126.213 262.84 128.188 261.804 129.978C263.772 129.557 265.904 129.971 267.601 131.287L294.49 152.153C297.5 154.489 297.997 158.783 295.601 161.745C293.204 164.707 288.822 165.215 285.812 162.879L258.923 142.013C257.037 140.55 256.137 138.317 256.318 136.125Z" fill="black"/>
+<rect x="36.5" y="196.5" width="286" height="13" rx="6.5" fill="black"/>
+<rect x="36.5" y="196.5" width="286" height="13" rx="6.5" stroke="black"/>
+<rect x="36.5" y="196.5" width="286" height="13" rx="6.5" stroke="black" stroke-opacity="0.2"/>
+<rect x="36.5" y="196.5" width="286" height="13" rx="6.5" stroke="black" stroke-opacity="0.2"/>
+</svg>

@@ -32,7 +32,7 @@ import { Card } from "./Card.js";
 
 let data = [
   {
-    src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
+    src: "./media/bodycheck.svg",
     contents: "출발",
     subTitle: "출발 해봅시다",
     position: "left",
@@ -47,7 +47,7 @@ let data = [
     src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
     contents: "출발",
     subTitle: "출발 해봅시다",
-    position: "right",
+    position: "left",
   },
   {
     src: "https://assets.centralparknyc.org/media/images/_1200x630_crop_center-center_82_none/Sheep-Meadow-Aerial-Central-Park-credit-the-Central-Park-Conservancy.jpg?mtime=1597065139",
@@ -136,9 +136,9 @@ class App {
 
     this.canvas.width = this.stageWidth * this.pixelRatio;
     this.canvas.height = this.stageHeight * this.pixelRatio;
-   // this.ctx.scale(this.pixelRatio, this.pixelRatio);
+    // this.ctx.scale(this.pixelRatio, this.pixelRatio);
 
-    console.log(this.stageWidth,this.stageHeight);
+    console.log(this.stageWidth, this.stageHeight);
 
     for (let i = 0; i < this.card.length; i++) {
       this.card[i].drawPointLine(this.ctx, this.cardElement[i], this.load);
