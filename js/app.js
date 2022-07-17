@@ -8,25 +8,25 @@ let data = [
     position: "left",
   },
   {
-    src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
+    src: "./media/post.svg",
     contents: "하고싶은 직별을 신청해봅시다 !!",
     subTitle: "STEP 3",
     position: "left",
   },
   {
-    src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
+    src: "./media/go.svg",
     contents: "입대 가즈아 !!",
     subTitle: "STEP 5",
     position: "left",
   },
   {
-    src: "https://assets.centralparknyc.org/media/images/_1200x630_crop_center-center_82_none/Sheep-Meadow-Aerial-Central-Park-credit-the-Central-Park-Conservancy.jpg?mtime=1597065139",
+    src: "./media/job.svg",
     contents: "미리 하고싶은 업무 찾아보기 !!",
     subTitle: "STEP 2",
     position: "right",
   },
   {
-    src: "https://lh3.googleusercontent.com/p76gesBbjuqG9aEuAGVyLqRaruEDkYWSknlPgpXGzyO_jdaFloqZ2g53irnxJMD0eNOqbDFTTghaHtN11G_9zFtReyeYFHiVfv-8EofF=w420",
+    src: "./media/checkList.svg",
     contents: "입대할 때 어떤걸 들고가야 할까 ??",
     subTitle: "STEP 4",
     position: "right",
@@ -94,7 +94,7 @@ class App {
 
     //모두 생성된 후 모든 카드객체를 cardElement 변수에 담음
     this.cardElement = document.querySelectorAll(".card");
-    //console.log(this.cardElement);
+    // console.log(this.cardElement);
   }
 
   resize() {
@@ -108,7 +108,7 @@ class App {
     this.canvas.height = this.stageHeight * this.pixelRatio;
     // this.ctx.scale(this.pixelRatio, this.pixelRatio);
 
-    console.log(this.stageWidth, this.stageHeight);
+    // console.log(this.stageWidth, this.stageHeight);
 
     for (let i = 0; i < this.card.length; i++) {
       this.card[i].drawPointLine(this.ctx, this.cardElement[i], this.load);
