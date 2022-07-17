@@ -1,4 +1,3 @@
-import imp
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -52,3 +51,36 @@ class Like(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user} {self.mos} {self.notification}"
+
+
+class Point(models.Model):
+    category = models.CharField(max_length=150) # gubun 구분 예 자격 전공 등
+    name = models.CharField(max_length=150) # 항목명 정보처리기사 등
+    level = models.CharField(max_length=150, null=True) # jgmyeonheoDg 자격면허등급
+
+    def __str__(self) -> str:
+        return f"{self.category} {self.name} {self.level}"
+
+class MosPoint(models.Model):
+    mos = models.ForeignKey(Mos, on_delete=models.CASCADE) # 병과
+    point = models.ForeignKey(Point, on_delete=models.CASCADE) # 점수항목
+    direct = models.BooleanField() # 직간접
+
+    def __str__(self) -> str:
+        return f"{self.mos} {self.point} {self.direct}"
+
+
+class UserPoint(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    point = models.ForeignKey(Point, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"{self.user} {self.point}"
+
+
+class MMAPoint(models.Model):
+    uid = models.CharField(max_length=300)
+    point = models.ForeignKey(Point, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"{self.uid} {self.point}"
