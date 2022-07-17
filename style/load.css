@@ -9,6 +9,7 @@
   transition: all 0.5s;
   z-index: -5;
   animation: slidedown 1.5s both;
+  margin-bottom: 5rem;
 }
 
 @keyframes slidedown {

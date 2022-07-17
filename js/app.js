@@ -33,8 +33,8 @@ import { Card } from "./Card.js";
 let data = [
   {
     src: "./media/bodycheck.svg",
-    contents: "출발",
-    subTitle: "출발 해봅시다",
+    contents: "신체검사를 받으러 가봅시다",
+    subTitle: "STEP 1",
     position: "left",
   },
   {
