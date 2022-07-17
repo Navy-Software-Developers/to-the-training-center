@@ -1,20 +1,20 @@
 export class Card {
-  constructor(parent, subTitle, contents, imgSrc, position) {
+  constructor(parent, data, index) {
     //어떤 부모밑에 만들어 낼지
     this.parent = parent;
-
-    this.cardData = {
-      subTitle: subTitle,
-      contents: contents,
-      imgSrc: imgSrc,
-      position: position,
-    };
+    this.subTitle = data.subTitle;
+    this.contents = data.contents;
+    this.imgSrc = data.src;
+    this.position = data.position;
+    this.link = data.link;
 
     this.startPointX = 0;
     this.startPointY = 0;
 
     this.endPointX = 0;
     this.endPointY = 0;
+    this.index = index;
+    this.card = null;
   }
 
   create() {
@@ -24,7 +24,7 @@ export class Card {
 
 
         <div class="img-wrap">
-            <img src="${this.cardData.imgSrc}"
+            <img src="${this.imgSrc}"
                 alt="">
         </div>
 
@@ -32,10 +32,10 @@ export class Card {
 
         <div class="card-title">
             <h3 class="sub-title">
-                ${this.cardData.subTitle}
+                ${this.subTitle}
             </h3>
             <p class="contents">
-                ${this.cardData.contents}
+                ${this.contents}
             </p>
         </div>
 
@@ -49,7 +49,7 @@ export class Card {
   }
 
   pointLine(ctx, el, load) {
-    console.log(el, load);
+    // console.log(el, load);
     //start지점은 카드 중간
     this.startPointX = el.offsetWidth / 2 + el.offsetLeft;
     this.startPointY = el.offsetHeight / 2 + el.offsetTop;
@@ -91,5 +91,13 @@ export class Card {
     this.endPointY = this.startPointY;
 
     this.drawLine(ctx);
+  }
+
+  updateSelector(index) {
+    this.card = document.querySelectorAll(".card")[index];
+  }
+
+  goLink() {
+    location.href = this.link;
   }
 }

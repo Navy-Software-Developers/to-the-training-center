@@ -6,30 +6,35 @@ let data = [
     contents: "신체검사를 받으러 가봅시다 !!",
     subTitle: "STEP 1",
     position: "left",
+    link: "#",
   },
   {
     src: "./media/post.svg",
     contents: "하고싶은 직별을 신청해봅시다 !!",
     subTitle: "STEP 3",
     position: "left",
+    link: "./job.html",
   },
   {
     src: "./media/go.svg",
     contents: "입대 가즈아 !!",
     subTitle: "STEP 5",
     position: "left",
+    link: "./favor.html",
   },
   {
     src: "./media/job.svg",
     contents: "미리 하고싶은 업무 찾아보기 !!",
     subTitle: "STEP 2",
     position: "right",
+    link: "#",
   },
   {
     src: "./media/checkList.svg",
     contents: "입대할 때 어떤걸 들고가야 할까 ??",
     subTitle: "STEP 4",
     position: "right",
+    link: "./mall/index.html",
   },
 ];
 
@@ -50,25 +55,9 @@ class App {
 
     for (let i = 0; i < data.length; i++) {
       if (data[i].position == "left") {
-        this.card.push(
-          new Card(
-            this.itemBar[0],
-            data[i].subTitle,
-            data[i].contents,
-            data[i].src,
-            data[i].position
-          )
-        );
+        this.card.push(new Card(this.itemBar[0], data[i], i));
       } else if (data[i].position == "right") {
-        this.card.push(
-          new Card(
-            this.itemBar[1],
-            data[i].subTitle,
-            data[i].contents,
-            data[i].src,
-            data[i].position
-          )
-        );
+        this.card.push(new Card(this.itemBar[1], data[i], i));
       }
     }
 
@@ -94,6 +83,17 @@ class App {
 
     //모두 생성된 후 모든 카드객체를 cardElement 변수에 담음
     this.cardElement = document.querySelectorAll(".card");
+
+    this.card.forEach((e, cardIndex) => {
+      e.updateSelector(cardIndex);
+    });
+
+    this.card.forEach((e) => {
+      e.card.addEventListener("click", () => {
+        e.goLink();
+      });
+    });
+
     // console.log(this.cardElement);
   }
 
