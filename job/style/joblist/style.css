@@ -1,0 +1,108 @@
+/* 군대 목록 */
+.mili_box {
+  width: 75%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.mili_selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.mili_btn {
+  list-style: none;
+  background-color: #fff;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 3rem;
+  font-size: 2rem;
+  color: rgb(140, 140, 140);
+  transition: all 0.5s;
+}
+
+.mili_img_box {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.mili_btn:hover {
+  background-color: rgb(216, 216, 216);
+}
+
+/* 보직 목록 */
+.list_wrap {
+  width: 75%;
+  padding: 10px;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mili_img_box {
+  height: auto;
+}
+
+.mili_img_box img {
+  border-radius: 3rem;
+  width: 20%;
+  margin-bottom: 2rem;
+}
+
+.list_box {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 1rem;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.idx {
+  background-color: rgba(163, 253, 181, 0.3);
+  border-radius: 10px;
+  width: 18%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  padding-right: 6px;
+  color: gray;
+}
+
+.positionName {
+  padding: 10px;
+  font-size: 1rem;
+
+  font-weight: bold;
+  width: 60%;
+  text-align: center;
+}
+
+.arrow_box {
+  width: 10%;
+  transition: all 0.5s;
+}
+.href_btn {
+  width: 50%;
+  transition: all 0.5s;
+}
+.href_btn:hover {
+  margin-left: 1rem;
+}

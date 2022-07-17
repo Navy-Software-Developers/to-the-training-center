@@ -13,14 +13,14 @@ let data = [
     contents: "하고싶은 직별을 신청해봅시다 !!",
     subTitle: "STEP 3",
     position: "left",
-    link: "./job.html",
+    link: "./job/job.html",
   },
   {
     src: "./media/go.svg",
     contents: "입대 가즈아 !!",
     subTitle: "STEP 5",
     position: "left",
-    link: "./favor.html",
+    link: "./job/favor.html",
   },
   {
     src: "./media/job.svg",
