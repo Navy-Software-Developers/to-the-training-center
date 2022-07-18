@@ -1,0 +1,25 @@
+.size{
+    margin-top: 1.2rem;
+    height: auto;
+
+}
+
+.checkbox{
+    width: 9%;
+}
+/* https://velog.io/@chumil7432/CSS-checkbox%EC%99%80-select-%EA%BE%B8%EB%AF%B8%EA%B8%B0 */
+.checkbox input:hover{
+    
+}
+
+.checkbox input:checked{
+    transform: scale(2);
+    border:3px solid red;
+    
+    transition: all 0.5s;
+}
+
+
+.divide{
+    margin-top: 4rem;
+}
