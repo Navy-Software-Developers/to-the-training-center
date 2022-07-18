@@ -22,6 +22,12 @@ def list(request):
 
 
 @api_view(['GET'])
+def search(request, query):
+    serializer = MosSerializer(Mos.objects.filter(name__contains=query), many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
 def detail(request, pk):
     BRANCH = ['', '육군', '해군', '공군', '해병대']
     try:
@@ -36,6 +42,34 @@ def detail(request, pk):
     result['wiki_modified_date'] = ob.currentWiki.modified if ob.currentWiki else ""
     recs = Recurit.objects.filter(mos=ob)
     result['recurits'] = [model_to_dict(rec) for rec in recs]
+    mps = MosPoint.objects.filter(mos=ob)
+    #result['points'] = [dict({'direct': mp.direct}, **model_to_dict(mp.point)) for mp in mps]
+
+    result['point_direct_major_mma'] = 0
+    result['point_direct_major_user'] = 0
+    result['point_indirect_major_mma'] = 0
+    result['point_indirect_major_user'] = 0
+    result['points'] = []
+
+    for mp in mps:
+        point = model_to_dict(mp.point)
+        point['direct'] = mp.direct
+        point['point_mma'] = MMAPoint.objects.filter(point = mp.point).count()
+        point['point_user'] = UserPoint.objects.filter(point = mp.point).count()
+        if mp.point.category == '전공':
+            if mp.direct:
+                result['point_direct_major_mma'] += point['point_mma']
+                result['point_direct_major_user'] += point['point_user']
+            else:
+                result['point_indirect_major_mma'] += point['point_mma']
+                result['point_indirect_major_user'] += point['point_user']
+
+
+
+        result['points'].append(point)
+    
+    
+
 
     return Response(result)
 
@@ -55,7 +89,7 @@ def update_mos(request):
 
         for item in items:
             obj, created = Mos.objects.get_or_create(
-                branch = item['gunGbcd'],
+                branch = int(item['gunGbcd']),
                 code = item['gsteukgiCd'],
                 defaults={'name': item['gsteukgiNm']})
             print(obj, created)
@@ -134,11 +168,14 @@ def update_point(request):
                     code = item['gsteukgiCd'],
                     defaults={'name': item['gsteukgiNm']})
                 print(mos, created)
-                
+
+                defaults={'category': item['gubun']}
+                if item['jgmyeonheoDg'] is not None:
+                    defaults['level'] = item['jgmyeonheoDg']
+
                 point, created = Point.objects.get_or_create(
-                    category = item['gubun'],
                     name = item['gtcdNm2'],
-                    level = item['jgmyeonheoDg'])
+                    defaults = defaults)
                 print(point, created)
 
                 obj, created = MosPoint.objects.get_or_create(
@@ -148,6 +185,50 @@ def update_point(request):
                 print(obj, created)
             except:
                 print("찾을수없음", item)
+
+        if i == 1:
+            total = int(xml_dict['response']['body']['totalCount'])
+        i += 1
+
+    return Response({'status': 'success'})
+
+
+@api_view(['GET'])
+def update_mmapoint(request):
+    # BRANCH = ['', '육군', '해군', '공군', '해병대']
+    BRANCH = {'육군': 1, '해군': 2, '공군': 3, '해병':4}
+    # MMA_OPENAPI_0018+병역대상자+지역별+자격현황+정보_v2.0_영문
+
+    url = 'http://apis.data.go.kr/1300000/UmjJagyeok/list'
+    numOfRows = 10000
+    total = numOfRows
+    i = 1
+
+    while i <= total//numOfRows:
+        params ={'serviceKey' : serviceKey, 'numOfRows' : str(numOfRows), 'pageNo' : str(i) }
+        response = requests.get(url, params=params)
+        xml_parse = xmltodict.parse(response.content.decode('utf-8'))
+        xml_dict = json.loads(json.dumps(xml_parse))
+        items = xml_dict['response']['body']['items']['item']
+
+        for item in items:
+            print(Point.objects.filter(name=item['jagyeokNm1']))
+            # try:
+            this_uid = f"{item['rnum']} {item['birth']} {item['sggjusoCd']} {item['sggjusoNm']}"
+            j = 1
+            while True:
+                try:
+                    obj, created = MMAPoint.objects.get_or_create(
+                        uid = this_uid,
+                        point = Point.objects.get(name=item['jagyeokNm'+str(j)])
+                        )
+                    print(obj, created)
+
+                    j += 1
+                except:
+                    break
+            # except:
+            #     print("찾을수없음", item)
 
         if i == 1:
             total = int(xml_dict['response']['body']['totalCount'])
@@ -219,3 +300,9 @@ def likes(request):
         return Response(LikeSerializer(like, many=True).data)
     except:
         return Response({'status': 'failed'})
+
+
+@api_view(['GET'])
+def points(request):
+    serializer = PointSerializer(Point.objects.all(), many=True)
+    return Response(serializer.data)

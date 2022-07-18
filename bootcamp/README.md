@@ -84,6 +84,22 @@ REST API는 아래 기술되어있습니다.
                 "enlistStart": 202208,
                 "enlistEnd": 202208
             }
+        ],
+        "points": [
+            {
+                "direct": true,
+                "id": 6257,
+                "category": "전공",
+                "name": "소프트웨어",
+                "level": null
+            },
+            {
+                "direct": true,
+                "id": 8286,
+                "category": "자격",
+                "name": "정보처리기능사",
+                "level": "기능사급"
+            }
         ]
     }
 
@@ -177,3 +193,31 @@ REST API는 아래 기술되어있습니다.
 
     {'status': 'success'}
 
+## 배점 항목 목록 가져오기
+
+### Request
+
+`GET /api/mos/points`
+
+### Response
+
+    [
+        {
+            "pk": 196,
+            "code": "56",
+            "name": "SW개발병",
+            "branch": 2
+        },
+        {
+            "pk": 1,
+            "code": "412.101",
+            "name": "전문간호",
+            "branch": 1
+        },
+        {
+            "pk": 2,
+            "code": "461.101",
+            "name": "법무행정",
+            "branch": 1
+        }
+    ]

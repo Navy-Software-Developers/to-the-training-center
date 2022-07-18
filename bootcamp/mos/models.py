@@ -55,7 +55,7 @@ class Like(models.Model):
 
 class Point(models.Model):
     category = models.CharField(max_length=150) # gubun 구분 예 자격 전공 등
-    name = models.CharField(max_length=150) # 항목명 정보처리기사 등
+    name = models.CharField(max_length=150, unique=True) # 항목명 정보처리기사 등
     level = models.CharField(max_length=150, null=True) # jgmyeonheoDg 자격면허등급
 
     def __str__(self) -> str:
