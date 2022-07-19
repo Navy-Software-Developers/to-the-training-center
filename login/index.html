@@ -5,29 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <title>Login</title>
+    <title>훈련소가는길 로그인</title>
 </head>
 <body>
-    
+
     <div class="login_box">
-        <div class="content">
-            <!-- <h1 class="login_title">LOGIN</h1>
-             
+        <div id="login" class="content">
+            <h1 class="login_title">로그인</h1>
+
             <div class="id_box">
                 <img class="loginimg" src="./media/id.png" alt="">
-                <input class="input" type="text" placeholder="Id" >
+                <input id="id" class="input" type="text" placeholder="아이디" name="">
             </div>
             <div class="pw_box">
                 <img class="loginimg" src="./media/password.png" alt="">
-            <input class="input" type="text" placeholder="Password" >
+                <input id="password" class="input password" type="text" placeholder="패스워드" name="">
             </div>
-            <button class="submit">
-                login
+            <button class="submit" onclick="login()">
+                로그인
             </button>
 
             <div class="register">
                 가입하기
-            </div> -->
+            </div>
+        </div>
+
+        <div id="register" class="content">
+            <h1 class="login_title">회원가입</h1>
+
+            <div class="id_box">
+                <img class="loginimg" src="./media/id.png" alt="">
+                <input id="r_id" class="input" type="text" placeholder="아이디" name="username">
+            </div>
+
+            <div class="pw_box">
+                <img class="loginimg" src="./media/password.png" alt="">
+                <input id="r_password1" class="input pw1" type="password" placeholder="패스워드" name="password1">
+            </div>
+
+            <div class="pw_chekbox">
+                <img class="loginimg" src="./media/id.png" alt="">
+                <input id="r_password2" class="input pw2" type="password" placeholder="패스워드 확인" name="password2">
+
+            </div>
+            <button class="submit" onclick="register()">
+                가입하기
+            </button>
+
         </div>
     </div>
 
