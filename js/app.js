@@ -3,7 +3,7 @@ import { Card } from "./Card.js";
 let data = [
   {
     src: "./media/bodycheck.svg",
-    contents: "신체검사를 받으러 가봅시다 !!",
+    contents: "신검은 어디서 받나 ??",
     subTitle: "STEP 1",
     position: "left",
     link: "#",
@@ -27,14 +27,14 @@ let data = [
     contents: "미리 하고싶은 업무 찾아보기 !!",
     subTitle: "STEP 2",
     position: "right",
-    link: "#",
+    link: "./job/jobList.html",
   },
   {
     src: "./media/checkList.svg",
     contents: "입대할 때 어떤걸 들고가야 할까 ??",
     subTitle: "STEP 4",
     position: "right",
-    link: "./mall/index.html",
+    link: "./checkList/index.html",
   },
 ];
 

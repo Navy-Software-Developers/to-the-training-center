@@ -1,0 +1,39 @@
+.size{
+    margin-top: 1.2rem;
+    height: auto;
+
+}
+ .checkbox{
+    width: 10%;
+ }
+/* https://velog.io/@chumil7432/CSS-checkbox%EC%99%80-select-%EA%BE%B8%EB%AF%B8%EA%B8%B0 */
+
+
+input[id='cb1'] + label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+background-color: #fff;
+   
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+input[id='cb1']:checked + label{
+    background-color: rgba(109, 148, 255,0.6);
+    content: '✔';
+    font-size: 1.5rem;
+}
+ 
+input[id='cb1']{
+    display: none;
+}
+
+
+
+
+.divide{
+    margin-top: 4rem;
+}
+

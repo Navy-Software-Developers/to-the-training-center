@@ -1,20 +1,24 @@
-export let Request = {
-  async post(url) {
-    fetch(url).then((response) => {
-      return response;
-    });
-  },
+export let request = {
+    post(url,reqData){
+      return fetch(
+        url,
+        {
+          Method: "POST",
+          Headers: {
+            Accept: "application.json",
+            "Content-Type": "application/json",
+          },
+          Body: JSON.stringify(reqData),
+        }
+      )
+    },
+  
 
-  async get(url, reqData) {
-    fetch(url, {
-      Method: "GET",
-      Headers: {
-        Accept: "application.json",
-        "Content-Type": "application/json",
-      },
-      Body: JSON.stringify(reqData),
-    }).then((response) => {
-      return response.json();
-    });
-  },
+  get(url){
+    return fetch(url)
+  }
+
 };
+
+
+
