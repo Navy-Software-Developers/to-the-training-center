@@ -9,18 +9,80 @@
   <link rel="stylesheet" href="../style/style.css" />
   <link rel="stylesheet" href="./style/joblist/style.css" />
   <link rel="stylesheet" href="./style/job/job.css" />
+  <script>
+    let url_prefix = 'http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000';
+    let BRANCH = [, "육군", "해군", "공군", "해병대"];
+    let data;
+    let currentButton = null;
+    let url = url_prefix + '/api/mos/';
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        data = json;
+        load();
+      })
 
-  <title>favor</title>
+    function click_branch_btn(branch) {
+      if (currentButton == branch){
+        load();
+      }else{
+        load(branch);
+      }
+      //Todo 버튼효과 변경
+
+    }
+
+
+    function load(branch = null) {
+      currentButton = branch;
+      let mos_list = document.querySelector("#mos_list");
+      mos_list.innerHTML = '';
+      console.log(data);
+      for (const element of data) {
+        if (element.branch == branch || !branch) {
+          let li = document.createElement('li');
+          li.setAttribute('class', 'list_box');
+          li.setAttribute('onclick', 'location.href="/job/job#' + element.pk+'"');
+
+          let span = document.createElement('span');
+          span.setAttribute('class', 'idx');
+          span.innerHTML = BRANCH[element.branch];
+
+          let div = document.createElement('div');
+          div.setAttribute('class', 'wrapper');
+
+
+          let p = document.createElement('p');
+          p.setAttribute('class', 'positionName');
+          p.innerHTML = element.name;
+
+
+
+          li.appendChild(span);
+          div.appendChild(p);
+          div.innerHTML += '<span class="arrow_box"><img src="./media/arrow.svg" alt="" class="href_btn"></span>';
+
+          li.appendChild(div);
+          mos_list.appendChild(li);
+
+        }
+
+      }
+    }
+  </script>
+  <title>군사특기 목록</title>
 </head>
 
 <body>
 
   <div class="mili_box">
     <div class="mili_selector">
-      <li class="army mili_btn">육군</li>
-      <li class="navy mili_btn">해군</li>
-      <li class="airforce mili_btn">공군</li>
-      <li class="navy2 mili_btn">해병대</li>
+      <li class="army mili_btn" onclick="click_branch_btn(1)">육군</li>
+      <li class="navy mili_btn" onclick="click_branch_btn(2)">해군</li>
+      <li class="airforce mili_btn" onclick="click_branch_btn(3)">공군</li>
+      <li class="navy2 mili_btn" onclick="click_branch_btn(4)">해병대</li>
     </div>
   </div>
 
@@ -30,28 +92,26 @@
     </div>
 
 
-    <div class="list">
+    <div id="mos_list" class="list">
+      <!---->
       <li class="list_box">
         <span class="idx">
           345 해군
         </span>
-
-
-<<<<<<< HEAD
-=======
-       <div class="wrapper">
-        <p class="positionName">
-          SW 개발병 (S162.103)
-        </p>
-  
-        <span class="arrow_box">
-          <img src="./media/arrow.svg" alt="" class="href_btn">
-        </span>      
- 
-      </div>
-
-
+      
+      
+        <div class="wrapper">
+          <p class="positionName">
+            SW 개발병 (S162.103)
+          </p>
+      
+          <span class="arrow_box">
+            <img src="./media/arrow.svg" alt="" class="href_btn">
+          </span>
+      
+        </div>
       </li>
+      <!---->
       <li class="list_box">
         <span class="idx">
           345 해군
@@ -96,7 +156,6 @@
      
 
 
->>>>>>> f7d446e0ffc7fd17cd01563a72326d9156c301fe
   </div>
 
 
