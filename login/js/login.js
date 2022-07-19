@@ -1,56 +1,83 @@
+let url_prefix = 'http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000';
+let login_url = url_prefix + '/api/accounts/login/';
+let register_url = url_prefix + '/api/accounts/registration/';
+
 const loginContent = document.querySelector(".content");
 
+
+function login_activate() {
+  document.querySelector("#login").style.display = '';
+  document.querySelector("#register").style.display = 'none';
+}
+
+function register_activate() {
+  document.querySelector("#login").style.display = 'none';
+  document.querySelector("#register").style.display = '';
+}
+
+
+function login() {
+  let id = document.querySelector("#id").value;
+  let password = document.querySelector("#password").value;
+  postData(login_url, { username: id, password: password }).then((data) => {
+    console.log(data); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
+    if(data.user){
+      location.href = '/';
+    }else{
+      alert("로그인에 실패하였습니다. 아이디, 패스워드를 다시 확인해주세요.");
+    }
+  });
+}
+
 function register() {
-  loginContent.innerHTML = `
-        <h1 class="login_title">Register</h1>
-             
-        <div class="id_box">
-            <img class="loginimg" src="./media/id.png" alt="">
-            <input class="input" type="text" placeholder="Id" name="username">
-        </div>
-
-        <div class="pw_box">
-            <img class="loginimg" src="./media/password.png" alt="">
-        <input class="input pw1" type="password" placeholder="Password" name="password1">
-        </div>
-
-        <div class="pw_chekbox">
-            <img class="loginimg" src="./media/id.png" alt="">
-        <input class="input pw2" type="password" placeholder="Password" name="password2">
-  
-        </div>
-        <button class="submit">
-            가입하기
-        </button>
-
-        `;
-
-  return;
+  let id = document.querySelector("#r_id").value;
+  let password1 = document.querySelector("#r_password1").value;
+  let password2 = document.querySelector("#r_password2").value;
+  postData(register_url, { username: id, password1: password1, password2: password2}).then((data) => {
+    console.log(data); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
+    if(data.user){
+      alert(id + " 회원가입성공");
+      location.href = '/';
+    }else{
+      if(data.username){
+        alert(data.username);
+      }
+      if(data.password1){
+        alert(data.password1);
+      }
+      if(data.password2){
+        alert(data.password2);
+      }
+      if(data.non_field_errors){
+        alert(data.non_field_errors);
+      }
+    }
+  });
 }
 
-function signin() {
-  loginContent.innerHTML = `
-    <h1 class="login_title">LOGIN</h1>
-         
-    <div class="id_box">
-        <img class="loginimg" src="./media/id.png" alt="">
-        <input class="input" type="text" placeholder="Id" name="" >
-    </div>
-    <div class="pw_box">
-        <img class="loginimg" src="./media/password.png" alt="">
-    <input class="input password" type="text" placeholder="Password" name="">
-    </div>
-    <button class="submit">
-        login
-    </button>
-
-    <div class="register">
-        가입하기
-    </div> 
-    `;
+// POST 메서드 구현 예제
+async function postData(url = '', data = {}) {
+  // 옵션 기본 값은 *로 강조
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE 등
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
+  });
+  return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
 }
 
-signin();
+
+
+
+login_activate();
 window.onload = () => {
   // https://www.flaticon.com/kr/free-icons/login      icon license
   const submit_btn = document.querySelector(".submit");
@@ -78,7 +105,7 @@ window.onload = () => {
 
   let regisetClick = ()=>{
     if (click == false) {
-        register();
+        register_activate();
         login_image = document.querySelectorAll('.loginimg');
         joinpw1 = document.querySelector('.pw1');
         joinpw2 = document.querySelector('.pw2');
