@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // https://jsonplaceholder.typicode.com/posts/1
 
 // function fetchTest(data) {
@@ -31,38 +31,34 @@
 // import {Mili} from './Mili.js';
 
 const Mili = [
-    {
-        'name':'육군',
-        'img':'./media/army.jfif'
-    },
-    {
-        'name':'해군',
-        'img':'./media/navy.jfif'
-    },
-    {
-        'name':'공군',
-        'img':'./meida/airforce.jpg',
-    },
-    {
-        'name':'해병대',
-        'img':'./media/navy2.png'
-    }
+  {
+    name: "육군",
+    img: "./media/army.jfif",
+  },
+  {
+    name: "해군",
+    img: "./media/navy.jfif",
+  },
+  {
+    name: "공군",
+    img: "./meida/airforce.jpg",
+  },
+  {
+    name: "해병대",
+    img: "./media/navy2.png",
+  },
 ];
 
-class App{
-    constructor(){
-        window.addEventListener('click',()=>{
-            let xhr = new XMLHttpRequest();
-            xhr.open()
-        })
-    }
+class App {
+  constructor() {
+    window.addEventListener("click", () => {
+      let xhr = new XMLHttpRequest();
+      xhr.open();
+    });
+  }
 }
 
-
-
-
-
-window.onload = ()=>{
-    new App();
-}
->>>>>>> f7d446e0ffc7fd17cd01563a72326d9156c301fe
+window.onload = () => {
+  new App();
+};
+// >>>>>>> f7d446e0ffc7fd17cd01563a72326d9156c301fe

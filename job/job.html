@@ -1,93 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/job/job.css" />
-    <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="./style/job/toggle.css" />
-    <link rel="stylesheet" href="../style/nav/nav.css" />
-    <title>JOB</title>
-    <script>
-      let pk = location.hash.replace('#', '');
-      let url_prefix = 'http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000';
-      let BRANCH = [, "육군", "해군", "공군", "해병대"];
-      let data;
-      
-      let url = url_prefix + '/api/mos/' + pk;
-      fetch(url)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (json) {
-          data = json;
-          load();
-        })
-      
-      let like_data;
-      let like_url = url_prefix + '/api/mos/likes';
-      fetch(like_url)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (json) {
-          like_data = json;
-          like_load();
-        })
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style/job/job.css" />
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="stylesheet" href="./style/job/toggle.css" />
+  <link rel="stylesheet" href="../style/nav/nav.css" />
+  <title>JOB</title>
 
-      function load() {
-        document.querySelector("#title").innerHTML = data.name;
-        document.querySelector("#wiki_content").innerHTML = data.wiki ? data.wiki : "작성된 내용이 없습니다. 군사특기 위키를 작성해보세요.";
-        //그래프 등
-      }
-      function like_load() {
-        console.log(like_data);
-        //관심목록 유무 토글 변경
-      }
+</head>
 
-      function toggle_like() {
-        
-      }
-    </script>
-  </head>
+<body>
+  <nav id="navbar">
+    <div class="navbox">
+      <a class="logo" href="job.html">훈련소 가는 길</a>
+      <a href="favor.html">About</a>
+      <a href="/login" class="login_btn">Login</a>
+    </div>
+  </nav>
 
-  <body>
-    <nav id="navbar">
-      <div class="navbox">
-        <a class="logo" href="job.html">훈련소 가는 길</a>
-        <a href="favor.html">About</a>
-        <a href="/login" class="login_btn">Login</a>
-      </div>
-    </nav>
-
-    <div class="job_contents">
-      <div class="info">
-        <div class="title_bar">
-          <p id="title" class="position chart_title">SW개발병</p>
-          <div class="toggle">
-            <p>관심추가</p>
-            <div class="toggle_box">
-              <div class="toggle_btn"></div>
-            </div>
+  <div class="job_contents">
+    <div class="info">
+      <div class="title_bar">
+        <p id="title" class="position chart_title">SW개발병</p>
+        <div class="toggle">
+          <p>관심추가</p>
+          <div class="toggle_box">
+            <div class="toggle_btn"></div>
           </div>
         </div>
-
-        <p id="wiki_content" class="position_content">
-          sw개발병은 소프트웨어 개발과와 소프트웨어 관리과로 나뉜다
-        </p>
       </div>
 
-      <div id="chart">
-        <div class="title_bar">
-          <p class="chart_title">경쟁률</p>
-        </div>
-        <canvas id="myChart"></canvas>
+      <p id="wiki_content" class="position_content">
+        sw개발병은 소프트웨어 개발과와 소프트웨어 관리과로 나뉜다
+      </p>
+    </div>
+
+    <div id="chart">
+      <div class="title_bar">
+        <p class="chart_title">경쟁률</p>
+      </div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="info margin_bottom">
+      <div class="title_bar">
+        <p id="title" class="position chart_title">자격증</p>
+
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script type="module" src="./js/job/app.js"></script>
     <script type="module" src="./js/job/toggle.js"></script>
-  </body>
+
+
+</body>
+
 </html>

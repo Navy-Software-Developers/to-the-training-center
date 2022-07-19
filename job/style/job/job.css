@@ -1,6 +1,7 @@
 .job_contents {
   width: 100%;
-  height: 100vh;
+  height: auto;
+  transition: all 0.5s;
 }
 
 .info {
@@ -13,12 +14,14 @@
   margin-top: 3rem;
   padding: 0px 1.5rem 1.5rem 1.5rem;
   background-color: #fff;
+  transition: all 0.5s;
 }
 
 /* chart */
 #myChart {
   width: 80%;
-  height: 100%;
+  height: auto;
+  transition: all 0.5s;
 }
 
 #chart {
@@ -52,4 +55,8 @@
 
 .position_content {
   margin-top: 3%;
+}
+
+.margin_bottom {
+  margin-bottom: 4rem;
 }

@@ -1,65 +1,56 @@
-.size{
-    margin-top: 1.2rem;
-    height: auto;
-
+.size {
+  margin-top: 1.2rem;
+  height: auto;
+  margin-bottom: 1rem;
 }
- .checkbox{
-    width: 10%;
- }
+.checkbox {
+  width: 10%;
+}
 /* https://velog.io/@chumil7432/CSS-checkbox%EC%99%80-select-%EA%BE%B8%EB%AF%B8%EA%B8%B0 */
 
+input[id="cb1"] + label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #fff;
 
-input[id='cb1'] + label{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-background-color: #fff;
-   
-    cursor: pointer;
-    transition: all 0.5s;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-input[id='cb1']:checked + label{
-    background-color: rgba(109, 148, 255,0.6);
-    content: '✔';
-    font-size: 1.5rem;
-}
- 
-input[id='cb1']{
-    display: none;
+input[id="cb1"]:checked + label {
+  background-color: rgba(109, 148, 255, 0.6);
+  content: "✔";
+  font-size: 1.5rem;
 }
 
-
-
-
-.divide{
-    margin-top: 4rem;
+input[id="cb1"] {
+  display: none;
 }
 
-
-
-.page{
-    height: auto;
-    margin-bottom: 4rem;
+.divide {
+  margin-top: 4rem;
 }
 
-
-.save{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3rem;
-    width: 15%;
-    height: 2rem;
-    background-color: rgba(146, 146, 146,0.4);
-    border-radius: 5px;
-    padding: 10px;
-    transition: all 0.5s;
-    
+.page {
+  height: auto;
+  margin-bottom: 4rem;
 }
 
-.save:hover{
-    background-color: rgba(146, 146, 146,0.7);
+.save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  width: 15%;
+  height: 2rem;
+  background-color: rgba(146, 146, 146, 0.4);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.5s;
+}
+
+.save:hover {
+  background-color: rgba(146, 146, 146, 0.7);
 }
