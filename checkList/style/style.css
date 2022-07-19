@@ -37,3 +37,29 @@ input[id='cb1']{
     margin-top: 4rem;
 }
 
+
+
+.page{
+    height: auto;
+    margin-bottom: 4rem;
+}
+
+
+.save{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    width: 15%;
+    height: 2rem;
+    background-color: rgba(146, 146, 146,0.4);
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.5s;
+    
+}
+
+.save:hover{
+    background-color: rgba(146, 146, 146,0.7);
+}
