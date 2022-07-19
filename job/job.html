@@ -9,6 +9,48 @@
     <link rel="stylesheet" href="./style/job/toggle.css" />
     <link rel="stylesheet" href="../style/nav/nav.css" />
     <title>JOB</title>
+    <script>
+      let pk = location.hash.replace('#', '');
+      let url_prefix = 'http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000';
+      let BRANCH = [, "육군", "해군", "공군", "해병대"];
+      let data;
+      
+      let url = url_prefix + '/api/mos/' + pk;
+      fetch(url)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          data = json;
+          load();
+        })
+      
+      let like_data;
+      let like_url = url_prefix + '/api/mos/likes';
+      fetch(like_url)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          like_data = json;
+          like_load();
+        })
+
+
+      function load() {
+        document.querySelector("#title").innerHTML = data.name;
+        document.querySelector("#wiki_content").innerHTML = data.wiki ? data.wiki : "작성된 내용이 없습니다. 군사특기 위키를 작성해보세요.";
+        //그래프 등
+      }
+      function like_load() {
+        console.log(like_data);
+        //관심목록 유무 토글 변경
+      }
+
+      function toggle_like() {
+        
+      }
+    </script>
   </head>
 
   <body>
@@ -23,7 +65,7 @@
     <div class="job_contents">
       <div class="info">
         <div class="title_bar">
-          <p class="position chart_title">SW개발병</p>
+          <p id="title" class="position chart_title">SW개발병</p>
           <div class="toggle">
             <p>관심추가</p>
             <div class="toggle_box">
@@ -32,7 +74,7 @@
           </div>
         </div>
 
-        <p class="position_content">
+        <p id="wiki_content" class="position_content">
           sw개발병은 소프트웨어 개발과와 소프트웨어 관리과로 나뉜다
         </p>
       </div>
