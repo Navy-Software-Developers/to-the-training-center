@@ -16,9 +16,11 @@
 <body>
   <nav id="navbar">
     <div class="navbox">
-      <a class="logo" href="job.html">훈련소 가는 길</a>
-      <a href="favor.html">About</a>
-      <a href="/login" class="login_btn">Login</a>
+      <a class="logo" href="../index.html">훈련소 가는 길</a>
+      <a href="#" class="login_btn">신검장</a>
+      <a href="./joblist.html" class="login_btn">보직탐색</a>
+      <a href="./favor.html" class="login_btn">즐겨찾기</a>
+      <a href="../checkList/index.html" class="login_btn">준비물</a>
     </div>
   </nav>
 
@@ -28,8 +30,11 @@
         <div class="wrap">
           <p id="title" class="position chart_title">SW개발병</p>
         <p class="good">강력추천👍</p>
+
         </div>
-   
+
+
+        
         <div class="toggle">
           <div class="wiki">
             수정
@@ -63,6 +68,7 @@
         <p class="chart_title">경쟁률</p>
       </div>
       <canvas id="myChart"></canvas>
+      
     </div>
 
     <div id="chart2">
@@ -70,6 +76,9 @@
         <p class="chart_title"> 모집 인원수</p>
       </div>
       <canvas id="myChart2"></canvas>
+      <!-- <div class="skeleton canvas_skeleton"> -->
+          
+      </div>
     </div>
 
     <div id="chart3">
@@ -126,7 +135,7 @@
 
        
 
-
+<script src="../js/nav/nav.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
       <script type="module" src="./js/job/app.js"></script>
       <script type="module" src="./js/job/toggle.js"></script>
