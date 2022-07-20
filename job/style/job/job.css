@@ -286,3 +286,26 @@
 .row_box .row:nth-child(7),.col:nth-child(7) {
   border: none;
 }
+
+
+.good{
+  background-color: rgba(82, 177, 93, 0.1);
+  color:rgb(56, 139, 66) ;
+  border-radius: 10px;
+  width: 25%;
+  height: 40% ;
+ text-align: center;
+ padding: 1%;
+ transform: translate(50%,50%);
+ transform: translate(0px,5%);
+ 
+  
+}
+
+.wrap{
+ 
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
