@@ -39,3 +39,31 @@ save_wiki.onclick = ()=>{
     .catch(err=>{console.log(err)});
     
 }
+
+
+
+
+const search_bar = document.querySelector('.search_bar')
+const search_input = document.querySelector('.search_input');
+const search_close = document.querySelector('.search_close'); //flex
+
+
+search_bar.onclick = ()=>{
+    search_bar.style.display = 'none';
+    search_input.style.display = 'block';
+    search_close.style.display = 'flex';
+
+}
+
+
+search_close.onclick = ()=>{
+    search_bar.style.display = 'block';
+    search_input.style.display = 'none';
+    search_close.style.display = 'none';
+}
+
+
+//키보드 입력이 들어올때 마다 일어나는 이벤트
+search_input.onkeydown = ()=>{
+    //키보드 입력시 발생할 이벤트 작성 
+}
