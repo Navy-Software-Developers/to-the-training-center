@@ -32,24 +32,25 @@
             <div class="toggle_btn"></div>
           </div>
         </div>
-        
+
       </div>
 
       <p id="wiki_content" class="position_content">
         sw개발병은 소프트웨어 개발과와 소프트웨어 관리과로 나뉜다
       </p>
- 
-        
+
+
       <div class="wiki">
         위키 작성하기
       </div>
       <div class="wiki_type_box">
-        <textarea onkeydown="resize(this)" onkeyup="resize(this)" placeholder="위키를 작성 해주십시오." class="wiki_command"></textarea>
+        <textarea onkeydown="resize(this)" onkeyup="resize(this)" placeholder="위키를 작성 해주십시오."
+          class="wiki_command"></textarea>
         <button class="save_wiki">
           저장
         </button>
       </div>
-      
+
     </div>
 
     <div id="chart">
@@ -59,33 +60,95 @@
       <canvas id="myChart"></canvas>
     </div>
 
+    <div id="chart2">
+      <div class="title_bar">
+        <p class="chart_title"> 모집 인원수</p>
+      </div>
+      <canvas id="myChart2"></canvas>
+    </div>
+
+    <div id="chart3">
+      <div class="title_bar">
+        <p class="chart_title"> 모집 인원수</p>
+
+      </div>
+
+      <div id="table">
+        <div class="head">
+          <!-- 육해공 ,직별,  모집인원, 지원인원 ,몇회차,  입영장소 , 입영월 -->
+
+          <li class="col">직별</li>
+          <li class="col">회차</li>
+          <li class="col">모집인원</li>
+          <li class="col">지원인원</li>
+          <li class="col">입영장소</li>
+          <li class="col">입영월</li>
+        </div>
+        <div class="table">
+          <ul class="row_box">
+            <li class="row">의장병</li>
+            <li class="row">14차</li>
+            <li class="row">10명</li>
+            <li class="row">23명</li>
+            <li class="row">41사단</li>
+            <li class="row">2022년9월</li>
+          </ul>
+          <ul class="row_box">
+            <li class="row">의장병</li>
+            <li class="row">14차</li>
+            <li class="row">10명</li>
+            <li class="row">23명</li>
+            <li class="row">41사단</li>
+            <li class="row">2022년9월</li>
+          </ul>
+          <ul class="row_box">
+            <li class="row">의장병</li>
+            <li class="row">14차</li>
+            <li class="row">10명</li>
+            <li class="row">23명</li>
+            <li class="row">41사단</li>
+            <li class="row">2022년9월</li>
+          </ul>
+          <ul class="row_box">
+            <li class="row">의장병</li>
+            <li class="row">14차</li>
+            <li class="row">10명</li>
+            <li class="row">23명</li>
+            <li class="row">41사단</li>
+            <li class="row">2022년9월</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
     <div class="info margin_bottom position">
       <div class="title_bar">
         <p id="title" class="position chart_title">가산점 자격증</p>
- 
-          <div class="search">
-             <button class="search_bar">검색해보기</button>
-             <input type="text" name="" id="" class="search_input">
-             <p class="search_close">닫기</p>
-             <div class="autocomplete">
-              <li class="search_list">자동완성 테스트1</li>
-              <li class="search_list">자동완성 테스트2</li>
-              <li class="search_list">자동완성 테스트3</li>
-             
-             </div>
-          </div>
 
-    </div>
-    <script>
-      function resize(obj) {
-      obj.style.height = "1px";
-      obj.style.height = (1+obj.scrollHeight)+"px";
-}
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-    <script type="module" src="./js/job/app.js"></script>
-    <script type="module" src="./js/job/toggle.js"></script>
-    <script src="./js/job/wiki.js"></script>
+        <div class="search">
+          <button class="search_bar">검색해보기</button>
+          <input type="text" name="" id="" class="search_input">
+          <p class="search_close">닫기</p>
+          <div class="autocomplete">
+            <li class="search_list">자동완성 테스트1</li>
+            <li class="search_list">자동완성 테스트2</li>
+            <li class="search_list">자동완성 테스트3</li>
+
+          </div>
+        </div>
+
+      </div>
+      <script>
+        function resize(obj) {
+          obj.style.height = "1px";
+          obj.style.height = (1 + obj.scrollHeight) + "px";
+        }
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+      <script type="module" src="./js/job/app.js"></script>
+      <script type="module" src="./js/job/toggle.js"></script>
+      <script src="./js/job/wiki.js"></script>
 
 </body>
 

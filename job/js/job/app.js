@@ -1,4 +1,5 @@
 let chart = document.getElementById("myChart");
+let chart2 = document.getElementById("myChart2");
 
 window.onload = () => {
   let pk = location.hash.replace("#", "");
@@ -48,7 +49,6 @@ window.onload = () => {
     console.log(data);
     // data.recuritCnt 모집 인원
     //data.applyedCnt 지원 인원
-
     //endlistStart 입대일
 
     let month_label = [];
@@ -65,7 +65,7 @@ window.onload = () => {
       total.push(info.recuritCnt);
       pass.push(info.applyedCnt);
       month_label.push(month);
-      competition.push(info.applyedCnt/info.recuritCnt);
+      competition.push(info.applyedCnt / info.recuritCnt);
     }
 
     console.log(total, pass);
@@ -79,10 +79,11 @@ window.onload = () => {
         color: "rgba(0,255,10,1)",
       },
       {
-        competition:competition,
-        color:'rgba(244,0,233,1)'
-      }
+        competition: competition,
+        color: "rgba(244,0,233,1)",
+      },
     ];
+
     const color = "rgba(255, 99, 132, 1)";
 
     let config = {
@@ -93,30 +94,30 @@ window.onload = () => {
         labels: month_label,
         // ④실제 차트에 표시할 데이터들(Array), dataset객체들을 담고 있다.
         datasets: [
-          {
-            // ⑤dataset의 이름(String)
-            label: "모집률",
-            // ⑥dataset값(Array)
-            data: member[0].total,
-            // ⑦dataset의 배경색(rgba값을 String으로 표현)
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-            borderColor: member[0].color,
-            // ⑨dataset의 선 두께(Number)
-            borderWidth: 1,
-          },
-          {
-            // ⑤dataset의 이름(String)
-            label: "지원률",
-            // ⑥dataset값(Array)
-            data: member[1].pass,
-            // ⑦dataset의 배경색(rgba값을 String으로 표현)
-            backgroundColor: "rgba(0,255,10,0.2)",
-            // ⑧dataset의 선 색(rgba값을 String으로 표현)
-            borderColor: member[1].color,
-            // ⑨dataset의 선 두께(Number)
-            borderWidth: 1,
-          },
+          // {
+          //   // ⑤dataset의 이름(String)
+          //   label: "모집률",
+          //   // ⑥dataset값(Array)
+          //   data: member[0].total,
+          //   // ⑦dataset의 배경색(rgba값을 String으로 표현)
+          //   backgroundColor: "rgba(255, 99, 132, 0.2)",
+          //   // ⑧dataset의 선 색(rgba값을 String으로 표현)
+          //   borderColor: member[0].color,
+          //   // ⑨dataset의 선 두께(Number)
+          //   borderWidth: 1,
+          // },
+          // {
+          //   // ⑤dataset의 이름(String)
+          //   label: "지원률",
+          //   // ⑥dataset값(Array)
+          //   data: member[1].pass,
+          //   // ⑦dataset의 배경색(rgba값을 String으로 표현)
+          //   backgroundColor: "rgba(0,255,10,0.2)",
+          //   // ⑧dataset의 선 색(rgba값을 String으로 표현)
+          //   borderColor: member[1].color,
+          //   // ⑨dataset의 선 두께(Number)
+          //   borderWidth: 1,
+          // },
           {
             // ⑤dataset의 이름(String)
             label: "경쟁률",
@@ -144,6 +145,28 @@ window.onload = () => {
       },
     };
 
+    let bar_chart = {
+      // The type of chart we want to create
+      type: "bar",
+
+      // The data for our dataset
+      data: {
+        labels: month_label,
+        datasets: [
+          {
+            label: "모집 인원수",
+            backgroundColor: "rgba(100, 255, 132,0.4)",
+            borderColor: "rgba(100, 255, 132,1)",
+            data: member[0].total,
+          },
+        ],
+      },
+
+      // Configuration options go here
+      options: {},
+    };
+
+    new Chart(chart2, bar_chart);
     new Chart(chart, config);
   }
 };
