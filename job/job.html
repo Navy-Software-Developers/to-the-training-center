@@ -32,11 +32,24 @@
             <div class="toggle_btn"></div>
           </div>
         </div>
+        
       </div>
 
       <p id="wiki_content" class="position_content">
         sw개발병은 소프트웨어 개발과와 소프트웨어 관리과로 나뉜다
       </p>
+ 
+        
+      <div class="wiki">
+        위키 작성하기
+      </div>
+      <div class="wiki_type_box">
+        <textarea onkeydown="resize(this)" onkeyup="resize(this)" placeholder="위키를 작성 해주십시오." class="wiki_command"></textarea>
+        <button class="save_wiki">
+          저장
+        </button>
+      </div>
+      
     </div>
 
     <div id="chart">
@@ -52,10 +65,16 @@
 
       </div>
     </div>
+    <script>
+      function resize(obj) {
+      obj.style.height = "1px";
+      obj.style.height = (1+obj.scrollHeight)+"px";
+}
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script type="module" src="./js/job/app.js"></script>
     <script type="module" src="./js/job/toggle.js"></script>
-
+    <script src="./js/job/wiki.js"></script>
 
 </body>
 

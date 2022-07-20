@@ -60,3 +60,75 @@
 .margin_bottom {
   margin-bottom: 4rem;
 }
+
+
+.wiki{
+  border-radius: 7px;
+  background-color: rgba(138, 169, 255, 0.1);
+  color: rgb(115, 164, 255);
+ margin-top: 1rem;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 3rem;
+  margin-bottom: 1rem;
+  
+  transition: all 0.5s;
+}
+/* .wiki_box{
+  margin-top: 2rem;
+  width: 100%;
+  height: 5rem;
+  border: 3px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  
+} */
+
+.wiki:hover,.save_wiki:hover{
+  background-color: rgba(50, 54, 63, 0.1);
+  color: rgb(56, 58, 61);
+}
+
+.wiki_command{
+  width: 94%; 
+  height: 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: 3px solid rgba(105, 157, 255, 0.16);
+  padding: 3%;
+  padding-top: 2%;
+  font-size: 1rem;
+  font-weight: bold;
+  color: gray;
+}
+.wiki_command:focus{
+  border: none;
+  outline: 3px solid rgba(105, 157, 255, 0.56);
+}
+
+.wiki_type_box{
+  display: none;
+  width: 100%;  
+  height: auto;
+  margin-top: 2rem;
+  position: relative;
+  transition: all 0.5s;
+ 
+}
+
+.save_wiki{
+  margin-top: 1rem;
+  float: right;
+  border: none;
+  width: 10%;
+  height: 2rem;
+  border-radius: 5px;
+  background-color: rgba(138, 169, 255, 0.1);
+  color: rgb(115, 164, 255);
+}
+

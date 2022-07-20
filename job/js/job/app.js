@@ -55,6 +55,7 @@ window.onload = () => {
 
     let total = [];
     let pass = [];
+    let competition = [];
 
     for (let info of data.recurits) {
       let day = info.enlistStart.toString();
@@ -64,6 +65,7 @@ window.onload = () => {
       total.push(info.recuritCnt);
       pass.push(info.applyedCnt);
       month_label.push(month);
+      competition.push(info.applyedCnt/info.recuritCnt);
     }
 
     console.log(total, pass);
@@ -76,6 +78,10 @@ window.onload = () => {
         pass: pass,
         color: "rgba(0,255,10,1)",
       },
+      {
+        competition:competition,
+        color:'rgba(244,0,233,1)'
+      }
     ];
     const color = "rgba(255, 99, 132, 1)";
 
@@ -108,6 +114,18 @@ window.onload = () => {
             backgroundColor: "rgba(0,255,10,0.2)",
             // ⑧dataset의 선 색(rgba값을 String으로 표현)
             borderColor: member[1].color,
+            // ⑨dataset의 선 두께(Number)
+            borderWidth: 1,
+          },
+          {
+            // ⑤dataset의 이름(String)
+            label: "경쟁률",
+            // ⑥dataset값(Array)
+            data: member[2].competition,
+            // ⑦dataset의 배경색(rgba값을 String으로 표현)
+            backgroundColor: "rgba(244,0,233,0.2)",
+            // ⑧dataset의 선 색(rgba값을 String으로 표현)
+            borderColor: member[2].color,
             // ⑨dataset의 선 두께(Number)
             borderWidth: 1,
           },
