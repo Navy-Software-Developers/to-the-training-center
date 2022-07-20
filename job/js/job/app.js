@@ -1,5 +1,6 @@
 let chart = document.getElementById("myChart");
 let chart2 = document.getElementById("myChart2");
+const table = document.querySelector('.table'); 
 
 window.onload = () => {
   let pk = location.hash.replace("#", "");
@@ -56,6 +57,10 @@ window.onload = () => {
     let total = [];
     let pass = [];
     let competition = [];
+  
+    let table_data = [];
+
+   
 
     for (let info of data.recurits) {
       let day = info.enlistStart.toString();
@@ -66,9 +71,47 @@ window.onload = () => {
       pass.push(info.applyedCnt);
       month_label.push(month);
       competition.push(info.applyedCnt / info.recuritCnt);
+
+      let startDay = info.recuritStart.toString();
+      let endDay = info.recuritEnd.toString();
+
+      table_data.push(
+        {
+          'round':info.recuritRound,
+          'recurit':info.recuritCnt,
+          'applyed':info.applyedCnt,
+          'start':`${startDay.slice(0,4)}/${startDay.slice(4,6)}/${startDay.slice(6,8)}`,
+          'end':`${endDay.slice(0,4)}/${endDay.slice(4,6)}/${endDay.slice(6,8)}`,
+          'enlistMilitaryUnit':info.enlistMilitaryUnit,
+          'recuritStart': `${year}/${day.slice(4,6)}`,
+          'compete':info.applyedCnt / info.recuritCnt
+        }
+      )
     }
 
-    console.log(total, pass);
+ 
+
+    function render(table_data){
+      let html = `
+      <ul class="row_box">
+      <li class="row">${table_data.round}차</li>
+      <li class="row">${table_data.recurit}명</li>
+      <li class="row">${table_data.applyed}명</li>
+      <li class="row">${table_data.compete.toFixed(1)} : 1</li>
+      <li class="row"> ${table_data.start} ~ ${table_data.end}</li>
+      <li class="row">${table_data.enlistMilitaryUnit}</li>
+      <li class="row">${table_data.recuritStart}</li>
+    </ul>
+      `
+      return html;
+    }
+
+    for(let t of table_data){
+      table.innerHTML += render(t);
+    }
+    
+    
+ //   console.log(total, pass);
     let member = [
       {
         total: total,

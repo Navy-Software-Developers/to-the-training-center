@@ -49,16 +49,16 @@ const Mili = [
   },
 ];
 
-class App {
-  constructor() {
-    window.addEventListener("click", () => {
-      let xhr = new XMLHttpRequest();
-      xhr.open();
-    });
-  }
-}
+// class App {
+//   constructor() {
+//     window.addEventListener("click", () => {
+//       let xhr = new XMLHttpRequest();
+//       xhr.open();
+//     });
+//   }
+// }
 
-window.onload = () => {
-  new App();
-};
-// >>>>>>> f7d446e0ffc7fd17cd01563a72326d9156c301fe
+// window.onload = () => {
+//   new App();
+// };
+// // >>>>>>> f7d446e0ffc7fd17cd01563a72326d9156c301fe

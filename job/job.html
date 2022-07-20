@@ -26,7 +26,11 @@
     <div class="info">
       <div class="title_bar">
         <p id="title" class="position chart_title">SW개발병</p>
+   
         <div class="toggle">
+          <div class="wiki">
+            수정
+          </div>
           <p>관심추가</p>
           <div class="toggle_box">
             <div class="toggle_btn"></div>
@@ -40,9 +44,7 @@
       </p>
 
 
-      <div class="wiki">
-        위키 작성하기
-      </div>
+  
       <div class="wiki_type_box">
         <textarea onkeydown="resize(this)" onkeyup="resize(this)" placeholder="위키를 작성 해주십시오."
           class="wiki_command"></textarea>
@@ -77,46 +79,19 @@
         <div class="head">
           <!-- 육해공 ,직별,  모집인원, 지원인원 ,몇회차,  입영장소 , 입영월 -->
 
-          <li class="col">직별</li>
+          
           <li class="col">회차</li>
           <li class="col">모집인원</li>
           <li class="col">지원인원</li>
+          <li class="col">경쟁률</li>
+          <li class="col">모집기간</li>
           <li class="col">입영장소</li>
           <li class="col">입영월</li>
+          
         </div>
+
         <div class="table">
-          <ul class="row_box">
-            <li class="row">의장병</li>
-            <li class="row">14차</li>
-            <li class="row">10명</li>
-            <li class="row">23명</li>
-            <li class="row">41사단</li>
-            <li class="row">2022년9월</li>
-          </ul>
-          <ul class="row_box">
-            <li class="row">의장병</li>
-            <li class="row">14차</li>
-            <li class="row">10명</li>
-            <li class="row">23명</li>
-            <li class="row">41사단</li>
-            <li class="row">2022년9월</li>
-          </ul>
-          <ul class="row_box">
-            <li class="row">의장병</li>
-            <li class="row">14차</li>
-            <li class="row">10명</li>
-            <li class="row">23명</li>
-            <li class="row">41사단</li>
-            <li class="row">2022년9월</li>
-          </ul>
-          <ul class="row_box">
-            <li class="row">의장병</li>
-            <li class="row">14차</li>
-            <li class="row">10명</li>
-            <li class="row">23명</li>
-            <li class="row">41사단</li>
-            <li class="row">2022년9월</li>
-          </ul>
+ 
 
         </div>
       </div>
@@ -145,6 +120,10 @@
           obj.style.height = (1 + obj.scrollHeight) + "px";
         }
       </script>
+
+       
+
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
       <script type="module" src="./js/job/app.js"></script>
       <script type="module" src="./js/job/toggle.js"></script>
