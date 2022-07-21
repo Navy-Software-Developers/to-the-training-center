@@ -6,3 +6,18 @@ canvas {
   left: 0px;
   z-index: -4;
 }
+
+
+@media screen and (max-width: 600px) {
+  canvas{
+    display: none;
+  }
+
+  .load{
+    display: none;
+  }
+  .item_bar:nth-child(3){
+    display: none;
+  }
+}
+

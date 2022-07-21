@@ -158,3 +158,33 @@
 #search:focus {
   outline: 1px solid gray;
 }
+
+/*1200px 이상일때*/
+@media screen and (min-width: 1200px) {
+ .list_wrap{
+  width: 55%;
+ }
+ .mili_box{
+  width: 62%;
+ }
+}
+
+/* 이하 */
+@media screen and (max-width: 700px) {
+    .list_wrap{
+      width: 96%;
+    }
+
+    .positionName{
+      width: 50%;
+    }
+
+    .wrapper{
+      width: 76%;
+    }
+
+    .mili_btn{
+      width: 4rem;
+      font-size: 1rem;
+    }
+ }

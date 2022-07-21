@@ -51,3 +51,16 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  #navbar {
+    width: 55%;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .navbox a{
+    font-size: 0.8rem;
+  }
+}

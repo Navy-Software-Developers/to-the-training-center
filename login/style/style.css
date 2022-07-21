@@ -95,3 +95,16 @@ body{
 .register:hover{
     text-decoration: underline;
 }
+
+@media screen and (min-width: 1200px) {
+    .login_box{
+        width: 25%;
+    }
+  }
+@media screen and (max-width:700px) {
+    .login_box{
+        width: 87%;
+    }
+}
+  
+  

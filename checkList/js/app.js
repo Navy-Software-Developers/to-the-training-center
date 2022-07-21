@@ -50,21 +50,26 @@ let free_material = [
 ];
 
 let etc = [
-  {
-    name: "군휴학",
-    check: false,
-    index: 5,
-  },
+  // {
+  //   name: "군휴학",
+  //   check: false,
+  //   index: 5,
+  // },
   {
     name: "미래설계 (돈을 얼마 모으게 될까 ?) ",
     check: false,
     index: 5,
   },
   {
-    name: "보급품 확인",
-    check: false,
-    index: 5,
-  },
+    name:"쇼핑몰 바로가기",
+    check:false,
+    index:5
+  }
+  // {
+  //   name: "보급품 확인",
+  //   check: false,
+  //   index: 5,
+  // },
 ];
 
 // class App {

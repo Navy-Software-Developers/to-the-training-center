@@ -10,7 +10,7 @@ let data = [
   },
   {
     src: "./media/post.svg",
-    contents: "하고싶은 직별을 신청해봅시다 !!",
+    contents: "하고싶은 보직을 신청해봅시다 !!",
     subTitle: "STEP 3",
     position: "left",
     link: "./job/favor.html",
@@ -24,7 +24,7 @@ let data = [
   },
   {
     src: "./media/job.svg",
-    contents: "미리 하고싶은 업무 찾아보기 !!",
+    contents: "미리 하고싶은 보직 찾아보기 !!",
     subTitle: "STEP 2",
     position: "right",
     link: "./job/joblist.html",
@@ -229,4 +229,33 @@ window.onload = () => {
   // login_btn.onclick = ()=>{
   //   alert('hel');
   // }
+
+  window.addEventListener('resize',()=>{
+    resize();
+  })
+
+  let item_bar = document.querySelectorAll('.item_bar');
+  let card = document.querySelectorAll('.card');
+
+  let card_list = [card[0],card[3],card[1],card[4],card[2]];
+
+  function resize(){
+  
+    if(window.innerWidth < 600){
+      
+      for(let i =0 ;i  < card.length ; i++){
+         item_bar[0].appendChild(card_list[i]);
+
+      }
+    }else {
+      for(let i =0 ;i < 3; i++){
+        item_bar[0].appendChild(card[i])
+      }
+      for(let i =3 ;i < 5;i++){
+        item_bar[1].appendChild(card[i]);
+      }
+    }
+
+ 
+  }
 };
