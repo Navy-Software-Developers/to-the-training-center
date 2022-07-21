@@ -5,6 +5,32 @@ let register_url = url_prefix + '/api/accounts/registration/';
 const loginContent = document.querySelector(".content");
 
 
+function setCookie(name, value, options = {}) {
+
+  options = {
+    path: '/',
+    // 필요한 경우, 옵션 기본값을 설정할 수도 있습니다.
+    ...options
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+
 function login_activate() {
   document.querySelector("#login").style.display = '';
   document.querySelector("#register").style.display = 'none';
@@ -21,9 +47,12 @@ function login() {
   let password = document.querySelector("#password").value;
   postData(login_url, { username: id, password: password }).then((data) => {
     console.log(data); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
-    if(data.user){
-      location.href = '/';
-    }else{
+    if (data.user) {
+      setCookie('my-app-auth', data.access_token);
+      setCookie('my-refresh-token', data.refresh_token);
+      // History.back()
+      location.href ='/';
+    } else {
       alert("로그인에 실패하였습니다. 아이디, 패스워드를 다시 확인해주세요.");
     }
   });
@@ -62,7 +91,6 @@ async function postData(url = '', data = {}) {
     method: 'POST', // *GET, POST, PUT, DELETE 등
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
       // 'Content-Type': 'application/x-www-form-urlencoded',

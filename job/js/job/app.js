@@ -1,7 +1,38 @@
 let chart = document.getElementById("myChart");
 
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// POST 메서드 구현 예제
+async function postData(url = '', data = {}) {
+  // 옵션 기본 값은 *로 강조
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE 등
+    // mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + getCookie('my-app-auth'),
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
+  });
+  return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
+}
+
+
 window.onload = () => {
   let pk = location.hash.replace("#", "");
+  if(pk == ''){
+    location.href = '/';
+  }
   let url_prefix = "http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000";
   let BRANCH = [, "육군", "해군", "공군", "해병대"];
   let data;
@@ -19,7 +50,7 @@ window.onload = () => {
     });
 
   let like_data;
-  let like_url = url_prefix + "/api/mos/likes";
+  let like_url = url_prefix + "/api/mos/mylikes";
 
   fetch(like_url)
     .then(function (response) {
@@ -42,7 +73,7 @@ window.onload = () => {
     //관심목록 유무 토글 변경
   }
 
-  function toggle_like() {}
+  function toggle_like() { }
 
   function draw() {
     console.log(data);
@@ -65,7 +96,7 @@ window.onload = () => {
       total.push(info.recuritCnt);
       pass.push(info.applyedCnt);
       month_label.push(month);
-      competition.push(info.applyedCnt/info.recuritCnt);
+      competition.push(info.applyedCnt / info.recuritCnt);
     }
 
     console.log(total, pass);
@@ -79,8 +110,8 @@ window.onload = () => {
         color: "rgba(0,255,10,1)",
       },
       {
-        competition:competition,
-        color:'rgba(244,0,233,1)'
+        competition: competition,
+        color: 'rgba(244,0,233,1)'
       }
     ];
     const color = "rgba(255, 99, 132, 1)";
@@ -146,6 +177,86 @@ window.onload = () => {
 
     new Chart(chart, config);
   }
+
+
+
+
+
+
+
+
+  const wiki = document.querySelector('.wiki');
+  const save_wiki = document.querySelector('.save_wiki');
+  const wiki_box = document.querySelector('.wiki_type_box');
+  const wiki_command = document.querySelector('.wiki_command')
+  const wiki_content = document.querySelector('#wiki_content')
+
+  let wiki_text = null;
+  let wiki_url = `${url_prefix}/api/mos/${pk}/wiki` ;
+
+
+
+  //"위키 작성하기" 버튼을 클릭했을때
+  wiki.onclick = () => {
+    wiki_box.style.display = 'block';
+    wiki.style.display = 'none';
+    wiki_content.style.display = 'none';
+    wiki_command.value = data.wiki;
+    
+  }
+
+
+  save_wiki.onclick = () => {
+    let wiki_result;
+    wiki_box.style.display = 'none';
+    wiki.style.display = 'flex'
+    let wiki_text = wiki_command.value; //작성한 글 내용 가져오기
+
+
+    postData(wiki_url, { content: wiki_text }).then((wiki_result) => {
+      console.log(wiki_result); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
+      if(wiki_result.status == 'success'){
+        data.wiki = wiki_text;
+        wiki.style.display = 'block';
+        wiki_content.style.display = 'block';
+        load();
+      }else{
+        alert("수정 실패 로그인등");
+      }
+    });
+
+  }
+
+
+
+
+  const search_bar = document.querySelector('.search_bar')
+  const search_input = document.querySelector('.search_input');
+  const search_close = document.querySelector('.search_close'); //flex
+  const autocomplete = document.querySelector('.autocomplete');
+
+  search_bar.onclick = () => {
+    search_bar.style.display = 'none';
+    search_input.style.display = 'block';
+    search_close.style.display = 'flex';
+  }
+
+
+  search_close.onclick = () => {
+    search_bar.style.display = 'block';
+    search_input.style.display = 'none';
+    search_close.style.display = 'none';
+    autocomplete.style.display = 'none';
+  }
+
+
+  //키보드 입력이 들어올때 마다 일어나는 이벤트
+  search_input.onkeydown = () => {
+    //키보드 입력시 발생할 이벤트 작성 
+    autocomplete.style.display = 'block';
+
+
+  }
 };
 
 // new Chart(document.getElementById("myChart"), {
@@ -187,3 +298,4 @@ window.onload = () => {
 //       }
 //     }
 //   });
+
