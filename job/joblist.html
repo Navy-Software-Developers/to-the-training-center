@@ -9,10 +9,20 @@
   <link rel="stylesheet" href="../style/style.css" />
   <link rel="stylesheet" href="./style/joblist/style.css" />
   <link rel="stylesheet" href="./style/job/job.css" />
+  <link rel="stylesheet" href="../style/nav/nav.css">
   <title>군사특기 목록</title>
 </head>
 
 <body>
+  <nav id="navbar">
+    <div class="navbox">
+      <a class="logo" href="../index.html">훈련소 가는 길</a>
+      <a href="#" class="login_btn">신검장</a>
+      <a href="./joblist.html" class="login_btn">보직탐색</a>
+      <a href="./favor.html" class="login_btn">즐겨찾기</a>
+      <a href="../checkList/index.html" class="login_btn">준비물</a>
+    </div>
+  </nav>
 
   <div class="mili_box">
     <div class="mili_selector">
@@ -22,13 +32,12 @@
       <li class=" navy2 mili_btn">해병대</li>
     </div>
   </div>
-  <input id="search" type="text">
   <div class=" list_wrap">
     <div class="mili_img_box">
       <img src="./media/navy.jfif" alt="">
     </div>
 
-
+    <input placeholder="직별을 검색해 주십시오" autofocus id="search" type="text">
     <div id="mos_list" class="list">
       <!---->
 
@@ -101,55 +110,56 @@
     }
 
 
-    function load(branch = null, query=search_input.value.toLowerCase()) {
-        currentButton = branch;
-        mos_list.innerHTML = '';
-        console.log('data:', data);
-        for (const element of data) {
-          if ((element.branch == branch || !branch) && (element.name.toLowerCase().includes(query)|| !query)) {
-            let li = document.createElement('li');
-            li.setAttribute('class', 'list_box');
-            li.setAttribute('onclick', 'location.href="/job/job.html#' + element.pk + '"');
+    function load(branch = null, query = search_input.value.toLowerCase()) {
+      currentButton = branch;
+      mos_list.innerHTML = '';
+      console.log('data:', data);
+      for (const element of data) {
+        if ((element.branch == branch || !branch) && (element.name.toLowerCase().includes(query) || !query)) {
+          let li = document.createElement('li');
+          li.setAttribute('class', 'list_box');
+          li.setAttribute('onclick', 'location.href="/job/job.html#' + element.pk + '"');
 
-            let span = document.createElement('span');
-            span.setAttribute('class', 'idx');
-            span.innerHTML = BRANCH[element.branch];
+          let span = document.createElement('span');
+          span.setAttribute('class', 'idx');
+          span.innerHTML = BRANCH[element.branch];
 
-            let div = document.createElement('div');
-            div.setAttribute('class', 'wrapper');
-
-
-            let p = document.createElement('p');
-            let codename = document.createElement('p');
-
-            p.setAttribute('class', 'positionName');
-            codename.setAttribute('class', 'codename');
-            codename.innerHTML = `(${element.code})`
-            p.innerHTML = element.name;
+          let div = document.createElement('div');
+          div.setAttribute('class', 'wrapper');
 
 
+          let p = document.createElement('p');
+          let codename = document.createElement('p');
 
-
-            li.appendChild(span);
-            div.appendChild(codename);
-            div.appendChild(p);
-
-            div.innerHTML += '<span class="arrow_box"><img class="logo" src="./media/arrow.svg" alt="" class="href_btn"></span>';
-
-            li.appendChild(div);
-            mos_list.appendChild(li);
+          p.setAttribute('class', 'positionName');
+          codename.setAttribute('class', 'codename');
+          codename.innerHTML = `(${element.code})`
+          p.innerHTML = element.name;
 
 
 
-          }
+
+          li.appendChild(span);
+          div.appendChild(codename);
+          div.appendChild(p);
+
+          div.innerHTML += '<span class="arrow_box"><img class="logo" src="./media/arrow.svg" alt="" class="href_btn"></span>';
+
+          li.appendChild(div);
+          mos_list.appendChild(li);
+
+
 
         }
-      }
 
-      search_input.oninput = function() {
-        load(currentButton, search_input.value.toLowerCase());
-  };
-    </script>
+      }
+    }
+
+    search_input.oninput = function () {
+      load(currentButton, search_input.value.toLowerCase());
+    };
+  </script>
+  <script src="../js/nav/nav.js"></script>
 </body>
 
 </html>

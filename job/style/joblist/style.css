@@ -139,3 +139,15 @@
   width: 10%;
   color: #ababab;
 }
+
+#search {
+  border: none;
+  width: 98%;
+  padding: 1%;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+#search:focus {
+  outline: 1px solid gray;
+}

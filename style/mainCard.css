@@ -35,6 +35,17 @@
   transform: scale(0.9);
 }
 
+/* .margin {
+  margin-top: -90%;
+  animation: slide 1s linear both;
+}
+
+@keyframes slide {
+  100% {
+    margin-top: 10%;
+  }
+} */
+
 .margin {
   margin-top: 10%;
 }
