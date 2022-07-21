@@ -11,7 +11,7 @@
   height: 40%;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   padding: 0px 1.5rem 1.5rem 1.5rem;
   background-color: #fff;
   transition: all 0.5s;
@@ -27,7 +27,8 @@
 
 #chart,
 #chart2,
-#chart3 {
+#chart3,
+#chart5 {
   width: 80%;
   margin: 0 auto;
   margin-top: 1.5rem;
@@ -37,6 +38,10 @@
   position: relative;
   overflow: hidden;
   padding: 0px 1.5rem 1.5rem 1.5rem;
+}
+
+#chart5 {
+  margin-bottom: 3rem;
 }
 
 .chart_title {
@@ -335,4 +340,26 @@
   0% {
     background-color: rgba(0, 0, 0, 0.1);
   }
+}
+
+.recommendjob {
+  width: 100%;
+
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recommendjob p {
+  height: 2rem;
+  padding: 1%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(101, 101, 101, 1);
+  background-color: rgba(146, 146, 146, 0.3);
+  outline: 2px solid rgba(101, 101, 101, 1);
+  border-radius: 10px;
+  margin: 1%;
 }
