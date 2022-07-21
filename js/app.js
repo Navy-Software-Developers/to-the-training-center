@@ -185,22 +185,45 @@ window.onload = () => {
 
   // 로그인 여부 확인
   let login_btn = document.querySelector("#login_btn");
-  postData(verify_url, { token: getCookie("my-app-auth") }).then((result) => {
-    if (result.code) {
+  async function checklogin() {
+    const response = await fetch(verify_url, {
+      method: "POST",
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "include", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("my-app-auth"),
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify({ token: getCookie("my-app-auth") }), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
+    });
+    if (!response.ok) {
       login_btn.innerHTML = "로그인";
       login_btn.href = "./login";
     } else {
       login_btn.textContent = "로그아웃";
       login_btn.removeAttribute("href");
-      login_btn.onclick = () => {
-        // logout();
-        alert("hello");
+      login_btn.onclick = (e) => {
+        logout(e);
+        // alert("hello");
       };
     }
-  });
 
-  function logout() {
+  }
+ 
+
+  checklogin();
+
+  function logout(e) {
+    
+    if(login_btn.innerText === '로그아웃'){
+      e.preventDefault();
+    console.log(getCookie("my-app-auth"));
     setCookie("my-app-auth", "");
+    console.log(getCookie("my-app-auth"));
+    login_btn.innerHTML = "로그인";
+    login_btn.href = "./login";}
   }
 
   // login_btn.onclick = ()=>{
