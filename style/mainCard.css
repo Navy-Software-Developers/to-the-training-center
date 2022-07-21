@@ -11,7 +11,7 @@
 /* 카드의 큰 모양 */
 
 .item_bar {
-  width: 30vh;
+  width: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
