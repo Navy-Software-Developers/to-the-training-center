@@ -61,6 +61,14 @@
 
 @media screen and (max-width: 600px) {
   .navbox a{
+    width: auto;
     font-size: 0.8rem;
+  }
+  #navbar{
+    height: 11vh;
+  }
+
+  .navbox{
+    width: 86%;
   }
 }
