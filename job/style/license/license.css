@@ -1,0 +1,182 @@
+.search_box {
+  width: 100%;
+  height: 100vh;
+}
+.search_wrap {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.search_box {
+  width: 100%;
+  height: 3rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.search_license {
+  border: none;
+  outline: 2px solid rgb(232, 232, 255);
+  width: 80%;
+  border-radius: 5px;
+  margin-right: 1rem;
+  padding: 1%;
+  font-size: 1rem;
+  color: gray;
+}
+
+.add {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(89, 156, 255, 0.2);
+  color: rgba(89, 156, 255, 1);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.license_head {
+  width: 96%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  list-style: none;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+.license_head li {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgba(113, 113, 113, 0.938);
+}
+
+#licesne_list {
+  margin: 0 auto;
+  margin-top: 1rem;
+
+  width: 98%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 0 0 2% 0;
+  background-color: #fff;
+  border-radius: 5px;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.license_item {
+  width: 98%;
+  padding: 1%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+}
+.license_item:hover {
+  background-color: rgba(166, 166, 166, 0.304);
+}
+.license_have {
+  width: 15%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(186, 246, 186, 0.481);
+  outline: 3px solid rgba(186, 246, 186, 1);
+  color: rgb(122, 175, 122);
+
+  /* background-color: rgba(250, 244, 119, 0.481);
+  outline: 3px solid rgb(225, 222, 162);
+  color: rgb(165, 174, 97); */
+}
+.license_none {
+  width: 15%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  /* background-color: rgba(186, 246, 186, 0.481);
+    outline: 3px solid rgba(186, 246, 186, 1);
+    color: rgb(122, 175, 122); */
+
+  background-color: rgba(250, 244, 119, 0.481);
+  outline: 3px solid rgb(225, 222, 162);
+  color: rgb(165, 174, 97);
+}
+
+.license_info {
+  width: 80%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1rem;
+  color: rgb(142, 142, 142);
+  height: 100%;
+}
+
+#info {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 92%;
+  height: 40%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 3rem;
+  padding: 0px 1.5rem 1.5rem 1.5rem;
+  background-color: #fff;
+  transition: all 0.5s;
+}
+
+.license_info_list {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1rem;
+  color: rgb(142, 142, 142);
+  height: 100%;
+}
+
+.license_item_list {
+  width: 98%;
+  padding: 1%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.license_item_list:nth-child(odd) {
+  background-color: rgba(219, 219, 219, 0.3);
+}

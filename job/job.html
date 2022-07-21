@@ -29,12 +29,12 @@
       <div class="title_bar">
         <div class="wrap">
           <p id="title" class="position chart_title">SW개발병</p>
-        <p class="good">강력추천👍</p>
+          <p class="good">강력추천👍</p>
 
         </div>
 
 
-        
+
         <div class="toggle">
           <div class="wiki">
             수정
@@ -52,7 +52,7 @@
       </p>
 
 
-  
+
       <div class="wiki_type_box">
         <textarea onkeydown="resize(this)" onkeyup="resize(this)" placeholder="위키를 작성 해주십시오."
           class="wiki_command"></textarea>
@@ -68,7 +68,7 @@
         <p class="chart_title">경쟁률</p>
       </div>
       <canvas id="myChart"></canvas>
-      
+
     </div>
 
     <div id="chart2">
@@ -77,69 +77,69 @@
       </div>
       <canvas id="myChart2"></canvas>
       <!-- <div class="skeleton canvas_skeleton"> -->
-          
-      </div>
+
+    </div>
+  </div>
+
+  <div id="chart3">
+    <div class="title_bar">
+      <p class="chart_title"> 모집 인원수</p>
+
     </div>
 
-    <div id="chart3">
-      <div class="title_bar">
-        <p class="chart_title"> 모집 인원수</p>
+    <div id="table">
+      <div class="head">
+        <!-- 육해공 ,직별,  모집인원, 지원인원 ,몇회차,  입영장소 , 입영월 -->
+
+
+        <li class="col">회차</li>
+        <li class="col">모집인원</li>
+        <li class="col">지원인원</li>
+        <li class="col">경쟁률</li>
+        <li class="col">모집기간</li>
+        <li class="col">입영장소</li>
+        <li class="col">입영월</li>
 
       </div>
 
-      <div id="table">
-        <div class="head">
-          <!-- 육해공 ,직별,  모집인원, 지원인원 ,몇회차,  입영장소 , 입영월 -->
+      <div class="table">
 
-          
-          <li class="col">회차</li>
-          <li class="col">모집인원</li>
-          <li class="col">지원인원</li>
-          <li class="col">경쟁률</li>
-          <li class="col">모집기간</li>
-          <li class="col">입영장소</li>
-          <li class="col">입영월</li>
-          
-        </div>
 
-        <div class="table">
- 
-
-        </div>
       </div>
     </div>
+  </div>
 
-    <div class="info margin_bottom position">
-      <div class="title_bar">
-        <p id="title" class="position chart_title">가산점 자격증</p>
+  <div class="info margin_bottom position">
+    <div class="title_bar">
+      <p id="title" class="position chart_title">가산점 자격증</p>
 
-        <div class="search">
-          <button class="search_bar">검색해보기</button>
-          <input type="text" name="" id="" class="search_input">
-          <p class="search_close">닫기</p>
-          <div class="autocomplete">
-            <li class="search_list">자동완성 테스트1</li>
-            <li class="search_list">자동완성 테스트2</li>
-            <li class="search_list">자동완성 테스트3</li>
+      <div class="search">
+        <button class="search_bar">검색해보기</button>
+        <input type="text" name="" id="" class="search_input">
+        <p class="search_close">닫기</p>
+        <div class="autocomplete">
+          <li class="search_list">자동완성 테스트1</li>
+          <li class="search_list">자동완성 테스트2</li>
+          <li class="search_list">자동완성 테스트3</li>
 
-          </div>
         </div>
-
       </div>
-      <script>
-        function resize(obj) {
-          obj.style.height = "1px";
-          obj.style.height = (1 + obj.scrollHeight) + "px";
-        }
-      </script>
 
-       
+    </div>
+    <script>
+      function resize(obj) {
+        obj.style.height = "1px";
+        obj.style.height = (1 + obj.scrollHeight) + "px";
+      }
+    </script>
 
-<script src="../js/nav/nav.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-      <script type="module" src="./js/job/app.js"></script>
-      <script type="module" src="./js/job/toggle.js"></script>
-      <script src="./js/job/wiki.js"></script>
+
+
+    <script src="../js/nav/nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    <script type="module" src="./js/job/app.js"></script>
+    <script type="module" src="./js/job/toggle.js"></script>
+    <script src="./js/job/wiki.js"></script>
 
 </body>
 

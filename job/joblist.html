@@ -37,11 +37,13 @@
       <img src="./media/navy.jfif" alt="">
     </div>
 
+
     <input placeholder="직별을 검색해 주십시오" autofocus id="search" type="text">
+
+
+
     <div id="mos_list" class="list">
       <!---->
-
-
     </div>
 
 
@@ -71,10 +73,15 @@
     let mili_btn = document.querySelectorAll('.mili_btn');
     let search_input = document.querySelector("#search");
     let mos_list = document.querySelector("#mos_list");
+    let mili_logo = document.querySelector('.mili_img_box > img');
 
+    const logo = ['./media/army.jfif', './media/navy.jfif', './media/airforce.jpg', './media/navy2.png'];
+    // background-color: rgb(255 207 207 / 40%);
+    //     color: rgb(247 121 121);
     mili_btn.forEach((e, index) => {
       e.addEventListener('click', () => {
         click_branch_btn(index + 1);
+        mili_logo.src = logo[index];
 
       })
     })
