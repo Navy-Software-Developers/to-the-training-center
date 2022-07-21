@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- 
+
   width: 100%;
   height: 4rem;
   border-bottom: 1px solid rgb(216, 216, 216);
@@ -69,7 +69,7 @@
   border-radius: 7px;
   background-color: rgba(138, 169, 255, 0.1);
   color: rgb(115, 164, 255);
-  
+
   display: inline-block;
   display: flex;
   justify-content: center;
@@ -221,12 +221,11 @@
 }
 
 .position {
-  
 }
 
 #table {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 #table .head {
@@ -247,10 +246,9 @@
   width: 14.2%;
   text-align: center;
 }
- 
- 
+
 .table {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   border: 3px solid red;
   width: 98%;
   padding: 1%;
@@ -267,7 +265,7 @@
   justify-content: center;
   align-items: center;
 }
-.row_box:nth-child(odd){
+.row_box:nth-child(odd) {
   background-color: rgba(181, 196, 240, 0.2);
 }
 
@@ -275,42 +273,45 @@
   width: 14.2%;
   text-align: center;
   border-right: 1px solid gray;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 0.8rem;
   color: rgb(99, 99, 99);
   overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.5s;
 }
- 
-.row_box .row:nth-child(7),.col:nth-child(7) {
+
+.row:nth-child(5):hover {
+  width: 30%;
+  background-color: rgba(229, 255, 0, 0.7);
+}
+
+.row_box .row:nth-child(7),
+.col:nth-child(7) {
   border: none;
 }
 
-
-.good{
+.good {
   background-color: rgba(82, 177, 93, 0.1);
-  color:rgb(56, 139, 66) ;
+  color: rgb(56, 139, 66);
   border-radius: 10px;
   width: 25%;
-  height: 40% ;
- text-align: center;
- padding: 1%;
- transform: translate(50%,50%);
- transform: translate(0px,5%);
- 
-  
+  height: 40%;
+  text-align: center;
+  padding: 1%;
+  transform: translate(50%, 50%);
+  transform: translate(0px, 5%);
 }
 
-.wrap{
- 
+.wrap {
   width: 60%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.skeleton{
+.skeleton {
   background-color: rgba(0, 0, 0, 0.1);
   width: 80%;
   height: 80%;
@@ -318,10 +319,9 @@
   transition: all 0.5s;
   border-radius: 10px;
   animation: skeleton-loading 1s infinite both;
-  
 }
 
-.canvas_skeleton{
+.canvas_skeleton {
   width: 100%;
   height: 30vh;
   margin-top: 1rem;
@@ -329,13 +329,10 @@
 }
 
 @keyframes skeleton-loading {
- 
-  100%{
-    background-color: rgba(0, 0, 0, 0.3)
+  100% {
+    background-color: rgba(0, 0, 0, 0.3);
   }
-  0%{
-    background-color: rgba(0, 0, 0, 0.1)
+  0% {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
-
- 
