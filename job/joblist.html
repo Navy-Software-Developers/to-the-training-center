@@ -34,7 +34,7 @@
   </div>
   <div class=" list_wrap">
     <div class="mili_img_box">
-      <img src="./media/navy.jfif" alt="">
+      <img src="./media/korea.png" alt="">
     </div>
 
 
@@ -74,17 +74,43 @@
     let search_input = document.querySelector("#search");
     let mos_list = document.querySelector("#mos_list");
     let mili_logo = document.querySelector('.mili_img_box > img');
+    let idx = null;
+
+    // /* 해병 color: rgb(255 130 130);
+    //     background-color: rgb(255 51 51 / 10%);
+
+    //     육군color: rgb(89 175 46);
+    //     background-color: rgb(52 215 84 / 21%);
+
+    //     해군  color: rgb(82 183 243);
+    //     background-color: rgb(52 166 215 / 21%);
+    //     공군
+    //       color: rgb(146, 146, 146);
+    //   background-color: rgba(0, 0, 0, 0.1);
+
+    const mili_color = [
+      {
+        'color': 'rgb(89 175 46)',
+        'background': 'rgb(52 215 84 / 21%)'
+      },
+      {
+        'color': 'rgb(82 183 243)',
+        'background': 'rgb(52 166 215 / 21%)'
+      },
+      {
+        'color': 'rgb(146, 146, 146)',
+        'background': ' rgba(0, 0, 0, 0.1)'
+      },
+      {
+        'color': 'rgb(255 130 130)',
+        'background': 'rgb(255 51 51 / 10%)'
+      }
+    ];
 
     const logo = ['./media/army.jfif', './media/navy.jfif', './media/airforce.jpg', './media/navy2.png'];
     // background-color: rgb(255 207 207 / 40%);
     //     color: rgb(247 121 121);
-    mili_btn.forEach((e, index) => {
-      e.addEventListener('click', () => {
-        click_branch_btn(index + 1);
-        mili_logo.src = logo[index];
 
-      })
-    })
 
 
 
@@ -93,34 +119,47 @@
     let data;
     let currentButton = null;
     let url = url_prefix + '/api/mos/';
+
+
     fetch(url)
       .then(function (response) {
+
         return response.json();
       })
       .then(function (json) {
         data = json;
         load();
+        mili_btn.forEach((e, index) => {
+          e.addEventListener('click', () => {
+            click_branch_btn(index + 1);
+            mili_logo.src = logo[index];
+            idx.forEach((el) => {
+              pickColor(el, index);
+            })
+            function click_branch_btn(branch) {
+              if (currentButton == branch) {
+                load();
+              } else {
+                load(branch);
+              }
+              //Todo 버튼효과 변경
+
+            }
+
+          })
+        })
       })
 
     function change(e, index) {
 
     }
 
-    function click_branch_btn(branch) {
-      if (currentButton == branch) {
-        load();
-      } else {
-        load(branch);
-      }
-      //Todo 버튼효과 변경
-
-    }
 
 
     function load(branch = null, query = search_input.value.toLowerCase()) {
       currentButton = branch;
       mos_list.innerHTML = '';
-      console.log('data:', data);
+      // console.log('data:', data);
       for (const element of data) {
         if ((element.branch == branch || !branch) && (element.name.toLowerCase().includes(query) || !query)) {
           let li = document.createElement('li');
@@ -160,6 +199,27 @@
         }
 
       }
+
+      idx = document.querySelectorAll('.idx');
+
+      idx.forEach((e) => {
+        if (e.innerText === '육군') {
+          pickColor(e, 0);
+        } else if (e.innerText === '해군') {
+          pickColor(e, 1);
+        } else if (e.innerText === '공군') {
+          pickColor(e, 2);
+        } else if (e.innerText === '해병대') {
+          pickColor(e, 3);
+        }
+
+
+      })
+    }
+
+    function pickColor(e, index) {
+      e.style.color = mili_color[index].color;
+      e.style.backgroundColor = mili_color[index].background;
     }
 
     search_input.oninput = function () {

@@ -34,10 +34,8 @@
   cursor: pointer;
 }
 
-.logo{
-  font-family: 'ChosunCentennial';
- 
-
+.logo {
+  font-family: "ChosunCentennial";
 }
 
 .login_btn:hover {
@@ -58,17 +56,22 @@
   }
 }
 
-
 @media screen and (max-width: 600px) {
-  .navbox a{
+  .navbox a {
     width: auto;
     font-size: 0.8rem;
   }
-  #navbar{
-    height: 11vh;
+  #navbar {
+    height: 7vh;
   }
 
-  .navbox{
+  .navbox {
     width: 86%;
+  }
+  .navbox a {
+    font-weight: bold;
+  }
+  .item_bar {
+    width: 43vh;
   }
 }

@@ -307,6 +307,9 @@
   padding: 1%;
   transform: translate(50%, 50%);
   transform: translate(0px, 5%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrap {
@@ -366,39 +369,47 @@
 
 /*1200px 이상일때*/
 @media screen and (min-width: 1200px) {
-  .job_contents{
+  .job_contents {
     width: 66%;
     margin: 0 auto;
   }
 }
 
-
 /*이하 일때*/
 @media screen and (max-width: 700px) {
-   .chart_title{
+  .chart_title {
     font-size: 1rem;
     display: flex;
     align-items: center;
-   }
-
-   .head .col{
-    font-size: 0.7rem;
- 
-   }
-
-   .good{
-    width: 37%;
-   }
-
-   .toggle_box{
-    width: 43px;
-    height: 41%;
-   }
-   .toggle{
-    width: 41%;
-   }
-   .wiki{
-    width: 24%;
-   }
   }
 
+  .head .col {
+    font-size: 0.7rem;
+  }
+
+  .good {
+    width: 37%;
+  }
+
+  .toggle_box {
+    width: 43px;
+    height: 41%;
+  }
+  .toggle {
+    width: 41%;
+    justify-content: right;
+  }
+  .wiki {
+    width: 24%;
+  }
+
+  .wrap {
+    width: 68%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .good {
+    font-size: 0.7rem;
+  }
+}

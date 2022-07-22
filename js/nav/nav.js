@@ -7,6 +7,6 @@ window.document.onmousewheel = (e) => {
   if (wheel == 0) {
     nav_bar.style.transform = `translate(0px,0px)`;
   } else if (wheel == -2.5) {
-    nav_bar.style.transform = `translate(0px,-60px)`;
+    nav_bar.style.transform = `translate(0px,-${nav_bar.clientHeight}px)`;
   }
 };
