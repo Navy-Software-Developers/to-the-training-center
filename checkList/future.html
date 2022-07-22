@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,77 +13,94 @@
 
     <title>미래설계</title>
 </head>
+
 <body>
     <nav id="navbar">
         <div class="navbox">
-          <a class="logo" href="../index.html">훈련소 가는 길</a>
-          <a href="#" class="login_btn">신검장</a>
-          <a href="../job/joblist.html" class="login_btn">보직탐색</a>
-          <a href="../job/favor.html" class="login_btn">즐겨찾기</a>
-          <a href="./index.html" class="login_btn">준비물</a>
+            <a class="logo" href="../index.html">훈련소 가는 길</a>
+            <a href="#" class="login_btn">신검장</a>
+            <a href="../job/joblist.html" class="login_btn">보직탐색</a>
+            <a href="../job/favor.html" class="login_btn">즐겨찾기</a>
+            <a href="./index.html" class="login_btn">준비물</a>
         </div>
-      </nav>
+    </nav>
 
-      <div class="mili_box">
+    <div class="mili_box">
         <div class="mili_selector">
-          <li class="army mili_btn">육군</li>
-          <li class="navy mili_btn">해군</li>
-          <li class="airforce mili_btn">공군</li>
-          <li class=" navy2 mili_btn">해병대</li>
-        </div>
-      </div>
-
-     <div id="chart">
-      <div class="title_bar">
-        <p class="chart_title">육군</p>
-      </div>
-      
-<select class="saving_sel" >
-    <option value="">적금 금액</option>
-    <option value="10">10만원</option>
-    <option value="20">20만원</option>
-    <option value="30">30만원</option>
-    <option value="40">40만원</option>
-</select>
-
-    <div class="show">
-        <div class="classes">
-            <li>이병</li>
-            <li class="salary">11만원</li>
-        </div>
-        <div class="classes">
-            <li>일병</li>
-            <li class="salary">13만원</li>
-        </div>
-        <div class="classes">
-            <li>상병</li>
-            <li class="salary">17만원</li>
-        </div>
-        <div class="classes">
-            <li>병장</li>
-            <li class="salary">13만원</li>
-        </div>
-        
-    </div>
-
-    <div class="myMoney">
-        <div class="row">
-            <li>적금시 받는 금액 :</li>
-            <li><p class="my_salary">49</p>만원</li>
-        </div>
-        <div class="row">
-            <li>적금시 받는 금액 :</li>
-            <li><p class="total_salary">23</p>만원</li>
-        </div>
-        <div class="row">
-            <li>적금 가입 전 후 보다 <p class="money_price">30 만원</p> 더 받아요</li>
- 
+            <li class="army mili_btn">육군</li>
+            <li class="navy mili_btn">해군</li>
+            <li class="airforce mili_btn">공군</li>
+            <li class=" navy2 mili_btn">해병대</li>
         </div>
     </div>
 
-</div>
+    <div id="chart" class="margin">
+        <div class="title_bar">
+            <p class="chart_title">육군</p>
+        </div>
+
+        <select class="saving_sel">
+            <option value="">적금 금액</option>
+            <option value="10">10만원</option>
+            <option value="20">20만원</option>
+            <option value="30">30만원</option>
+            <option value="40">40만원</option>
+        </select>
+
+        <div class="show">
+            <div class="classes">
+                <li>이병</li>
+                <li class="salary">11만원</li>
+            </div>
+            <div class="classes">
+                <li>일병</li>
+                <li class="salary">13만원</li>
+            </div>
+            <div class="classes">
+                <li>상병</li>
+                <li class="salary">17만원</li>
+            </div>
+            <div class="classes">
+                <li>병장</li>
+                <li class="salary">13만원</li>
+            </div>
+
+        </div>
+
+        <div class="myMoney">
+            <div class="row">
+                <li>월급 모은 금액 :</li>
+                <li>
+                    <p class="my_salary">49</p>만원
+                </li>
+            </div>
+            <div class="row">
+                <li>적금 모은 금액 :</li>
+                <li>
+                    <p class="total_salary">23</p>만원
+                </li>
+            </div>
+
+            <div class="row">
+                <li>적금에 국가지원 33%추가 금액 :</li>
+                <li>
+                    <p class="korea_add">23</p>만원
+                </li>
+            </div>
+            <div class="row">
+                <li>적금 가입 전 후 보다 <p class="money_price">30 만원</p> 더 받아요</li>
+
+            </div>
+        </div>
+
+        <canvas id="graph">
+
+        </canvas>
+
+    </div>
 
     <script src="./js/future/app.js"></script>
- 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 </body>
+
 </html>

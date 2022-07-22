@@ -1,67 +1,79 @@
-.show{
- 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
-    margin-top: 1rem;
-    
+.show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  margin-top: 1rem;
 }
 
-.show .classes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
- 
-    width: 17%;
-    
+.show .classes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 17%;
 }
-.classes li{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    height: 1.6rem;
+.classes li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 1.6rem;
 }
-.classes li:nth-child(1){
-    margin-bottom: 1rem;
-    
-    width: 80%;
-    background-color: rgba(202, 202, 255,0.5);
-    color: rgb(125, 125, 255);
+.classes li:nth-child(1) {
+  margin-bottom: 1rem;
+
+  width: 80%;
+  background-color: rgba(202, 202, 255, 0.5);
+  color: rgb(125, 125, 255);
 }
-.classes li:nth-child(2){
-    width: 80%;
-    background-color: rgba(137, 229, 137, 0.5);
-    color: rgb(48, 140, 48);
+.classes li:nth-child(2) {
+  width: 80%;
+  background-color: rgba(137, 229, 137, 0.5);
+  color: rgb(48, 140, 48);
 }
 
-.myMoney{
-     
-    list-style: none;
-    width: 50%;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
- margin-left: 7%;
-    margin-top: 2rem;
-    padding: 1%;
+.myMoney {
+  list-style: none;
+  width: 87%;
+
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 4%;
 }
-.row{
-   
-    
-    display: flex;
-    flex-direction: row;
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
 }
 
-.row li{
-    padding: 1%;
-    color: gray;
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
+.row li {
+  padding: 1%;
+  color: gray;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
 }
 
-.money_price{
-    color: rgb(250, 174, 174);
+.money_price {
+  color: rgb(250, 174, 174);
+}
+.saving_sel {
+  margin-top: 5%;
+  margin-left: 5.8%;
+}
+
+#graph {
+  margin-top: 3rem;
+}
+
+.margin {
+  margin-bottom: 3rem;
+}
+
+body {
+  padding-bottom: 10%;
 }
