@@ -3,7 +3,7 @@ import { Card } from "./Card.js";
 let data = [
   {
     src: "./media/bodycheck.svg",
-    contents: "신검은 어디서 받나 ??",
+    contents: "자격증 등록",
     subTitle: "STEP 1",
     position: "left",
     link: "#",
@@ -209,53 +209,46 @@ window.onload = () => {
         // alert("hello");
       };
     }
-
   }
- 
 
   checklogin();
 
   function logout(e) {
-    
-    if(login_btn.innerText === '로그아웃'){
+    if (login_btn.innerText === "로그아웃") {
       e.preventDefault();
-    console.log(getCookie("my-app-auth"));
-    setCookie("my-app-auth", "");
-    console.log(getCookie("my-app-auth"));
-    login_btn.innerHTML = "로그인";
-    login_btn.href = "./login";}
+      console.log(getCookie("my-app-auth"));
+      setCookie("my-app-auth", "");
+      console.log(getCookie("my-app-auth"));
+      login_btn.innerHTML = "로그인";
+      login_btn.href = "./login";
+    }
   }
 
   // login_btn.onclick = ()=>{
   //   alert('hel');
   // }
 
-  window.addEventListener('resize',()=>{
+  window.addEventListener("resize", () => {
     resize();
-  })
+  });
 
-  let item_bar = document.querySelectorAll('.item_bar');
-  let card = document.querySelectorAll('.card');
+  let item_bar = document.querySelectorAll(".item_bar");
+  let card = document.querySelectorAll(".card");
 
-  let card_list = [card[0],card[3],card[1],card[4],card[2]];
+  let card_list = [card[0], card[3], card[1], card[4], card[2]];
 
-  function resize(){
-  
-    if(window.innerWidth < 600){
-      
-      for(let i =0 ;i  < card.length ; i++){
-         item_bar[0].appendChild(card_list[i]);
-
+  function resize() {
+    if (window.innerWidth < 600) {
+      for (let i = 0; i < card.length; i++) {
+        item_bar[0].appendChild(card_list[i]);
       }
-    }else {
-      for(let i =0 ;i < 3; i++){
-        item_bar[0].appendChild(card[i])
+    } else {
+      for (let i = 0; i < 3; i++) {
+        item_bar[0].appendChild(card[i]);
       }
-      for(let i =3 ;i < 5;i++){
+      for (let i = 3; i < 5; i++) {
         item_bar[1].appendChild(card[i]);
       }
     }
-
- 
   }
 };
