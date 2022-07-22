@@ -354,6 +354,8 @@
 }
 
 .recommendjob p {
+-webkit-appearance: none;
+	-webkit-border-radius: 0;
   height: 2rem;
   padding: 1%;
   font-size: 1rem;
