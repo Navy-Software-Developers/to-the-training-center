@@ -61,10 +61,10 @@ let etc = [
     index: 5,
   },
   {
-    name:"쇼핑몰 바로가기",
-    check:false,
-    index:5
-  }
+    name: "쇼핑몰 바로가기",
+    check: false,
+    index: 5,
+  },
   // {
   //   name: "보급품 확인",
   //   check: false,
@@ -155,105 +155,103 @@ let etc = [
 //   new App();
 // };
 
-let list = document.querySelectorAll(".list");
+// let list = document.querySelectorAll(".list");
 
-function create(name, className) {
-  let html = `
-        <li class="list_box">
-        <span class="idx checkbox">
-            <input class=${className} type="checkbox"  name=""  >
-         
-        </span>
+// function create(name, className) {
+//   let html = `
+//         <li class="list_box">
+//         <span class="idx checkbox">
+//             <input class=${className} type="checkbox"  name=""  >
 
+//         </span>
 
-        <div class="wrapper">
-            <p class="positionName">
-                ${name}
-            </p>
+//         <div class="wrapper">
+//             <p class="positionName">
+//                 ${name}
+//             </p>
 
-            <span class="arrow_box">
-                <img src="./media/arrow.svg" alt="" class="href_btn">
-            </span>
+//             <span class="arrow_box">
+//                 <img src="./media/arrow.svg" alt="" class="href_btn">
+//             </span>
 
-        </div>
+//         </div>
 
+//     </li>
+//         `;
 
-    </li>
-        `;
+//   return html;
+// }
 
-  return html;
-}
+// function update(element, loop, data, className) {
+//   for (let i = 0; i < loop; i++) {
+//     element.innerHTML += create(data[i].name, className);
+//   }
+// }
 
-function update(element, loop, data, className) {
-  for (let i = 0; i < loop; i++) {
-    element.innerHTML += create(data[i].name, className);
-  }
-}
+// update(list[0], material.length, material, "material");
+// update(list[1], free_material.length, free_material, "free_material");
+// update(list[2], etc.length, etc, "etc");
 
-update(list[0], material.length, material, "material");
-update(list[1], free_material.length, free_material, "free_material");
-update(list[2], etc.length, etc, "etc");
+// let material_btn = document.querySelectorAll(".material");
+// let free_material_btn = document.querySelectorAll(".free_material");
+// let etc_btn = document.querySelectorAll(".etc");
+// const save = document.querySelector(".save");
 
-let material_btn = document.querySelectorAll(".material");
-let free_material_btn = document.querySelectorAll(".free_material");
-let etc_btn = document.querySelectorAll(".etc");
-const save = document.querySelector(".save");
+// material_btn.forEach((e, index) => {
+//   e.addEventListener("click", () => {
+//     if (e.checked === true) {
+//       material[index].check = true;
+//     } else {
+//       material[index].check = false;
+//     }
+//     console.log(material);
+//   });
+// });
 
-material_btn.forEach((e, index) => {
-  e.addEventListener("click", () => {
-    if (e.checked === true) {
-      material[index].check = true;
-    } else {
-      material[index].check = false;
-    }
-    console.log(material);
-  });
-});
+// free_material_btn.forEach((e, index) => {
+//   e.addEventListener("click", () => {
+//     if (e.checked === true) {
+//       free_material[index].check = true;
+//     } else {
+//       free_material[index].check = false;
+//     }
+//     console.log(free_material);
+//   });
+// });
 
-free_material_btn.forEach((e, index) => {
-  e.addEventListener("click", () => {
-    if (e.checked === true) {
-      free_material[index].check = true;
-    } else {
-      free_material[index].check = false;
-    }
-    console.log(free_material);
-  });
-});
+// etc_btn.forEach((e, index) => {
+//   e.addEventListener("click", () => {
+//     if (e.checked === true) {
+//       etc[index].check = true;
+//     } else {
+//       etc[index].check = false;
+//     }
+//     console.log(etc);
+//   });
+// });
 
-etc_btn.forEach((e, index) => {
-  e.addEventListener("click", () => {
-    if (e.checked === true) {
-      etc[index].check = true;
-    } else {
-      etc[index].check = false;
-    }
-    console.log(etc);
-  });
-});
+// // let url = '';
 
-// let url = '';
+// function savePost(url, data) {
+//   fetch(url, {
+//     Method: "POST",
+//     Headers: {
+//       Accept: "application.json",
+//       "Content-Type": "application/json",
+//     },
+//     Body: JSON.stringify(data),
+//   })
+//     .then((response) => {
+//       if (response.status == 200) {
+//         console.log(success);
+//       }
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }
 
-function savePost(url, data) {
-  fetch(url, {
-    Method: "POST",
-    Headers: {
-      Accept: "application.json",
-      "Content-Type": "application/json",
-    },
-    Body: JSON.stringify(data),
-  })
-    .then((response) => {
-      if (response.status == 200) {
-        console.log(success);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
-  save.addEventListener('click',()=>{
-    let check_data = [material, free_material];
-    savePost(url,check_data);
-  })
+// save.addEventListener("click", () => {
+//   let check_data = [material, free_material];
+//   savePost(url, check_data);
+// });
