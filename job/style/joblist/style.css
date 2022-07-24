@@ -157,21 +157,24 @@
 }
 #search {
   border: none;
-  outline: 2px solid rgb(232, 232, 255);
+  border: 2px solid rgb(232, 232, 255);
   width: 98%;
   height: 3rem;
   padding: 1%;
   font-size: 1rem;
   margin-bottom: 2rem;
-  border-radius: 5px;
+  border-radius: 10px;
   color: rgb(140, 140, 140, 1);
+  transition: all 0.5s;
 }
 #search::placeholder {
   color: gray;
 }
 
 #search:focus {
-  outline: 1px solid gray;
+  outline: none;
+  border-radius: 15px;
+  border: 2px solid rgb(193, 193, 255);
 }
 
 /*1200px 이상일때*/
