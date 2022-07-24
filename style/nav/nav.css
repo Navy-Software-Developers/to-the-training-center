@@ -75,3 +75,13 @@
     width: 43vh;
   }
 }
+
+@media screen and (max-width: 430px) {
+  #navbar .navbox {
+    width: 93%;
+  }
+
+  .navbox a {
+    font-size: 0.8rem;
+  }
+}

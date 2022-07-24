@@ -43,7 +43,7 @@
 
 /* 보직 목록 */
 .list_wrap {
-  width: 75%;
+  width: 85%;
   padding: 10px;
   height: auto;
   margin: 0 auto;
@@ -197,7 +197,7 @@
 /* 이하 */
 @media screen and (max-width: 700px) {
   .list_wrap {
-    width: 96%;
+    width: 90%;
   }
 
   .positionName {
@@ -212,9 +212,9 @@
   }
 
   .mili_btn {
-    width: 4rem;
-    font-size: 1rem;
-    height: 2rem;
+    width: 21%;
+    font-size: 0.9rem;
+    height: 2.5rem;
     border-radius: 20px;
   }
   #chart {
@@ -233,5 +233,16 @@
     width: 14%;
     margin-left: 1.1rem;
     height: 62%;
+  }
+
+  .mili_box {
+    width: 85.3%;
+  }
+
+  .mili_btn {
+    width: 21%;
+    font-size: 0.9rem;
+    height: 2rem;
+    border-radius: 20px;
   }
 }
