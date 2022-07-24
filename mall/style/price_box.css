@@ -89,3 +89,36 @@
 .purchase:hover {
   background-color: rgb(232, 232, 250);
 }
+
+.show_price_box {
+  background-color: #ffffff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 30px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  position: fixed;
+  right: 6%;
+  bottom: 6%;
+  transition: all 0.3s;
+}
+
+.show_price_box:hover {
+  transform: rotate(360deg);
+}
+
+.show_price_box img {
+  width: 80%;
+  height: 80%;
+}
+
+/* 700px 이하일때 */
+
+@media screen and (max-width: 700px) {
+  .price_box {
+    display: none;
+  }
+}
