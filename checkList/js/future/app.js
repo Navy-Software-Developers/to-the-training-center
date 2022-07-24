@@ -13,6 +13,12 @@ let promotion_period = {
   two: 6,
   three: 6,
 };
+
+const salary_list = [
+  510100, 510100, 552100, 552100, 552100, 552100, 552100, 552100, 610200,
+  610200, 610200, 610200, 610200, 610200, 676100, 676100, 676100, 676100,
+];
+
 //육(해병) 해 공 순서  병장기간
 let mili = [4, 6, 8];
 
@@ -41,6 +47,7 @@ saving_sel.onclick = () => {
 
 const my_salary = document.querySelector(".my_salary");
 const total_salary = document.querySelector(".total_salary");
+const support_money = document.querySelector(".suport_money");
 const money_price = document.querySelector(".money_price");
 
 // 1 ,2 ,3  육 해 공
@@ -69,96 +76,18 @@ let mili_work = [
   "18개월",
 ];
 
-let one_mili = 510100 * 2;
-let two_mili = 552100 * 6;
-let three_mili = 610200 * 6;
-let four_mili = 676100 * 4;
+let total = [];
+let sum = 0;
+let mili_pk = 18;
 
-let saving_money = 400000;
+for (let i = 0; i < mili_pk; i++) {
+  if (mili_pk == 18) {
+    sum += salary_list[i];
+    total.push(sum);
+  }
+}
 
-let money = [
-  510100,
-  510100 * 2,
-
-  552100 + one_mili,
-  552100 * 2 + one_mili,
-  552100 * 3 + one_mili,
-  552100 * 4 + one_mili,
-  552100 * 5 + one_mili,
-  552100 * 6 + one_mili,
-
-  610200 * 1 + one_mili + two_mili,
-  610200 * 2 + one_mili + two_mili,
-  610200 * 3 + one_mili + two_mili,
-  610200 * 4 + one_mili + two_mili,
-  610200 * 5 + one_mili + two_mili,
-  610200 * 6 + one_mili + two_mili,
-
-  676100 * 1 + one_mili + two_mili + three_mili,
-  676100 * 2 + one_mili + two_mili + three_mili,
-  676100 * 3 + one_mili + two_mili + three_mili,
-  676100 * 4 + one_mili + two_mili + three_mili,
-];
-
-let s_one_mili = (510100 - 40) * 2;
-let s_two_mili = (552100 - 40) * 6;
-let s_three_mili = (610200 - 40) * 6;
-let s_four_mili = (676100 - 40) * 4;
-
-let save_money2 = [
-  110100,
-  110100 * 2,
-
-  152100 + s_one_mili,
-  152100 * 2 + s_one_mili,
-  152100 * 3 + s_one_mili,
-  152100 * 4 + s_one_mili,
-  152100 * 5 + s_one_mili,
-  152100 * 6 + s_one_mili,
-
-  210200 * 1 + s_one_mili + s_two_mili,
-  210200 * 2 + s_one_mili + s_two_mili,
-  210200 * 3 + s_one_mili + s_two_mili,
-  210200 * 4 + s_one_mili + s_two_mili,
-  210200 * 5 + s_one_mili + s_two_mili,
-  210200 * 6 + s_one_mili + s_two_mili,
-
-  276100 * 1 + s_one_mili + s_two_mili + s_three_mili,
-  276100 * 2 + s_one_mili + s_two_mili + s_three_mili,
-  276100 * 3 + s_one_mili + s_two_mili + s_three_mili,
-  (33 / 100) *
-    (276100 * 4 +
-      s_one_mili +
-      s_two_mili +
-      s_three_mili +
-      (5 / 100) * (276100 * 4 + s_one_mili + s_two_mili + s_three_mili)) +
-    (276100 * 4 +
-      s_one_mili +
-      s_two_mili +
-      s_three_mili +
-      (5 / 100) * (276100 * 4 + s_one_mili + s_two_mili + s_three_mili)),
-];
-let save_money = [
-  400000,
-  400000 * 2,
-  400000 * 3,
-  400000 * 4,
-  400000 * 5,
-  400000 * 6,
-  400000 * 7,
-  400000 * 8,
-  400000 * 9,
-  400000 * 10,
-  400000 * 11,
-  400000 * 12,
-  400000 * 13,
-  400000 * 14,
-  400000 * 15,
-  400000 * 16,
-  400000 * 17,
-  (33 / 100) * ((5 / 100) * (400000 * 18) + 400000 * 18) + 400000 * 18,
-];
-console.log(money.length);
+console.log(sum);
 
 let config = {
   type: "line",
@@ -172,7 +101,7 @@ let config = {
         // ⑤dataset의 이름(String)
         label: "월급",
         // ⑥dataset값(Array)
-        data: money,
+        data: total,
         // ⑦dataset의 배경색(rgba값을 String으로 표현)
         backgroundColor: "rgba(244,0,233,0.2)",
         // ⑧dataset의 선 색(rgba값을 String으로 표현)
@@ -180,30 +109,30 @@ let config = {
         // ⑨dataset의 선 두께(Number)
         borderWidth: 1,
       },
-      {
-        // ⑤dataset의 이름(String)
-        label: "적금만",
-        // ⑥dataset값(Array)
-        data: save_money,
-        // ⑦dataset의 배경색(rgba값을 String으로 표현)
-        backgroundColor: "rgba(10,255,0,0.2)",
-        // ⑧dataset의 선 색(rgba값을 String으로 표현)
-        borderColor: "green",
-        // ⑨dataset의 선 두께(Number)
-        borderWidth: 1,
-      },
-      {
-        // ⑤dataset의 이름(String)
-        label: "월급 + 적금",
-        // ⑥dataset값(Array)
-        data: save_money2,
-        // ⑦dataset의 배경색(rgba값을 String으로 표현)
-        backgroundColor: "rgba(0,0,255,0.6)",
-        // ⑧dataset의 선 색(rgba값을 String으로 표현)
-        borderColor: "blue",
-        // ⑨dataset의 선 두께(Number)
-        borderWidth: 1,
-      },
+      // {
+      //   // ⑤dataset의 이름(String)
+      //   label: "적금만",
+      //   // ⑥dataset값(Array)
+      //   data: save_money,
+      //   // ⑦dataset의 배경색(rgba값을 String으로 표현)
+      //   backgroundColor: "rgba(10,255,0,0.2)",
+      //   // ⑧dataset의 선 색(rgba값을 String으로 표현)
+      //   borderColor: "green",
+      //   // ⑨dataset의 선 두께(Number)
+      //   borderWidth: 1,
+      // },
+      // {
+      //   // ⑤dataset의 이름(String)
+      //   label: "월급 + 적금",
+      //   // ⑥dataset값(Array)
+      //   data: save_money2,
+      //   // ⑦dataset의 배경색(rgba값을 String으로 표현)
+      //   backgroundColor: "rgba(0,0,255,0.6)",
+      //   // ⑧dataset의 선 색(rgba값을 String으로 표현)
+      //   borderColor: "blue",
+      //   // ⑨dataset의 선 두께(Number)
+      //   borderWidth: 1,
+      // },
     ],
   },
   // ⑩차트의 설정(Object)
@@ -221,17 +150,4 @@ let config = {
 
 window.onload = () => {
   new Chart(graph, config);
-
-  let save_m = 276100 * 4 + s_one_mili + s_two_mili + s_three_mili;
-  let save_per = (5 / 100) * save_m;
-
-  let mysal = document.querySelector(".my_salary");
-  let static_money = document.querySelector(".money_price");
-  let total_sal = document.querySelector(".total_salary");
-  let korea = document.querySelector(".korea_add");
-
-  mysal.textContent = money[17].toLocaleString();
-  total_sal.textContent = (save_per + save_m).toLocaleString();
-  korea.textContent = save_money2[17].toLocaleString();
-  static_money.textContent = (save_money2[17] - money[17]).toLocaleString();
 };
