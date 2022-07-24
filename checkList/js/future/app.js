@@ -47,6 +47,9 @@ let 적금저장 = [];
 let 월급합산 = 0;
 let 적금합산 = 0;
 
+let count = 0;
+let myChart = null;
+
 function 계급별월급보여주기() {
   for (let i = 0; i < 4; i++) {
     계급별월급[i].textContent = `${계급별월급_목록[i].toLocaleString()} 원`;
@@ -144,6 +147,12 @@ window.onload = () => {
       },
     };
 
-    new Chart(graph, config);
+    if (count == 0) {
+      myChart = new Chart(graph, config);
+      count++;
+      return;
+    }
+
+    console.log(myChart);
   };
 };
