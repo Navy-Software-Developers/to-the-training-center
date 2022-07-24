@@ -354,8 +354,8 @@
 }
 
 .recommendjob p {
--webkit-appearance: none;
-	-webkit-border-radius: 0;
+  -webkit-appearance: none;
+  /* -webkit-border-radius: 0; */
   height: 2rem;
   padding: 1%;
   font-size: 1rem;
@@ -364,7 +364,7 @@
   align-items: center;
   color: rgba(101, 101, 101, 1);
   background-color: rgba(146, 146, 146, 0.3);
-  outline: 2px solid rgba(101, 101, 101, 1);
+  border: 2px solid rgba(101, 101, 101, 1);
   border-radius: 10px;
   margin: 1%;
 }
