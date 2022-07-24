@@ -277,7 +277,7 @@ window.onload = () => {
         wiki_content.style.display = "block";
         load();
       } else {
-        alert("수정 실패 로그인등");
+        alert("로그인 후 작성 가능합니다!");
       }
     });
   };
