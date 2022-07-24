@@ -6,7 +6,7 @@ let data = [
     contents: "자격증 등록",
     subTitle: "STEP 1",
     position: "left",
-    link: "#",
+    link: "./job/license.html",
   },
   {
     src: "./media/post.svg",
