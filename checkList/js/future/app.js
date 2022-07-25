@@ -57,16 +57,18 @@ function 계급별월급보여주기() {
 }
 
 function 월급계산(군선택) {
+  월급합산 = 0;
   for (let i = 0; i < 군선택; i++) {
     월급합산 += salary_list[i];
-    월급저장.push(월급합산);
+    월급저장[i] = 월급합산;
   }
 }
 
 function 적금계산(적금개월, 적금값) {
+  적금합산 = 0;
   for (let i = 0; i < 적금개월; i++) {
     적금합산 += 적금값;
-    적금저장.push(적금합산);
+    적금저장[i] = 적금합산;
     if (i + 1 == 적금개월) {
       let 적금퍼센트 = (5 / 100) * 적금저장[i];
       let 이자붙힌총적금액수 = 적금저장[i] + 적금퍼센트;
@@ -83,10 +85,13 @@ window.onload = () => {
     }
 
     let 적금금액 = Number.parseInt(적금금액선택.value) * 10000;
+    console.log(적금금액);
 
     계급별월급보여주기();
     월급계산(18);
     적금계산(18, 적금금액);
+
+    console.log(적금저장.length);
 
     let config = {
       type: "line",
@@ -153,6 +158,7 @@ window.onload = () => {
       return;
     }
 
-    console.log(myChart);
+    myChart.data.datasets[1].data = 적금저장;
+    myChart.update();
   };
 };
