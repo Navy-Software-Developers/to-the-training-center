@@ -91,6 +91,7 @@ function 적금월급계산(군선택, 적금금액) {
 }
 
 window.onload = () => {
+  계급별월급보여주기();
   적금금액선택.onclick = () => {
     if (적금금액선택.value === "") {
       return;
@@ -99,7 +100,6 @@ window.onload = () => {
     let 적금금액 = Number.parseInt(적금금액선택.value) * 10000;
     // console.log(적금금액);
 
-    계급별월급보여주기();
     월급계산(18);
     적금계산(18, 적금금액);
     적금월급계산(18, 적금금액);
