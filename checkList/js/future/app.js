@@ -43,9 +43,11 @@ let 적금전후비교 = document.querySelector(".money_price");
 
 let 월급저장 = [];
 let 적금저장 = [];
+let 적금월급저장 = [];
 
 let 월급합산 = 0;
 let 적금합산 = 0;
+let 적금월급합산 = 0;
 
 let count = 0;
 let myChart = null;
@@ -72,9 +74,19 @@ function 적금계산(적금개월, 적금값) {
     if (i + 1 == 적금개월) {
       let 적금퍼센트 = (5 / 100) * 적금저장[i];
       let 이자붙힌총적금액수 = 적금저장[i] + 적금퍼센트;
-      적금저장[i] = 이자붙힌총적금액수;
+      let 지원적금퍼센트 = (33 / 100) * 이자붙힌총적금액수;
+      적금저장[i] = 이자붙힌총적금액수 + 지원적금퍼센트;
       return;
     }
+  }
+}
+
+function 적금월급계산(군선택, 적금금액) {
+  적금월급합산 = 0; //
+  for (let i = 0; i < 군선택; i++) {
+    적금월급합산 += salary_list[i] - 적금금액;
+
+    적금월급저장[i] = 적금월급합산 + 적금저장[i];
   }
 }
 
@@ -85,12 +97,12 @@ window.onload = () => {
     }
 
     let 적금금액 = Number.parseInt(적금금액선택.value) * 10000;
-    console.log(적금금액);
+    // console.log(적금금액);
 
     계급별월급보여주기();
     월급계산(18);
     적금계산(18, 적금금액);
-
+    적금월급계산(18, 적금금액);
     console.log(적금저장.length);
 
     let config = {
@@ -115,13 +127,25 @@ window.onload = () => {
           },
           {
             // ⑤dataset의 이름(String)
-            label: "적금만",
+            label: "적금만 + 33%",
             // ⑥dataset값(Array)
             data: 적금저장,
             // ⑦dataset의 배경색(rgba값을 String으로 표현)
             backgroundColor: "rgba(10,255,0,0.2)",
             // ⑧dataset의 선 색(rgba값을 String으로 표현)
             borderColor: "green",
+            // ⑨dataset의 선 두께(Number)
+            borderWidth: 1,
+          },
+          {
+            // ⑤dataset의 이름(String)
+            label: "적금 + 월급",
+            // ⑥dataset값(Array)
+            data: 적금월급저장,
+            // ⑦dataset의 배경색(rgba값을 String으로 표현)
+            backgroundColor: "rgba(10,20,255,0.2)",
+            // ⑧dataset의 선 색(rgba값을 String으로 표현)
+            borderColor: "blue",
             // ⑨dataset의 선 두께(Number)
             borderWidth: 1,
           },
@@ -159,6 +183,7 @@ window.onload = () => {
     }
 
     myChart.data.datasets[1].data = 적금저장;
+    myChart.data.datasets[2].data = 적금월급저장;
     myChart.update();
   };
 };
