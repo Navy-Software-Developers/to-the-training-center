@@ -3,36 +3,36 @@ import { Card } from "./Card.js";
 let data = [
   {
     src: "./media/bodycheck.svg",
-    contents: "자격증 등록",
-    subTitle: "STEP 1",
+    contents: "가산점 등록",
+    subTitle: "STEP 1. 가산점",
     position: "left",
     link: "./job/license.html",
   },
   {
     src: "./media/post.svg",
     contents: "하고싶은 보직을 신청해봅시다 !!",
-    subTitle: "STEP 3",
+    subTitle: "STEP 3. 즐겨찾기",
     position: "left",
     link: "./job/favor.html",
   },
   {
     src: "./media/go.svg",
     contents: "입대 가즈아 !!",
-    subTitle: "STEP 5",
+    subTitle: "STEP 5. 입대",
     position: "left",
     link: "#",
   },
   {
     src: "./media/job.svg",
     contents: "미리 하고싶은 보직 찾아보기 !!",
-    subTitle: "STEP 2",
+    subTitle: "STEP 2. 보직탐색",
     position: "right",
     link: "./job/joblist.html",
   },
   {
     src: "./media/checkList.svg",
     contents: "입대할 때 어떤걸 들고가야 할까 ??",
-    subTitle: "STEP 4",
+    subTitle: "STEP 4. 준비사항",
     position: "right",
     link: "./checkList/index.html",
   },
@@ -62,6 +62,7 @@ class App {
     }
 
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
+   
 
     //resize 이벤트
     window.addEventListener("resize", this.resize.bind(this));
