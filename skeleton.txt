@@ -1,0 +1,37 @@
+
+.skeleton {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  
+  background-image:
+    linear-gradient( 90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 70% ), /* highlight */
+    linear-gradient(lightgrey 15px, transparent 0),
+    linear-gradient(lightgrey 15px, transparent 0),
+    linear-gradient(lightgrey 15px, transparent 0);
+  
+  background-repeat: repeat-y;
+  
+  background-position:
+    5px 10px,
+    5px 10px,
+    5px 30px,
+    5px 50px;
+  
+  background-size:
+    100px 100px,
+    100px 100px,
+    150px 100px, 
+    150px 100px;    
+  animation: shine 1s infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position:
+      100% 10px,
+      5px 10px,
+      5px 30px,
+      5px 50px;
+  }
+}
