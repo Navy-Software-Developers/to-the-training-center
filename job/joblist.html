@@ -17,10 +17,11 @@
   <nav id="navbar">
     <div class="navbox">
       <a class="logo" href="../index.html">훈련소 가는 길</a>
-      <a href="#" class="login_btn">신검장</a>
+      <a href="../job/license.html" class="login_btn">가산점</a>
       <a href="./joblist.html" class="login_btn">보직탐색</a>
       <a href="./favor.html" class="login_btn">즐겨찾기</a>
       <a href="../checkList/index.html" class="login_btn">준비물</a>
+      <a id="login_btn" href="../login" class="login_btn">로그인</a>
     </div>
   </nav>
 
@@ -69,7 +70,6 @@
   <script src="./js/joblist/app.js" defer></script>
   <script src="../js/communication/app.js" type="module"></script>
   <script>
-
     let mili_btn = document.querySelectorAll('.mili_btn');
     let search_input = document.querySelector("#search");
     let mos_list = document.querySelector("#mos_list");
@@ -88,8 +88,7 @@
     //       color: rgb(146, 146, 146);
     //   background-color: rgba(0, 0, 0, 0.1);
 
-    const mili_color = [
-      {
+    const mili_color = [{
         'color': 'rgb(89 175 46)',
         'background': 'rgb(52 215 84 / 21%)'
       },
@@ -136,6 +135,7 @@
             idx.forEach((el) => {
               pickColor(el, index);
             })
+
             function click_branch_btn(branch) {
               if (currentButton == branch) {
                 load();
@@ -189,7 +189,8 @@
           div.appendChild(codename);
           div.appendChild(p);
 
-          div.innerHTML += '<span class="arrow_box"><img class="logo" src="./media/arrow.svg" alt="" class="href_btn"></span>';
+          div.innerHTML +=
+            '<span class="arrow_box"><img class="logo" src="./media/arrow.svg" alt="" class="href_btn"></span>';
 
           li.appendChild(div);
           mos_list.appendChild(li);
