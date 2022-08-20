@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.forms.models import model_to_dict
+from django.db.models import Count
+from django.core.cache import cache
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -247,11 +249,14 @@ def wiki(request, pk):
     if request.method == 'GET':
         return Response(WikiSerializer(Wiki.objects.get(mos=mos)).data)
     elif request.method == 'POST':
-        new = Wiki.objects.create(mos=mos, content=request.POST['content'], modifier=request.user)
-        mos['currentWiki'] = new
+        # try:
+        new = Wiki.objects.create(mos=mos, content=request.data.get("content"), modifier=request.user)
+        mos.currentWiki = new
         mos.save()
 
         return Response({'status': 'success'})
+        # except:
+        #     return Response({'status': 'failed'})
 
 
 @api_view(['GET', 'POST', 'DELETE'])
@@ -294,8 +299,9 @@ def like(request, pk):
 
 
 @api_view(['GET'])
-def likes(request):
+def mylikes(request):
     try:
+        print(request.user)
         like = Like.objects.filter(user=request.user)
         return Response(LikeSerializer(like, many=True).data)
     except:
@@ -304,5 +310,40 @@ def likes(request):
 
 @api_view(['GET'])
 def points(request):
-    serializer = PointSerializer(Point.objects.all(), many=True)
-    return Response(serializer.data)
+    points = cache.get('points')
+    if not points:
+        serializer = PointSerializer(Point.objects.all(), many=True)
+        points = serializer.data
+        cache.set('points', points)
+
+    mma_total = cache.get('mma_total')
+    if not mma_total:
+        # mma_total = MMAPoint.objects.values('uid').annotate(total=Count('point')).count() 69761자격증이 없는 사람은 포함이 안되서 api가져오는 부분 수정 필요
+        mma_total = 79891
+        cache.set('mma_total', mma_total)
+    
+    user_total = cache.get('user_total')
+    if not user_total:
+        user_total = User.objects.all().count()
+        cache.set('user_total', user_total, 30)
+
+    result = dict()
+    result['points'] = points
+    result['mma_total'] = mma_total
+    result['user_total'] = user_total
+    return Response(result)
+
+
+@api_view(['GET'])
+def mypoints(request):
+    try:
+        ups = UserPoint.objects.filter(user=request.user)
+        result = []
+        for i in ups:
+            result.append(PointSerializer(i.point).data)
+
+        return Response(result)
+    except:
+        return Response({'status': 'failed'})
+
+

@@ -18,3 +18,8 @@ class LikeSerializer(serializers.ModelSerializer):
         model = Like
         fields = ('user', 'mos', 'notification')
 
+
+class PointSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Point
+        fields = ('pk', 'name', 'category', 'level', 'get_count_from_MMA', 'get_count_from_user')
