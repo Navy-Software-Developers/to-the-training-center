@@ -107,7 +107,7 @@ window.onload = () => {
       let day = info.enlistStart.toString();
       let year = day.slice(0, 4);
       let month = day.slice(4, 6) + "월";
-
+      
       total.push(info.recuritCnt);
       pass.push(info.applyedCnt);
       month_label.push(month);
@@ -134,7 +134,7 @@ window.onload = () => {
       });
     }
 
-    function render(table_data) {
+    function tableRender(table_data) {
       let html = `
       <ul class="row_box">
       <li class="row">${table_data.round}차</li>
@@ -148,9 +148,13 @@ window.onload = () => {
       `;
       return html;
     }
-
+    table_data.sort((a,b)=>{
+      return a.round - b.round;
+    })
+    console.log(table_data)
     for (let t of table_data) {
-      table.innerHTML += render(t);
+      
+      table.innerHTML += tableRender(t);
     }
 
     //   console.log(total, pass);
@@ -170,7 +174,7 @@ window.onload = () => {
     ];
 
     const color = "rgba(255, 99, 132, 1)";
-
+    month_label.sort();
     let config = {
       type: "line",
       // ②차트의 데이터(Object)
