@@ -90,3 +90,10 @@ class MMAPoint(models.Model):
 
     def __str__(self) -> str:
         return f"{self.uid} {self.point}"
+
+
+class MosRating(models.Model):
+    mos = models.ForeignKey(Mos, on_delete=models.CASCADE) # 병과
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    rating = models.IntegerField()
+    review = models.CharField(max_length=1000)
