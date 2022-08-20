@@ -136,14 +136,14 @@
         function search(query) {
             points_div.innerHTML = '';
             let i = 0;
-            for (const element of data) {
+            for (const element of data.points) {
                 if ((element.name.toLowerCase().includes(query))) {
                     points_div.innerHTML += `<div class="license_item">
                 <li class="license_none">` + element.category + `</li>
                 <ul class="license_info">
                     <li>` + element.name + `</li>
-                    <li>79891명중 ` + element.get_count_from_MMA + `</li>
-                    <li>12명중 ` + element.get_count_from_user + `</li>
+                    <li>` + data.mma_total + `명중 ` + element.get_count_from_MMA + `</li>
+                    <li>` + data.user_total + `명중 ` + element.get_count_from_user + `</li>
                     <span class="add">
                         추가
                     </span>
