@@ -1,5 +1,5 @@
 import { Card } from "./Card.js";
-
+  
 let data = [
   {
     src: "./media/bodycheck.svg",
