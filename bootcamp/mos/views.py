@@ -19,8 +19,13 @@ import json
 # Create your views here.
 @api_view(['GET'])
 def list(request):
-    serializer = MosSerializer(Mos.objects.all(), many=True)
-    return Response(serializer.data)
+    mos_list = cache.get('mos_list')
+    if not mos_list:
+        serializer = MosSerializer(Mos.objects.all(), many=True)
+        mos_list = serializer.data
+        cache.set('mos_list', mos_list, 60*30)
+
+    return Response(mos_list)
 
 
 @api_view(['GET'])
