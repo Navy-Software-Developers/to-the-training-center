@@ -1,6 +1,8 @@
 let chart = document.getElementById("myChart");
 let chart2 = document.getElementById("myChart2");
 const table = document.querySelector(".table");
+chart.style.display = 'none';
+chart2.style.display = 'none'
 
 function getCookie(name) {
   let matches = document.cookie.match(
@@ -67,7 +69,14 @@ window.onload = () => {
     });
 
   function load() {
+    document.title = data.name;
     document.querySelector("#title").innerHTML = data.name;
+    document.querySelectorAll('.skeleton').forEach((e)=>{
+      e.style.display = 'none';
+    })
+    chart.style.display = 'block';
+    chart2.style.display = 'block'
+   
     document.querySelector("#wiki_content").innerHTML = data.wiki
       ? data.wiki
       : "작성된 내용이 없습니다. 군사특기 위키를 작성해보세요.";

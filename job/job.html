@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style/job/toggle.css" />
   <link rel="stylesheet" href="../style/nav/nav.css" />
   <link rel="stylesheet" href="./style/license/license.css">
-  <title>JOB</title>
+  <title>보직</title>
  
  
 </head>
@@ -22,7 +22,7 @@
       <a href="../job/license.html" class="login_btn">가산점</a>
       <a href="./joblist.html" class="login_btn">보직탐색</a>
       <a href="./favor.html" class="login_btn">즐겨찾기</a>
-      <a href="../checkList/index.html" class="login_btn">준비물</a>
+      <a href="../checkList/index.html" class="login_btn">준비사항</a>
       <a id="login_btn" href="../login" class="login_btn">로그인</a>
 
     </div>
@@ -33,7 +33,7 @@
       <div class="title_bar">
         <div class="wrap">
           <p id="title" class="position chart_title">
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <div class="skeleton"></div>
             <!-- <div class="skeleton"></div> -->
           </p>
           <p class="good">강력추천👍</p>
@@ -73,8 +73,10 @@
     <div id="chart">
       <div class="title_bar">
         <p class="chart_title">경쟁률</p>
+        
       </div>
       <canvas id="myChart"></canvas>
+      <div class="skeleton"></div>
 
     </div>
 
@@ -83,6 +85,7 @@
         <p class="chart_title"> 모집 인원수</p>
       </div>
       <canvas id="myChart2"></canvas>
+      <div class="skeleton"></div>
       <!-- <div class="skeleton canvas_skeleton"> -->
 
     </div>
