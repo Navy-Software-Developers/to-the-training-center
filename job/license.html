@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/license/license.css">
     <link rel="stylesheet" href="./style/job/job.css">
     <title>License</title>
+    
 </head>
 
 <body>
@@ -27,14 +28,14 @@
     <div class="search_wrap">
         <div class="search_box">
 
-            <input placeholder="가산점 항목(전공, 자격증, 운전면허 등)을 검색해보세요" type="text" class="search_license">
+            <input id="search" placeholder="가산점 항목(전공, 자격증, 운전면허 등)을 검색해보세요" type="text" class="search_license">
 
 
         </div>
 
 
         <div class="license_head">
-            <li>해당 여부</li>
+            <li>분류</li>
             <li>가산점 항목</li>
             <li>현역대상자 중 해당자</li>
             <li>서비스 이용자 중 해당자</li>
@@ -43,25 +44,25 @@
 
         <div id="licesne_list">
             <div class="license_item">
-                <li class="license_have">해당</li>
+                <li class="license_have">로딩중..</li>
                 <ul class="license_info">
-                    <li>정보처리 기능사</li>
-                    <li>1000명중 1</li>
-                    <li>12명중 1</li>
+                    <li>로딩중..</li>
+                    <li>로딩중..</li>
+                    <li>로딩중..</li>
                     <span class="add">
-                        추가
+                        로딩중..
                     </span>
                 </ul>
             </div>
 
             <div class="license_item">
-                <li class="license_none">아직없음</li>
+                <li class="license_none">로딩중..</li>
                 <ul class="license_info">
-                    <li>정보처리 기능사</li>
-                    <li>1000명중 1</li>
-                    <li>12명중 1</li>
+                    <li>로딩중..</li>
+                    <li>로딩중..</li>
+                    <li>로딩중..</li>
                     <span class="add">
-                        추가
+                        로딩중..
                     </span>
                 </ul>
             </div>
@@ -106,5 +107,56 @@
 
 
 </body>
+<script>
+    let search_input = document.querySelector("#search");
+    let url_prefix = 'http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000';
+    let data;
+    let url = url_prefix + '/api/mos/points';
+    let my_points_div = document.querySelector("#info");
+    let points_div = document.querySelector("#licesne_list")
 
+
+    points_div.innerHTML = '';
+
+    fetch(url)
+      .then(function (response) {
+
+        return response.json();
+      })
+      .then(function (json) {
+        data = json;
+        
+        console.log(data);
+      })
+
+
+    search_input.oninput = function () {
+            search(search_input.value.toLowerCase());
+        };
+
+        function search(query) {
+            points_div.innerHTML = '';
+            let i = 0;
+            for (const element of data.points) {
+                if ((element.name.toLowerCase().includes(query))) {
+                    points_div.innerHTML += `<div class="license_item">
+                <li class="license_none">` + element.category + `</li>
+                <ul class="license_info">
+                    <li>` + element.name + `</li>
+                    <li>` + data.mma_total + `명중 ` + element.get_count_from_MMA + `</li>
+                    <li>` + data.user_total + `명중 ` + element.get_count_from_user + `</li>
+                    <span class="add">
+                        추가
+                    </span>
+                </ul>
+            </div>`
+                    i++;
+                }
+                if(i>9) {
+                    break;
+                }
+
+            }
+    }
+    </script>
 </html>
