@@ -138,17 +138,22 @@
             let i = 0;
             for (const element of data.points) {
                 if ((element.name.toLowerCase().includes(query))) {
-                    points_div.innerHTML += `<div class="license_item">
+                    let div_data = `<div class="license_item">
                 <li class="license_none">` + element.category + `</li>
                 <ul class="license_info">
-                    <li>` + element.name + `</li>
-                    <li>` + data.mma_total + `명중 ` + element.get_count_from_MMA + `</li>
-                    <li>` + data.user_total + `명중 ` + element.get_count_from_user + `</li>
+                    <li>` + element.name + `</li>`
+                if (element.category == '자격') {
+                    div_data += `<li>` + data.mma_total + `명중 ` + element.get_count_from_MMA + `</li>`
+                }else {
+                    div_data += `<li> 자격증 항목만 제공됩니다.</li>`
+                }
+                div_data += `<li>` + data.user_total + `명중 ` + element.get_count_from_user + `</li>
                     <span class="add">
                         추가
                     </span>
                 </ul>
             </div>`
+            points_div.innerHTML += div_data
                     i++;
                 }
                 if(i>9) {
