@@ -59,7 +59,13 @@ class Point(models.Model):
     level = models.CharField(max_length=150, null=True) # jgmyeonheoDg 자격면허등급
 
     def __str__(self) -> str:
-        return f"{self.category} {self.name} {self.level}"
+        return f"{self.get_count_from_MMA()} {self.category} {self.name} {self.level}"
+    
+    def get_count_from_MMA(self) -> int:
+        return MMAPoint.objects.filter(point=self).count()
+    
+    def get_count_from_user(self) -> int:
+        return UserPoint.objects.filter(point=self).count()
 
 class MosPoint(models.Model):
     mos = models.ForeignKey(Mos, on_delete=models.CASCADE) # 병과
