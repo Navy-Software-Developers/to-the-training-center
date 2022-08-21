@@ -48,7 +48,7 @@
   font-weight: bold;
 }
 
-.license_head {
+/* .license_head {
   width: 96%;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -60,11 +60,23 @@
   flex-direction: row;
   justify-content: space-between;
   border-radius: 5px;
+} */
+.license_head{
+  width: 96%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  list-style: none;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-radius: 5px;
 }
+
 .license_head li {
-  width: 20%;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  text-align: center;
   align-items: center;
   font-size: 0.75rem;
   font-weight: bold;
@@ -170,7 +182,7 @@
   transition: all 0.5s;
 }
 
-.license_info_list {
+/* .license_info_list {
   width: 100%;
   list-style: none;
   display: flex;
@@ -180,7 +192,23 @@
   font-size: 1rem;
   color: rgb(142, 142, 142);
   height: 100%;
+} */
+
+.license_info_list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  font-size: 1rem;
+  color: rgb(142, 142, 142);
+  height: 100%;
 }
+.license_info_list li{
+  width: 100%;
+  text-align:center;
+}
+
 
 .license_item_list {
   width: 98%;
@@ -193,6 +221,8 @@
   justify-content: space-between;
   margin-top: 1rem;
 }
+ 
+ 
 .license_item_list:nth-child(odd) {
   background-color: rgba(219, 219, 219, 0.3);
 }

@@ -235,7 +235,7 @@
   margin-top: 1.5rem;
 }
 
-#table .head {
+/* #table .head {
   border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
   padding: 1%;
@@ -246,11 +246,22 @@
   justify-content: space-between;
   align-items: center;
   color: gray;
+} */
+
+#table .head{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  border-radius: 5px;
+  padding: 1%;
+  width: 98%;
+  list-style: none;
+  align-items: center;
+  color: gray;
 }
 
 .head .col {
   border-right: 1px solid rgb(209, 209, 209);
-  width: 14.2%;
+  width: 100%;
   text-align: center;
 }
 
@@ -262,7 +273,7 @@
   border: 1px solid rgb(202, 202, 202);
   border-radius: 5px;
 }
-
+/* 
 .row_box {
   padding: 1%;
   list-style: none;
@@ -271,12 +282,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+} */
+
+.row_box{
+  padding: 1%;
+  list-style: none;
+  width: 98%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
 }
 
 .row_box:nth-child(odd) {
   background-color: rgba(181, 196, 240, 0.2);
 }
-
+/* 
 .row_box .row {
   width: 14.2%;
   text-align: center;
@@ -288,12 +309,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: all 0.5s;
+} */
+.row_box .row{
+  width: 100%;
+  text-align: center;
+  border-right: 1px solid gray;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: rgb(99, 99, 99);
 }
 
-.row:nth-child(5):hover {
-  width: 30%;
-  background-color: rgba(229, 255, 0, 0.7);
-}
+ 
 
 .row_box .row:nth-child(7),
 .col:nth-child(7) {
@@ -463,6 +489,8 @@
     width: 66%;
     margin: 0 auto;
   }
+
+  
 }
 
 /*이하 일때*/
