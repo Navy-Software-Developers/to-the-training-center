@@ -86,6 +86,7 @@
 
   transition: all 0.5s;
 }
+
 /* .wiki_box{
   margin-top: 2rem;
   width: 100%;
@@ -116,6 +117,7 @@
   font-weight: bold;
   color: gray;
 }
+
 .wiki_command:focus {
   border: none;
   outline: 3px solid rgba(105, 157, 255, 0.56);
@@ -220,20 +222,20 @@
   font-weight: bold;
   padding: 2%;
 }
+
 .search_list:hover {
   background-color: rgba(0, 0, 0, 0.16);
   color: rgba(0, 0, 0, 0.6);
 }
 
-.position {
-}
+.position {}
 
 #table {
   width: 100%;
   margin-top: 1.5rem;
 }
 
-#table .head {
+/* #table .head {
   border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
   padding: 1%;
@@ -244,11 +246,22 @@
   justify-content: space-between;
   align-items: center;
   color: gray;
+} */
+
+#table .head{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  border-radius: 5px;
+  padding: 1%;
+  width: 98%;
+  list-style: none;
+  align-items: center;
+  color: gray;
 }
 
 .head .col {
   border-right: 1px solid rgb(209, 209, 209);
-  width: 14.2%;
+  width: 100%;
   text-align: center;
 }
 
@@ -260,7 +273,7 @@
   border: 1px solid rgb(202, 202, 202);
   border-radius: 5px;
 }
-
+/* 
 .row_box {
   padding: 1%;
   list-style: none;
@@ -269,11 +282,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+} */
+
+.row_box{
+  padding: 1%;
+  list-style: none;
+  width: 98%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
 }
+
 .row_box:nth-child(odd) {
   background-color: rgba(181, 196, 240, 0.2);
 }
-
+/* 
 .row_box .row {
   width: 14.2%;
   text-align: center;
@@ -285,12 +309,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: all 0.5s;
+} */
+.row_box .row{
+  width: 100%;
+  text-align: center;
+  border-right: 1px solid gray;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: rgb(99, 99, 99);
 }
 
-.row:nth-child(5):hover {
-  width: 30%;
-  background-color: rgba(229, 255, 0, 0.7);
-}
+ 
 
 .row_box .row:nth-child(7),
 .col:nth-child(7) {
@@ -318,34 +347,45 @@
   flex-direction: row;
   align-items: center;
 }
-
-.skeleton {
-  background-color: rgba(0, 0, 0, 0.1);
-  width: 80%;
-  height: 80%;
-  margin: 1%;
-  transition: all 0.5s;
-  border-radius: 10px;
-  animation: skeleton-loading 1s infinite both;
+ 
+.skeleton:nth-child(2){
+  width: 20%;
 }
-
-.canvas_skeleton {
-  width: 100%;
-  height: 30vh;
+.skeleton:nth-child(3){
   margin-top: 1rem;
-  margin: 0 auto;
 }
+.skeleton {
+  width: 100%;
+  height: 4vh;
+  border-radius: 5px;
+  display: block;
+  
+  background: linear-gradient(	  
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    lightgray;
+  background-color: rgba(129, 129, 129, 0.2);
+  background-repeat: repeat-y;
+  background-size: 50px 500px;
+  background-position: 0 0;
+  animation: shine 1s infinite;	  
 
-@keyframes skeleton-loading {
-  100% {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  0% {
-    background-color: rgba(0, 0, 0, 0.1);
+}
+ 
+@keyframes shine {	
+  to {
+    background-position: 100% 0, 
+    /* move highlight to right */ 0 0;
   }
 }
+/*  
 
-.recommendjob {
+ 
+
+*/ .recommendjob {
   width: 100%;
 
   height: auto;
@@ -369,12 +409,88 @@
   margin: 1%;
 }
 
+
+
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(89, 160, 253, 0.5);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
+
+
 /*1200px 이상일때*/
 @media screen and (min-width: 1200px) {
   .job_contents {
     width: 66%;
     margin: 0 auto;
   }
+
+  
 }
 
 /*이하 일때*/
@@ -397,10 +513,12 @@
     width: 43px;
     height: 41%;
   }
+
   .toggle {
     width: 41%;
     justify-content: right;
   }
+
   .wiki {
     width: 24%;
   }

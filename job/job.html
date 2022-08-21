@@ -10,8 +10,10 @@
   <link rel="stylesheet" href="./style/job/toggle.css" />
   <link rel="stylesheet" href="../style/nav/nav.css" />
   <link rel="stylesheet" href="./style/license/license.css">
-  <title>JOB</title>
-
+  <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
+  <title>보직</title>
+ 
+ 
 </head>
 
 <div>
@@ -21,7 +23,7 @@
       <a href="../job/license.html" class="login_btn">가산점</a>
       <a href="./joblist.html" class="login_btn">보직탐색</a>
       <a href="./favor.html" class="login_btn">즐겨찾기</a>
-      <a href="../checkList/index.html" class="login_btn">준비물</a>
+      <a href="../checkList/index.html" class="login_btn">준비사항</a>
       <a id="login_btn" href="../login" class="login_btn">로그인</a>
 
     </div>
@@ -31,7 +33,10 @@
     <div class="info">
       <div class="title_bar">
         <div class="wrap">
-          <p id="title" class="position chart_title">SW개발병</p>
+          <p id="title" class="position chart_title">
+            <div class="skeleton"></div>
+            <!-- <div class="skeleton"></div> -->
+          </p>
           <p class="good">강력추천👍</p>
 
         </div>
@@ -69,8 +74,10 @@
     <div id="chart">
       <div class="title_bar">
         <p class="chart_title">경쟁률</p>
+        
       </div>
       <canvas id="myChart"></canvas>
+      <div class="skeleton"></div>
 
     </div>
 
@@ -79,6 +86,7 @@
         <p class="chart_title"> 모집 인원수</p>
       </div>
       <canvas id="myChart2"></canvas>
+      <div class="skeleton"></div>
       <!-- <div class="skeleton canvas_skeleton"> -->
 
     </div>
@@ -122,6 +130,7 @@
       </div>
 
       <div class="license_head">
+        <li>학과</li>
         <li>가산점 항목</li>
         <li>현역대상자 중 해당자</li>
         <li>관심보직추가한 이용자 중 해당자</li>

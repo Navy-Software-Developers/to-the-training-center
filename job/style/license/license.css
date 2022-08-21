@@ -24,6 +24,7 @@
   border: none;
   outline: 2px solid rgb(232, 232, 255);
   width: 96%;
+  height: 4vh;;
   border-radius: 5px;
   /* margin-right: 1rem; */
   padding: 1%;
@@ -36,7 +37,7 @@
 }
 
 .add {
-  width: 10%;
+  width: 80%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -47,7 +48,7 @@
   font-weight: bold;
 }
 
-.license_head {
+/* .license_head {
   width: 96%;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -59,11 +60,23 @@
   flex-direction: row;
   justify-content: space-between;
   border-radius: 5px;
+} */
+.license_head{
+  width: 96%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  list-style: none;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-radius: 5px;
 }
+
 .license_head li {
-  width: 20%;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  text-align: center;
   align-items: center;
   font-size: 0.75rem;
   font-weight: bold;
@@ -85,6 +98,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s;
 }
 
 .license_item {
@@ -133,7 +147,7 @@
   color: rgb(165, 174, 97);
 }
 
-.license_info {
+/* .license_info {
   width: 80%;
   list-style: none;
   display: flex;
@@ -143,8 +157,18 @@
   font-size: 1rem;
   color: rgb(142, 142, 142);
   height: 100%;
+} */
+.license_info{
+  width: 80%;
+  list-style: none;
+  color: rgb(142, 142, 142);
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
 }
-
+ 
 #info {
   overflow: hidden;
   margin: 0 auto;
@@ -158,7 +182,7 @@
   transition: all 0.5s;
 }
 
-.license_info_list {
+/* .license_info_list {
   width: 100%;
   list-style: none;
   display: flex;
@@ -168,7 +192,23 @@
   font-size: 1rem;
   color: rgb(142, 142, 142);
   height: 100%;
+} */
+
+.license_info_list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  font-size: 1rem;
+  color: rgb(142, 142, 142);
+  height: 100%;
 }
+.license_info_list li{
+  width: 100%;
+  text-align:center;
+}
+
 
 .license_item_list {
   width: 98%;
@@ -181,6 +221,21 @@
   justify-content: space-between;
   margin-top: 1rem;
 }
+ 
+ 
 .license_item_list:nth-child(odd) {
   background-color: rgba(219, 219, 219, 0.3);
+}
+
+
+
+/*이하 일때*/
+@media screen and (max-width: 1000px) {
+  .search_wrap {
+    width: 85.5%;}
+  }
+@media screen and (max-width: 430px) {
+  .search_wrap {
+    width: 85.5%;
+}
 }

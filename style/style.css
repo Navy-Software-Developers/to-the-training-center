@@ -21,7 +21,7 @@ user-select: auto;
  
 body {
   width: 100%;
-  height: 100%;
+  height: auto;
   background-color: #f4f4f5;
   overflow: scroll;
   position: relative;

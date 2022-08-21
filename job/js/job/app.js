@@ -1,6 +1,8 @@
 let chart = document.getElementById("myChart");
 let chart2 = document.getElementById("myChart2");
 const table = document.querySelector(".table");
+chart.style.display = 'none';
+chart2.style.display = 'none'
 
 function getCookie(name) {
   let matches = document.cookie.match(
@@ -105,7 +107,14 @@ window.onload = () => {
     });
 
   function load() {
+    document.title = data.name;
     document.querySelector("#title").innerHTML = data.name;
+    document.querySelectorAll('.skeleton').forEach((e)=>{
+      e.style.display = 'none';
+    })
+    chart.style.display = 'block';
+    chart2.style.display = 'block'
+   
     document.querySelector("#wiki_content").innerHTML = data.wiki
       ? data.wiki
       : "작성된 내용이 없습니다. 군사특기 위키를 작성해보세요.";
@@ -183,7 +192,7 @@ window.onload = () => {
       let day = info.enlistStart.toString();
       let year = day.slice(0, 4);
       let month = day.slice(4, 6) + "월";
-
+      
       total.push(info.recuritCnt);
       pass.push(info.applyedCnt);
       month_label.push(month);
@@ -210,7 +219,7 @@ window.onload = () => {
       });
     }
 
-    function render(table_data) {
+    function tableRender(table_data) {
       let html = `
       <ul class="row_box">
       <li class="row">${table_data.round}차</li>
@@ -224,9 +233,13 @@ window.onload = () => {
       `;
       return html;
     }
-
+    table_data.sort((a,b)=>{
+      return a.round - b.round;
+    })
+    console.log(table_data)
     for (let t of table_data) {
-      table.innerHTML += render(t);
+      
+      table.innerHTML += tableRender(t);
     }
 
     //   console.log(total, pass);
@@ -246,7 +259,7 @@ window.onload = () => {
     ];
 
     const color = "rgba(255, 99, 132, 1)";
-
+    month_label.sort();
     let config = {
       type: "line",
       // ②차트의 데이터(Object)
