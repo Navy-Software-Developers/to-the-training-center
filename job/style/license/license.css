@@ -37,7 +37,7 @@
 }
 
 .add {
-  width: 10%;
+  width: 80%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -135,7 +135,7 @@
   color: rgb(165, 174, 97);
 }
 
-.license_info {
+/* .license_info {
   width: 80%;
   list-style: none;
   display: flex;
@@ -145,8 +145,18 @@
   font-size: 1rem;
   color: rgb(142, 142, 142);
   height: 100%;
+} */
+.license_info{
+  width: 80%;
+  list-style: none;
+  color: rgb(142, 142, 142);
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
 }
-
+ 
 #info {
   overflow: hidden;
   margin: 0 auto;
