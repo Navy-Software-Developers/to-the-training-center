@@ -80,6 +80,7 @@
                 <li>현역대상자 중 해당자</li>
                 <li>서비스 이용자 중 해당자</li>
             </div>
+            <div id="my_point_list"></div>
         </div>
 
 
@@ -89,7 +90,7 @@
     let url_prefix = 'http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000';
     let data;
     let url = url_prefix + '/api/mos/points';
-    let my_points_div = document.querySelector("#info");
+    let my_points_div = document.querySelector("#my_point_list");
     let points_div = document.querySelector("#licesne_list")
 
 
@@ -122,14 +123,65 @@
         return response.json();
     }
 
+    function addPoint(pk) {
+        let url = url_prefix + `/api/mos/point/${pk}`;
+        fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE 등
+            // mode: 'cors', // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "include", // include, *same-origin, omit
+            headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + getCookie("my-app-auth"),
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        }).then(function(response){
+            return response.json();
+        }).then(function (json) {
+            getMyPointsData()
+            .then(function (response) {
+            console.log("가산점 항목 데이터: ", response);
+            drawMyPoints(response);
+            });
+        })
+    }
+
+    async function deletePoint(pk) {
+        let url = url_prefix + `/api/mos/point/${pk}`;
+        const response = await fetch(url, {
+            method: "DELETE", // *GET, POST, PUT, DELETE 등
+            // mode: 'cors', // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "include", // include, *same-origin, omit
+            headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + getCookie("my-app-auth"),
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        }).then(function(response){
+            return response.json();
+        }).then(function (json) {
+            getMyPointsData()
+            .then(function (response) {
+            console.log("가산점 항목 데이터: ", response);
+            drawMyPoints(response);
+            });
+        })
+    }
+
     function drawMyPoints(mypoints) {
-        let my_points_table = document.querySelector("#info");
+        my_points_div.innerHTML = ""
         for(let i of mypoints) {
-            my_points_table.innerHTML += `<div class="license_item_list">
+            my_points_div.innerHTML += `<div class="license_item_list">
                                             <ul class="license_info_list">
                                                 <li>${i.name}</li>    
                                                 <li>${data.mma_total}명중 ${i.get_count_from_MMA}</li>
                                                 <li>${data.user_total}명중 ${i.get_count_from_user}</li>
+                                                <span class="add" onclick="deletePoint(${i.pk})">
+                                                    삭제
+                                                </span>
                                             </ul>
                                             </div>`;
         }
@@ -176,7 +228,7 @@
                     div_data += `<li> 자격증 항목만 제공됩니다.</li>`
                 }
                 div_data += `<li>` + data.user_total + `명중 ` + element.get_count_from_user + `</li>
-                    <span class="add">
+                    <span class="add" onclick="addPoint(${element.pk})">
                         추가
                     </span>
                 </ul>
