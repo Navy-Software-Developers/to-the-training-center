@@ -71,6 +71,7 @@
  
 
 .position_content {
+  display: inline-block;
   margin-top: 3%;
 }
 
@@ -103,6 +104,35 @@
   justify-content: space-between;
   
 } */
+.review{
+  width: 40%;
+  height: 80%;
+  list-style: none;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  font-size: 1rem;
+  align-items: center;
+  justify-items: center;
+  padding: 1%;
+  color: rgba(0,0,0,0.8);
+}
+.review li{
+  border: 1px solid rgb(197, 197, 197);
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.like_avg{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+.like_avg img{
+  width: 100%;
+}
 
 .wiki:hover,
 .save_wiki:hover {
@@ -372,7 +402,7 @@
   height: 100%;
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
 } 
 
