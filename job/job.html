@@ -13,8 +13,8 @@
   <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
   <link rel="stylesheet" href="./style/job/reveiw.css">
   <title>보직</title>
- 
- 
+
+
 </head>
 
 <div>
@@ -37,7 +37,7 @@
           <span id="title" class="position chart_title">
             <div class="skeleton"></div>
           </span>
-            <!-- <div class="skeleton"></div> -->
+          <!-- <div class="skeleton"></div> -->
           <p class="good">강력추천👍</p>
           <span class="review">
             <li class="like_avg">
@@ -53,7 +53,7 @@
 
 
         <div class="toggle">
-        
+
           <p>즐겨찾기</p>
           <div class="toggle_box">
             <div class="toggle_btn"></div>
@@ -63,13 +63,13 @@
       </div>
       <div id="content_wrap">
         <div class="left_info">
-          
+
           <span id="wiki_content" class="position_content">
             <div class="skeleton"></div>
           </span>
-    
-    
-    
+
+
+
           <div class="wiki_type_box">
             <textarea onkeydown="resize(this)" onkeyup="resize(this)" placeholder="위키를 작성 해주십시오."
               class="wiki_command"></textarea>
@@ -77,80 +77,81 @@
               저장
             </button>
           </div>
-    
-    
+
+
           <div class="wiki">
             수정
           </div>
         </div>
         <div class="right_info">
-           
-            <li class="review_title">전체 리뷰 (<span class="review_people">4</span>)명</li>
+
+          <li class="review_title">전체 평점 (<span class="review_people">4</span>)명</li>
           <li class="star_count"> <span>4.0</span>
-             <div class="star_list">
-            <img src="../mall/media/star/yesStar.svg" alt="star">
-            <img src="../mall/media/star/yesStar.svg" alt="star">
-            <img src="../mall/media/star/yesStar.svg" alt="star">
-            <img src="../mall/media/star/yesStar.svg" alt="star">
-            <img src="../mall/media/star/noStar.svg" alt="star">
-          </div></li>
+            <div class="star_list">
+              <img src="../mall/media/star/yesStar.svg" alt="star">
+              <img src="../mall/media/star/yesStar.svg" alt="star">
+              <img src="../mall/media/star/yesStar.svg" alt="star">
+              <img src="../mall/media/star/yesStar.svg" alt="star">
+              <img src="../mall/media/star/noStar.svg" alt="star">
+            </div>
+          </li>
           <li class="review_list">
             <div class="review_sub_title">
-              <p>복지및 급여</p>
+              <p>당직 횟수 만족도</p>
               <div class="show_progress">
-                <div class="progress_background" >
+                <div class="progress_background">
                   <div class="progress_bar"></div>
                 </div>
-                <span class="subtitle_review_count">4.3</span>               
+                <span class="subtitle_review_count">4.3</span>
               </div>
             </div>
             <div class="review_sub_title">
-              <p>복지및 급여</p>
+              <p>업무 만족도</p>
               <div class="show_progress">
-                <div class="progress_background" >
+                <div class="progress_background">
                   <div class="progress_bar"></div>
                 </div>
-                <span class="subtitle_review_count">4.3</span>               
+                <span class="subtitle_review_count">4.3</span>
               </div>
             </div>
             <div class="review_sub_title">
-              <p>복지및 급여</p>
+              <p>휴가횟수 만족도</p>
               <div class="show_progress">
-                <div class="progress_background" >
+                <div class="progress_background">
                   <div class="progress_bar"></div>
                 </div>
-                <span class="subtitle_review_count">4.3</span>               
+                <span class="subtitle_review_count">4.3</span>
               </div>
             </div>
             <div class="review_sub_title">
-              <p>복지및 급여</p>
+              <p>복지 만족도</p>
               <div class="show_progress">
-                <div class="progress_background" >
+                <div class="progress_background">
                   <div class="progress_bar"></div>
                 </div>
-                <span class="subtitle_review_count">4.3</span>               
+                <span class="subtitle_review_count">4.3</span>
               </div>
             </div>
             <div class="review_sub_title">
-              <p>복지및 급여</p>
+              <p>병영문화 만족도</p>
               <div class="show_progress">
-                <div class="progress_background" >
+                <div class="progress_background">
                   <div class="progress_bar"></div>
                 </div>
-                <span class="subtitle_review_count">4.3</span>               
+                <span class="subtitle_review_count">4.3</span>
               </div>
             </div>
           </li>
-         
+
         </div>
       </div>
-      
+
     </div>
 
     <div id="chart">
       <div class="title_bar">
         <p class="chart_title">경쟁률</p>
-        
+
       </div>
       <canvas id="myChart"></canvas>
       <div class="skeleton"></div>
@@ -233,6 +234,81 @@
       </div>
       <!-- <div class="skeleton canvas_skeleton"> -->
 
+
+    </div>
+
+    <div id="chart6">
+      <div class="title_bar">
+        <p class="chart_title"> 평점 남기기</p>
+      </div>
+      <div class="write_box">
+        <div class="choose_star">
+          <li class="star_item">
+            <p>당직 횟수 만족도</p>
+            <span class="star_count">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/noStar.svg" alt="">
+            </span>
+          </li>
+          <li class="star_item">
+            <p>업무 만족도</p>
+            <span class="star_count">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/noStar.svg" alt="">
+            </span>
+          </li>
+          <li class="star_item">
+            <p>휴가횟수 만족도</p>
+            <span class="star_count">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/noStar.svg" alt="">
+            </span>
+          </li>
+          <li class="star_item">
+            <p>복지 만족도</p>
+            <span class="star_count">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/noStar.svg" alt="">
+            </span>
+          </li>
+          <li class="star_item">
+            <p>병영문화 만족도</p>
+            <span class="star_count">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/yesStar.svg" alt="">
+              <img src="../mall/media/star/noStar.svg" alt="">
+            </span>
+          </li>
+        </div>
+        <div class="write_review">
+          <li class="write_item">
+            <p>한줄 평가</p>
+            <input type="text" name="" id="">
+          </li>
+          <li class="write_item">
+            <p>장점</p>
+            <input type="text" name="" id="">
+          </li>
+          <li class="write_item">
+            <p>단점</p>
+            <input type="text" name="" id="">
+          </li>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -25,10 +25,12 @@
   transition: all 0.5s;
 }
 
+
 #chart,
 #chart2,
 #chart3,
-#chart5 {
+#chart5,
+#chart6 {
   width: 80%;
   margin: 0 auto;
   margin-top: 1.5rem;
@@ -40,7 +42,7 @@
   padding: 0px 1.5rem 1.5rem 1.5rem;
 }
 
-#chart5 {
+#chart5, #chart6 {
   margin-bottom: 3rem;
 }
 
