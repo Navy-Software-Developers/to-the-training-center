@@ -33,6 +33,41 @@ async function postData(url = "", data = {}) {
   return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
 }
 
+async function getData(url = "", data = {}) {
+  // 옵션 기본 값은 *로 강조
+  const response = await fetch(url, {
+    method: "GET", // *GET, POST, PUT, DELETE 등
+    // mode: 'cors', // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "include", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  });
+  return response;
+}
+
+async function getDataWithToken(url = "", data = {}) {
+  // 옵션 기본 값은 *로 강조
+  const response = await fetch(url, {
+    method: "GET", // *GET, POST, PUT, DELETE 등
+    // mode: 'cors', // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "include", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("my-app-auth"),
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  });
+  return response;
+}
+
 window.onload = () => {
   let pk = location.hash.replace("#", "");
   if (pk == "") {
@@ -44,7 +79,8 @@ window.onload = () => {
 
   let url = url_prefix + "/api/mos/" + pk;
   console.log(url);
-  fetch(url)
+  console.log(getCookie("my-app-auth"));
+  getData(url)
     .then(function (response) {
       return response.json();
     })
@@ -55,15 +91,17 @@ window.onload = () => {
     });
 
   let like_data;
-  let like_url = url_prefix + "/api/mos/mylikes";
+  let like_url = url_prefix + "/api/mos/" + pk + "/like";
 
-  fetch(like_url)
+  getDataWithToken(like_url)
     .then(function (response) {
       return response.json();
     })
     .then(function (json) {
-      like_data = json;
-      like_load();
+      if(json['status'] == "success"){
+        like_data = json.result;
+        like_load();
+      }
     });
 
   function load() {
@@ -76,12 +114,59 @@ window.onload = () => {
   function like_load() {
     console.log(like_data);
     //관심목록 유무 토글 변경
+    if(like_data != "notLike"){
+      console.log("관심보직입니다.");
+    }else{
+      console.log("관심보직XX");
+    }
   }
 
-  function toggle_like() {}
-
+  function toggle_like() {
+    if(like_data != "notLike"){
+      request_method = 'DELETE';
+    }else{
+      request_method = 'POST';
+    }
+    fetch(like_url, {
+      method: request_method,
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "include", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("my-app-auth"),
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer",
+    }).then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      if(json.status == "success") {
+        console.log("정상 토글댐");
+        // 토글처리
+      }else{
+        console.log("실패");
+      }
+    });
+  }
+  
   function draw() {
     console.log(data);
+    let point_table = document.querySelector("body > div > div > div.info.position");
+    for (let i of data.points) {
+      if (i.category != "전공"){
+        point_table.innerHTML += `<div class="license_item_list">
+          <ul class="license_info_list">
+            <li>` + i.name + `</li>
+            <li>1000명중 ` + i.point_mma + `</li>
+            <li>12명중 ` + i.point_user + `</li>
+          </ul>
+        </div>`
+      }
+      
+    }
+
+
     // data.recuritCnt 모집 인원
     //data.applyedCnt 지원 인원
     //endlistStart 입대일
