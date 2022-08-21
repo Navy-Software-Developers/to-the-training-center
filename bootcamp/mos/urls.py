@@ -6,6 +6,7 @@ urlpatterns = [
     path("<int:pk>", detail, name='detail_of_MOS'),
     path("<int:pk>/wiki", wiki, name='wiki'),
     path("<int:pk>/like", like, name='like'),
+    path("<int:pk>/review", review, name='review'),
     path("mylikes", mylikes, name='mylikes'),
     path("points", points, name='points'),
     path("mypoints", mypoints, name='mypoints'),

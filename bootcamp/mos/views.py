@@ -384,3 +384,38 @@ def point(request, pk):
             return Response({'status': 'success'})
     except:
         return Response({'status': 'failed'})
+
+
+
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+def review(request, pk):
+    try:
+        try:
+            mos = Mos.objects.get(pk=pk)
+        except Mos.DoesNotExist:
+            return Response({'status': 'failed'}, status=status.HTTP_404_NOT_FOUND)
+
+        if request.method == 'GET': # 해당보직 리뷰 가져오기
+            like = MosReview.objects.filter(mos=mos)
+            return Response({'status': 'success', 'result': LikeSerializer(like).data})
+            
+        elif request.method == 'POST' or request.method == 'PUT': # 해당보직 리뷰 작성, 수정
+            review = MosReview.objects.get_or_create(mos=mos, user=request.user)
+            review.rating1 = request.data.get("rating1")
+            review.rating2 = request.data.get("rating2")
+            review.rating3 = request.data.get("rating3")
+            review.rating4 = request.data.get("rating4")
+            review.rating5 = request.data.get("rating5")
+            review.review = request.data.get("review")
+            review.advantage = request.data.get("advantage")
+            review.disadvantage = request.data.get("disadvantage")
+            review.save()
+
+            return Response({'status': 'success'})
+            
+        elif request.method == 'DELETE': # 리뷰 삭제
+            MosReview.objects.get(mos=mos, user=request.user).delete()
+
+            return Response({'status': 'success'})
+    except:
+        return Response({'status': 'failed'})

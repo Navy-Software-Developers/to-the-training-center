@@ -95,8 +95,18 @@ class MMAPoint(models.Model):
         return f"{self.uid} {self.point}"
 
 
-class MosRating(models.Model):
+class MosReview(models.Model):
     mos = models.ForeignKey(Mos, on_delete=models.CASCADE) # 병과
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    rating = models.IntegerField()
-    review = models.CharField(max_length=1000)
+    rating1 = models.IntegerField() #당직양
+    rating2 = models.IntegerField() #업무량
+    rating3 = models.IntegerField() #복지
+    rating4 = models.IntegerField() #
+    rating5 = models.IntegerField()
+    review = models.TextField()
+    advantage = models.TextField()
+    disadvantage = models.TextField()
+    modified = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"[{self.mos}] {self.user} {self.rating1}{self.rating2}{self.rating3}{self.rating4}{self.rating5}{self.review}"
