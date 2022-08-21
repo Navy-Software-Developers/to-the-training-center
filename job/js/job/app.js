@@ -71,6 +71,56 @@ async function getDataWithToken(url = "", data = {}) {
 }
 
 window.onload = () => {
+  async function getReviewData() { // 해당 보직 리뷰들 조회
+    let url = url_prefix + `/api/mos/${pk}/review`;
+    const response = await fetch(url, {
+      method: "GET",
+      cache: "no-cache",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+    });
+    return response.json();
+  }
+
+
+  async function writeReview(data) { // 리뷰작성
+    let url = url_prefix + `/api/mos/${pk}/review`;
+    const response = await fetch(url, {
+      method: "POST",
+      cache: "no-cache",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("my-app-auth"),
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(data),
+    });
+    return response.json();
+  }
+
+  
+  async function deletReview() { // 접속자가 작성한 리뷰 삭제
+    let url = url_prefix + `/api/mos/${pk}/review`;
+    const response = await fetch(url, {
+      method: "DELETE",
+      cache: "no-cache",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("my-app-auth"),
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+    });
+    return response.json();
+  }
+
   let pk = location.hash.replace("#", "");
   if (pk == "") {
     location.href = "/";
@@ -90,6 +140,11 @@ window.onload = () => {
       data = json;
       load();
       draw();
+    });
+
+  getReviewData()
+    .then(function (json) {
+      console.log("리뷰 데이터: ", json);
     });
 
   let like_data;
