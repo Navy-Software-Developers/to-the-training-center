@@ -160,6 +160,7 @@ window.onload = () => {
   }
   
   function draw() {
+    console.log("보직을 즐겨찾기에추가한 사람수: ", data.user_total);
     console.log(data);
     let point_table = document.querySelector("body > div > div > div.info.position");
     for (let i of data.points) {
@@ -167,8 +168,8 @@ window.onload = () => {
         point_table.innerHTML += `<div class="license_item_list">
           <ul class="license_info_list">
             <li>` + i.name + `</li>
-            <li>1000명중 ` + i.point_mma + `</li>
-            <li>12명중 ` + i.point_user + `</li>
+            <li>` + data.mma_total + `명중 ` + i.point_mma + `</li>
+            <li>` + data.user_total + `명중 ` + i.point_user + `</li>
           </ul>
         </div>`
       }
@@ -237,10 +238,13 @@ window.onload = () => {
       return a.round - b.round;
     })
     console.log(table_data)
+    let sum = 0;
     for (let t of table_data) {
-      
       table.innerHTML += tableRender(t);
+      sum += t.compete;
     }
+    let average_compete = sum/table_data.length;
+    console.log("평균 경쟁률: ", average_compete);
 
     //   console.log(total, pass);
     let member = [
