@@ -368,17 +368,19 @@ window.onload = () => {
   save_wiki.onclick = () => {
     let wiki_result;
     wiki_box.style.display = "none";
-    wiki.style.display = "flex";
+    wiki.style.display = "grid";
     let wiki_text = wiki_command.value; //작성한 글 내용 가져오기
 
     postData(wiki_url, { content: wiki_text }).then((wiki_result) => {
       console.log(wiki_result); // JSON 데이터가 `data.json()` 호출에 의해 파싱됨
       if (wiki_result.status == "success") {
         data.wiki = wiki_text;
-        wiki.style.display = "flex";
-        wiki_content.style.display = "block";
+        wiki.style.display = "grid";
+        wiki_content.style.display = "grid";
         load();
       } else {
+        wiki_content.style.display = "grid";
+        wiki.style.display = "grid";
         alert("로그인 후 작성 가능합니다!");
       }
     });
