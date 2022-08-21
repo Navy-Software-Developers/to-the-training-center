@@ -34,9 +34,7 @@
   display: grid;
   grid-template-columns: 1fr 7fr;
   align-items: center;
-  
   width: 100%;
-  
   margin-bottom: 2rem;
   align-items: center;
 }
