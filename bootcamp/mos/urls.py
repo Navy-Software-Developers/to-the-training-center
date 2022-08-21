@@ -9,6 +9,7 @@ urlpatterns = [
     path("mylikes", mylikes, name='mylikes'),
     path("points", points, name='points'),
     path("mypoints", mypoints, name='mypoints'),
+    path("point/<int:pk>", point, name='point'),
     path("update/mos", update_mos),
     path("update/recurit", update_recurit),
     path("update/point", update_point),

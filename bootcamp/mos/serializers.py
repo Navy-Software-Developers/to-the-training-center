@@ -16,7 +16,7 @@ class WikiSerializer(serializers.ModelSerializer):
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = ('user', 'mos', 'notification')
+        fields = ('user', 'mos', 'notification', 'get_mos_name')
 
 
 class PointSerializer(serializers.ModelSerializer):

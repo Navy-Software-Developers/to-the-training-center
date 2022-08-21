@@ -52,6 +52,9 @@ class Like(models.Model):
     def __str__(self) -> str:
         return f"{self.user} {self.mos} {self.notification}"
 
+    def get_mos_name(self) -> str:
+        return self.mos.name
+
 
 class Point(models.Model):
     category = models.CharField(max_length=150) # gubun 구분 예 자격 전공 등

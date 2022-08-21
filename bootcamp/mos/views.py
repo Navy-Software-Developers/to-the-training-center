@@ -75,7 +75,19 @@ def detail(request, pk):
 
         result['points'].append(point)
     
+    mma_total = cache.get('mma_total')
+    if not mma_total:
+        # mma_total = MMAPoint.objects.values('uid').annotate(total=Count('point')).count() 69761자격증이 없는 사람은 포함이 안되서 api가져오는 부분 수정 필요
+        mma_total = 79891
+        cache.set('mma_total', mma_total)
     
+    user_like_total = cache.get('user_like_total')
+    if not user_like_total:
+        user_like_total = Like.objects.filter(mos=ob).count()
+        cache.set('user_like_total', user_like_total, 30)
+    
+    result['mma_total'] = mma_total
+    result['user_total'] = user_like_total
 
 
     return Response(result)
@@ -264,28 +276,28 @@ def wiki(request, pk):
         #     return Response({'status': 'failed'})
 
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def like(request, pk):
     try:
         mos = Mos.objects.get(pk=pk)
     except Mos.DoesNotExist:
-        return Response({'status': 'details'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'status': 'failed'}, status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
         try:
             like = Like.objects.get(mos=mos, user=request.user)
-            return Response(LikeSerializer(like).data)
+            return Response({'status': 'success', 'result': LikeSerializer(like).data})
         except Like.DoesNotExist:
-            return Response({'result': 'notLike'})
+            return Response({'status': 'success', 'result': 'notLike'})
         except:
-            return Response({'status': 'failed'})
+            return Response({'status': 'failed'}, status=status.HTTP_404_NOT_FOUND)
 
-    elif request.method == 'POST':
+    elif request.method == 'POST': # 관심추가
         Like.objects.create(mos=mos, user=request.user)
 
         return Response({'status': 'success'})
 
-    elif request.method == 'PUT':
+    elif request.method == 'PUT': # 알림 상태 변경
         try:
             Like.objects.get(mos=mos, user=request.user).notification = bool(request.POST['notification'])
 
@@ -293,7 +305,7 @@ def like(request, pk):
         except:
             return Response({'status': 'failed'})
 
-    elif request.method == 'DELETE':
+    elif request.method == 'DELETE': # 관심삭제
         try:
             Like.objects.get(mos=mos, user=request.user).delete()
 
@@ -319,7 +331,7 @@ def points(request):
     if not points:
         serializer = PointSerializer(Point.objects.all(), many=True)
         points = serializer.data
-        cache.set('points', points)
+        cache.set('points', points, 999999999999999999)
 
     mma_total = cache.get('mma_total')
     if not mma_total:
@@ -352,3 +364,23 @@ def mypoints(request):
         return Response({'status': 'failed'})
 
 
+
+@api_view(['POST', 'DELETE'])
+def point(request, pk):
+    try:
+        try:
+            point = Point.objects.get(pk=pk)
+        except Point.DoesNotExist:
+            return Response({'status': 'failed'}, status=status.HTTP_404_NOT_FOUND)
+
+        if request.method == 'POST': # 배점항목 추가
+            UserPoint.objects.get_or_create(point=point, user=request.user)
+
+            return Response({'status': 'success'})
+
+        elif request.method == 'DELETE': # 배점항목 삭제
+            UserPoint.objects.get(point=point, user=request.user).delete()
+
+            return Response({'status': 'success'})
+    except:
+        return Response({'status': 'failed'})
