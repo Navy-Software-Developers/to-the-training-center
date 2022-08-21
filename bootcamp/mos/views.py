@@ -396,8 +396,8 @@ def review(request, pk):
             return Response({'status': 'failed'}, status=status.HTTP_404_NOT_FOUND)
 
         if request.method == 'GET': # 해당보직 리뷰 가져오기
-            like = MosReview.objects.filter(mos=mos)
-            return Response({'status': 'success', 'result': LikeSerializer(like).data})
+            review = MosReview.objects.filter(mos=mos)
+            return Response({'status': 'success', 'result': MosReviewSerializer(review, many=True).data})
             
         elif request.method == 'POST' or request.method == 'PUT': # 해당보직 리뷰 작성, 수정
             review = MosReview.objects.get_or_create(mos=mos, user=request.user)

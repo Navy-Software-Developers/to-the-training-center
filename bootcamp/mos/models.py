@@ -110,3 +110,6 @@ class MosReview(models.Model):
 
     def __str__(self) -> str:
         return f"[{self.mos}] {self.user} {self.rating1}{self.rating2}{self.rating3}{self.rating4}{self.rating5}{self.review}"
+    
+    def get_username(self) -> str:
+        return self.user.username

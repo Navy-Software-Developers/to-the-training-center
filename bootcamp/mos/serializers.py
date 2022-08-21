@@ -23,3 +23,9 @@ class PointSerializer(serializers.ModelSerializer):
     class Meta:
         model = Point
         fields = ('pk', 'name', 'category', 'level', 'get_count_from_MMA', 'get_count_from_user')
+
+
+class MosReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MosReview
+        fields = ('pk', 'user', 'get_username', 'rating1', 'rating2', 'rating3', 'rating4', 'rating5', 'review', 'advantage', 'disadvantage', 'modified')
