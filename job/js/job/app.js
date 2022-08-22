@@ -1,3 +1,33 @@
+import {getReveiewStarPosition,setReviewStar} from './review.js';
+
+ 
+
+const review_stars = document.querySelectorAll('.review_star')
+const evaluations = document.querySelectorAll('.evaluation');
+const save_evaluation = document.querySelector('.save_evaluation');
+
+let review_data = [
+  {
+      "star":new Array(5).fill(0)
+  },
+  {
+    "review_comments":{
+      "evaluation":null,
+      "advantage":null,
+      "disadvantage":null
+    }
+  }
+]
+
+
+
+
+ 
+
+
+
+
+
 let chart = document.getElementById("myChart");
 let chart2 = document.getElementById("myChart2");
 const table = document.querySelector(".table");
@@ -15,6 +45,8 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
+
+ 
 // POST 메서드 구현 예제
 async function postData(url = "", data = {}) {
   // 옵션 기본 값은 *로 강조
@@ -71,6 +103,43 @@ async function getDataWithToken(url = "", data = {}) {
 }
 
 window.onload = () => {
+
+  //별에 마우스 올릴 시 별점 평가
+  review_stars.forEach((e,key)=>{
+    getReveiewStarPosition(e,(result)=>{
+        setReviewStar(e,result)
+        review_data[0].star[key] = result;
+        
+    })
+  }) 
+  
+ // 리뷰 평가 작성 및 별점 저장 
+  save_evaluation.onclick = ()=>{
+    // evaluations.forEach((e,i)=>{
+    //     review_data[1].review_comments[i] = e.value;
+    // })
+
+    let count = 0;
+    for(let r in review_data[1].review_comments){
+      review_data[1].review_comments[r] = evaluations[count].value;
+      count++;
+    }
+
+    // console.log(review_data);
+    writeReview(review_data).then(
+      (res)=>{
+        console.log(res);
+      }
+    ).catch(
+      (err)=>{
+        console.log(err);
+      }
+    );
+    
+  }
+
+  
+
   async function getReviewData() { // 해당 보직 리뷰들 조회
     let url = url_prefix + `/api/mos/${pk}/review`;
     const response = await fetch(url, {
@@ -95,7 +164,7 @@ window.onload = () => {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + getCookie("my-app-auth"),
+        Authorization: "Bearer" + getCookie("my-app-auth"),
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",
@@ -292,7 +361,7 @@ window.onload = () => {
     table_data.sort((a,b)=>{
       return a.round - b.round;
     })
-    console.log(table_data)
+    
     let sum = 0;
     for (let t of table_data) {
       table.innerHTML += tableRender(t);
@@ -441,29 +510,29 @@ window.onload = () => {
     });
   };
 
-  const search_bar = document.querySelector(".search_bar");
-  const search_input = document.querySelector(".search_input");
-  const search_close = document.querySelector(".search_close"); //flex
-  const autocomplete = document.querySelector(".autocomplete");
+  // const search_bar = document.querySelector(".search_bar");
+  // const search_input = document.querySelector(".search_input");
+  // const search_close = document.querySelector(".search_close"); //flex
+  // const autocomplete = document.querySelector(".autocomplete");
 
-  search_bar.onclick = () => {
-    search_bar.style.display = "none";
-    search_input.style.display = "block";
-    search_close.style.display = "flex";
-  };
+  // search_bar.onclick = () => {
+  //   search_bar.style.display = "none";
+  //   search_input.style.display = "block";
+  //   search_close.style.display = "flex";
+  // };
 
-  search_close.onclick = () => {
-    search_bar.style.display = "block";
-    search_input.style.display = "none";
-    search_close.style.display = "none";
-    autocomplete.style.display = "none";
-  };
+  // search_close.onclick = () => {
+  //   search_bar.style.display = "block";
+  //   search_input.style.display = "none";
+  //   search_close.style.display = "none";
+  //   autocomplete.style.display = "none";
+  // };
 
   //키보드 입력이 들어올때 마다 일어나는 이벤트
-  search_input.onkeydown = () => {
-    //키보드 입력시 발생할 이벤트 작성
-    autocomplete.style.display = "block";
-  };
+  // search_input.onkeydown = () => {
+  //   //키보드 입력시 발생할 이벤트 작성
+  //   autocomplete.style.display = "block";
+  // };
 };
 
 // new Chart(document.getElementById("myChart"), {
