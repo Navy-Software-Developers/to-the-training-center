@@ -14,9 +14,8 @@ const average = document.querySelector('.average');
 const like = document.querySelector('.like');
 
 let review_data =   {
-  "pk":0,
-  "user": 1,
-  "get_username": "a",
+ 
+  
   "rating1": 0,
   "rating2": 0,
   "rating3": 0,
@@ -25,7 +24,7 @@ let review_data =   {
   "review": null,
   "advantage": null,
   "disadvantage": null,
-  "modified":  null
+  
 }
 
 
@@ -130,7 +129,7 @@ window.onload = () => {
 
     let count = 0;
      
-    review_data.pk = pk;
+    
     review_data.rating1 = rating_data[0];
     review_data.rating2 = rating_data[1];
     review_data.rating3 = rating_data[2];
