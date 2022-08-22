@@ -6,22 +6,30 @@ const review_stars = document.querySelectorAll('.review_star')
 const evaluations = document.querySelectorAll('.evaluation');
 const save_evaluation = document.querySelector('.save_evaluation');
 
-let review_data = [
-  {
-      "star":new Array(5).fill(0)
-  },
-  {
-    "review_comments":{
-      "evaluation":null,
-      "advantage":null,
-      "disadvantage":null
-    }
-  }
-]
+
+const user_star = document.querySelectorAll('.user_star');
+const suer_evaluation = document.querySelectorAll('.user_evaluation')
+
+const average = document.querySelector('.average');
+const like = document.querySelector('.like');
+
+let review_data =   {
+  "pk":0,
+  "user": 1,
+  "get_username": "a",
+  "rating1": 0,
+  "rating2": 0,
+  "rating3": 0,
+  "rating4": 0,
+  "rating5": 0,
+  "review": null,
+  "advantage": null,
+  "disadvantage": null,
+  "modified":  null
+}
 
 
-
-
+let rating_data = new Array(5).fill(0);
  
 
 
@@ -108,8 +116,8 @@ window.onload = () => {
   review_stars.forEach((e,key)=>{
     getReveiewStarPosition(e,(result)=>{
         setReviewStar(e,result)
-        review_data[0].star[key] = result;
-        
+        rating_data[key] = result;
+        // console.log(rating_data)
     })
   }) 
   
@@ -118,23 +126,28 @@ window.onload = () => {
     // evaluations.forEach((e,i)=>{
     //     review_data[1].review_comments[i] = e.value;
     // })
+    
 
     let count = 0;
-    for(let r in review_data[1].review_comments){
-      review_data[1].review_comments[r] = evaluations[count].value;
-      count++;
-    }
+     
+    review_data.pk = pk;
+    review_data.rating1 = rating_data[0];
+    review_data.rating2 = rating_data[1];
+    review_data.rating3 = rating_data[2];
+    review_data.rating4 = rating_data[3];
+    review_data.rating4 = rating_data[4]
 
+    review_data.review = evaluations[0].value;
+    review_data.advantage = evaluations[1].value;
+    review_data.disadvantage = evaluations[2].value;
+    
+   
     // console.log(review_data);
     writeReview(review_data).then(
       (res)=>{
         console.log(res);
       }
-    ).catch(
-      (err)=>{
-        console.log(err);
-      }
-    );
+    )
     
   }
 
@@ -157,6 +170,7 @@ window.onload = () => {
 
 
   async function writeReview(data) { // 리뷰작성
+    console.log(JSON.stringify(data))
     let url = url_prefix + `/api/mos/${pk}/review`;
     const response = await fetch(url, {
       method: "POST",
@@ -214,6 +228,10 @@ window.onload = () => {
   getReviewData()
     .then(function (json) {
       console.log("리뷰 데이터: ", json);
+      for(let i=0 ;i < json.result.length; i++){
+        //여기에 평점 보기 기능 만들것임
+      }
+     
     });
 
   let like_data;
@@ -285,6 +303,7 @@ window.onload = () => {
   
   function draw() {
     console.log("보직을 즐겨찾기에추가한 사람수: ", data.user_total);
+    like.innerText = `즐겨찾기:${data.user_total}`
     console.log(data);
     let point_table = document.querySelector("body > div > div > div.info.position");
     for (let i of data.points) {
@@ -369,7 +388,7 @@ window.onload = () => {
     }
     let average_compete = sum/table_data.length;
     console.log("평균 경쟁률: ", average_compete);
-
+   average.innerText = `평균경쟁: ${average_compete.toFixed(2)}:1`
     //   console.log(total, pass);
     let member = [
       {
