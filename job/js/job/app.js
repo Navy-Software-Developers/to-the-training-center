@@ -177,7 +177,7 @@ window.onload = () => {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer" + getCookie("my-app-auth"),
+        Authorization: "Bearer " + getCookie("my-app-auth"),
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",
@@ -186,7 +186,93 @@ window.onload = () => {
     return response.json();
   }
 
-  
+
+  function drawReview(reviews) {
+    let review_list = document.querySelector("#chart7 > div.write_box_list");
+    review_list.innerHTML = "";
+    for (let review of reviews) {
+      let this_review = `<div class="write_box size">
+    <div class="choose_star">
+      <a>${review.get_username}님의 리뷰</a>
+      <li class="star_item">
+        <p>당직 횟수 만족도</p>
+        <span class="stars_count user_star">`
+      for (let i = 0; i < review.rating1; i++) {
+        this_review += `<img src="../mall/media/star/yesStar.svg" alt="">`
+      }
+      for (let i = 0; i < 5 - review.rating1; i++) {
+        this_review += `<img src="../mall/media/star/noStar.svg" alt="">`
+      }
+      this_review += `</span>
+      </li>
+      <li class="star_item">
+        <p>업무 만족도</p>
+        <span class="stars_count user_star">`
+      for (let i = 0; i < review.rating2; i++) {
+        this_review += `<img src="../mall/media/star/yesStar.svg" alt="">`
+      }
+      for (let i = 0; i < 5 - review.rating2; i++) {
+        this_review += `<img src="../mall/media/star/noStar.svg" alt="">`
+      }
+      this_review += `</span>
+      </li>
+      <li class="star_item">
+        <p>휴가횟수 만족도</p>
+        <span class="stars_count user_star">`
+      for (let i = 0; i < review.rating3; i++) {
+        this_review += `<img src="../mall/media/star/yesStar.svg" alt="">`
+      }
+      for (let i = 0; i < 5 - review.rating3; i++) {
+        this_review += `<img src="../mall/media/star/noStar.svg" alt="">`
+      }
+      this_review += `</span>
+      </li>
+      <li class="star_item">
+        <p>복지 만족도</p>
+        <span class="stars_count user_star">`
+      for (let i = 0; i < review.rating4; i++) {
+        this_review += `<img src="../mall/media/star/yesStar.svg" alt="">`
+      }
+      for (let i = 0; i < 5 - review.rating4; i++) {
+        this_review += `<img src="../mall/media/star/noStar.svg" alt="">`
+      }
+      this_review += `</span>
+      </li>
+      <li class="star_item">
+        <p>병영문화 만족도</p>
+        <span class="stars_count user_star">`
+      for (let i = 0; i < review.rating5; i++) {
+        this_review += `<img src="../mall/media/star/yesStar.svg" alt="">`
+      }
+      for (let i = 0; i < 5 - review.rating5; i++) {
+        this_review += `<img src="../mall/media/star/noStar.svg" alt="">`
+      }
+      this_review += `</span>
+      </li>
+    </div>
+    <div class="write_review">
+      <li class="write_item">
+        <p>한줄 평가</p>
+        <span class="user_evaluation">${review.review}</span>
+      </li>
+      <li class="write_item">
+        <p>장점</p>
+       
+        <span class="user_evaluation">${review.advantage}</span>
+      </li>
+      <li class="write_item">
+        <p>단점</p>
+    
+        <span class="user_evaluation">${review.disadvantage}</span>
+      </li>
+
+   
+    </div>
+  </div>`
+  review_list.innerHTML += this_review;
+    }
+  }
+
   async function deletReview() { // 접속자가 작성한 리뷰 삭제
     let url = url_prefix + `/api/mos/${pk}/review`;
     const response = await fetch(url, {
@@ -212,8 +298,6 @@ window.onload = () => {
   let data;
 
   let url = url_prefix + "/api/mos/" + pk;
-  console.log(url);
-  console.log(getCookie("my-app-auth"));
   getData(url)
     .then(function (response) {
       return response.json();
@@ -227,9 +311,10 @@ window.onload = () => {
   getReviewData()
     .then(function (json) {
       console.log("리뷰 데이터: ", json);
-      for(let i=0 ;i < json.result.length; i++){
+      drawReview(json.result);
+      //for(let i=0 ;i < json.result.length; i++){
         //여기에 평점 보기 기능 만들것임
-      }
+//}
      
     });
 
