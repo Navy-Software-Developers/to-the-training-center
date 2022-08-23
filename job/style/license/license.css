@@ -5,9 +5,7 @@
 .search_wrap {
   width: 56%;
   height: 100vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto; 
   margin-top: 4rem;
 }
 
@@ -35,10 +33,20 @@
 .search_license::placeholder {
   color: gray;
 }
-
-.add {
-  width: 80%;
+.delete{
+  width: 50%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 89, 89, 0.2);
+  color: rgb(255, 89, 89);
+  border-radius: 5px;
+  font-weight: bold;
+}
+.add {
+  width: 70%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +69,7 @@
   justify-content: space-between;
   border-radius: 5px;
 } */
-.license_head{
+.search_license_list , .license_add_list{
   width: 96%;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -70,17 +78,54 @@
   list-style: none;
   padding: 1%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 50fr ;
   border-radius: 5px;
 }
 
-.license_head li {
+.search_license_list{
+  height: 30vh;
+  justify-content: center;
+}
+.license_head > ul{
   width: 100%;
+  height: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 0 auto;
+}
+.user_license{
+  width: 96%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 0 auto;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  border-radius: 5px;
+}
+
+.license_head ul li, .license_add_list li ,.license_head li {
+  width: 100%;
+  height: auto ;
   text-align: center;
   align-items: center;
   font-size: 0.75rem;
   font-weight: bold;
   color: rgba(113, 113, 113, 0.938);
+}
+
+ 
+.license_add_list{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.user_license{
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: auto;
 }
 
 #licesne_list {
@@ -96,7 +141,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+ 
   align-items: center;
   transition: all 0.5s;
 }
@@ -159,12 +204,13 @@
   height: 100%;
 } */
 .license_info{
-  width: 80%;
+  width: 100%;
   list-style: none;
   color: rgb(142, 142, 142);
   height: 100%;
   display: grid;
-  grid-template-columns: 1.2fr 1.3fr 1fr 1fr;
+  /* grid-template-columns:1fr 1.2fr 1.3fr 1fr 1fr; */
+  grid-template-columns:0.5fr 1fr 1fr 1fr 0.5fr;
   gap: 10px;
   align-items: center;
 }
@@ -201,6 +247,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   font-size: 1rem;
+  justify-items: center;
   color: rgb(142, 142, 142);
   height: 100%;
 }

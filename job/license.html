@@ -35,47 +35,31 @@
         </div>
 
 
-        <div class="license_head">
-            <li>분류</li>
-            <li>가산점 항목</li>
-            <li>현역대상자 중 해당자</li>
-            <li>서비스 이용자 중 해당자</li>
-            <li>항목 등록</li>
-        </div>
+        <div class="license_head search_license_list">
+           <ul class="search_title">
+                <li>분류</li>
+                <li>가산점 항목</li>
+                <li>현역대상자 중 해당자</li>
+                <li>서비스 이용자 중 해당자</li>
+                <li>항목 등록</li>
+           </ul>
 
-        <div id="licesne_list">
-            <div class="license_item">
-                <li class="license_have">로딩중..</li>
-                <ul class="license_info">
-                    <li>로딩중..</li>
-                    <li>로딩중..</li>
-                    <li>로딩중..</li>
-                    <span class="add">
-                        로딩중..
-                    </span>
-                </ul>
+            <div id="licesne_list">
+                 
+    
+    
             </div>
-
-            <div class="license_item">
-                <li class="license_none">로딩중..</li>
-                <ul class="license_info">
-                    <li>로딩중..</li>
-                    <li>로딩중..</li>
-                    <li>로딩중..</li>
-                    <span class="add">
-                        로딩중..
-                    </span>
-                </ul>
-            </div>
-
-
+           
         </div>
+       
+       
+         
 
         <div id="info" class=" margin_bottom">
             <div class="title_bar">
                 <p id="title" class="  chart_title">000님의 가산점 항목 목록</p>
             </div>
-            <div class="license_head">
+            <div class="license_head user_license">
                 <li>가산점 항목</li>
                 <li>현역대상자 중 해당자</li>
                 <li>서비스 이용자 중 해당자</li>
@@ -83,6 +67,10 @@
             <div id="my_point_list"></div>
         </div>
 
+
+        </div>
+
+      
 
 </body>
 <script>
@@ -179,7 +167,7 @@
                                                 <li>${i.name}</li>    
                                                 <li>${data.mma_total}명중 ${i.get_count_from_MMA}</li>
                                                 <li>${data.user_total}명중 ${i.get_count_from_user}</li>
-                                                <span class="add" onclick="deletePoint(${i.pk})">
+                                                <span class="delete" onclick="deletePoint(${i.pk})">
                                                     삭제
                                                 </span>
                                             </ul>
@@ -219,8 +207,9 @@
             for (const element of data.points) {
                 if ((element.name.toLowerCase().includes(query))) {
                     let div_data = `<div class="license_item">
-                <li class="license_none">` + element.category + `</li>
+                 
                 <ul class="license_info">
+                    <li class="license_none">${element.category}</li>
                     <li>` + element.name + `</li>`
                 if (element.category == '자격') {
                     div_data += `<li>` + data.mma_total + `명중 ` + element.get_count_from_MMA + `</li>`
