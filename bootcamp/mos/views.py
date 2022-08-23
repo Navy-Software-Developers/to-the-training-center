@@ -400,7 +400,7 @@ def review(request, pk):
             return Response({'status': 'success', 'result': MosReviewSerializer(review, many=True).data})
             
         elif request.method == 'POST' or request.method == 'PUT': # 해당보직 리뷰 작성, 수정
-            review = MosReview.objects.get_or_create(mos=mos, user=request.user)
+            review = MosReview.objects.get_or_create(mos=mos, user=request.user)[0]
             review.rating1 = request.data.get("rating1")
             review.rating2 = request.data.get("rating2")
             review.rating3 = request.data.get("rating3")
