@@ -8,12 +8,12 @@
 .info {
   overflow: hidden;
   margin: 0 auto;
-  width: 100%;
+  width: 93%;
   height: 40%;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-top: 1.5rem;
-  padding: 0px 1.5rem 1.5rem 1.5rem;
+  padding:0px 3.5% 3.5% 3.5%;
   background-color: #fff;
   transition: all 0.5s;
 }
@@ -33,7 +33,7 @@
 #chart5,
 #chart6,
 #chart7 {
-  width: 100%;
+  width: 93%;
   margin: 0 auto;
   margin-top: 1.5rem;
   border-radius: 10px;
@@ -41,7 +41,7 @@
   background-color: #fff;
   position: relative;
   overflow: hidden;
-  padding: 0px 1.5rem 1.5rem 1.5rem;
+  padding: 0px 3.5% 3.5% 3.5%;
 }
 
 #chart5, #chart6, #chart7 {
@@ -591,7 +591,9 @@
 }
 
 
-
+.job_toggle{
+  height: 55%;
+}
 
 /*1200px 이상일때*/
 @media screen and (min-width: 1200px) {
@@ -599,20 +601,11 @@
     width: 55%;
     margin: 0 auto;
   }
-
-  .info{
-    width: 95%;
+ 
+  .good{
+    width: 10%;
+    height: 34%;
   }
-
-  #chart,
-  #chart2,
-  #chart3,
-  #chart5,
-  #chart6,
-  #chart7 {
-    width: 95%;
-  }
-  
 }
 
 /*이하 일때*/
@@ -623,21 +616,23 @@
   }
  
   .toggle_box {
-    width: 43px;
-    height: 41%;
+    width: 100%;
+    height: 40%;
   }
 
-  .toggle {
-    width: 41%;
-    justify-content: right;
-  }
+   .review{
+    width: 66%;
+   }
  
   .good{
-    width: 80%;
-    height: 60%;
+    width: 30%;
+ 
   }
   .chart_title{
     font-size: 1rem;
+  }
+  .job_contents{
+    width: 93%;
   }
 
 }
