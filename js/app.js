@@ -74,6 +74,7 @@ class App {
     this.update();
 
     this.resize();
+    
   }
 
   update() {

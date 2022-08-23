@@ -212,3 +212,16 @@ input[id="cb1"] {
   border-color: transparent;
   background-color: currentColor;
 }
+
+
+
+/* 1200px 이상일때 */
+
+@media screen and (max-width: 600px) {
+   .section p{
+    font-size: 1rem;
+   }
+   .arrow_box img{
+    width: 30%;
+   }
+}
