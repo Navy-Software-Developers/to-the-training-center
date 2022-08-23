@@ -134,7 +134,7 @@ window.onload = () => {
     review_data.rating2 = rating_data[1];
     review_data.rating3 = rating_data[2];
     review_data.rating4 = rating_data[3];
-    review_data.rating4 = rating_data[4]
+    review_data.rating5 = rating_data[4];
 
     review_data.review = evaluations[0].value;
     review_data.advantage = evaluations[1].value;
