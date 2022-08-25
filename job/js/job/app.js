@@ -384,13 +384,13 @@ window.onload = () => {
       console.log('평균평점',stars);
       console.log(progress_bar.length)
       let result = (stars.reduce((a,b)=>{return a+b}))/5;
-      total_star.innerText = result;
-      like_avg.innerText = result;
+      total_star.innerText = result.toFixed(1);
+      like_avg.innerText = result.toFixed(1);
       // setReviewStar(star_list,result.toFixed(0));
       setReviewStar(star_list,result.toFixed(0));
       progress_bar.forEach((e,key)=>{
         e.style.width = `${stars[key]*20}%`;
-        review_count[key].innerText = stars[key];
+        review_count[key].innerText = stars[key].toFixed(1);
       })
 
    

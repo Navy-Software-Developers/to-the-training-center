@@ -25,20 +25,6 @@ function getReveiewStarPosition(review_star_parent,callback) {
     }
     
 }
-
-
- 
-
-// review_stars.forEach((e,key)=>{
-//     getReveiewStarPosition(e,(result)=>{
-//         setReviewStar(e,result)
-//         review_data[0].star[key] = result;
-        
-//     })
-// }) 
-
-
-
  
 
 export {getReveiewStarPosition,setReviewStar};
