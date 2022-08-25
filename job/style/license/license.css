@@ -84,7 +84,7 @@
 
 .search_license_list{
   height: 30vh;
-  justify-content: center;
+  /* justify-content: center; */
  
 }
 .license_head > ul{
