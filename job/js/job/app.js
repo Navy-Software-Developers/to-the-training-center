@@ -52,7 +52,7 @@ const star_list = document.querySelectorAll('.star_list img');
  
 
 let stars = [];
-let review_count = document.querySelector('.subtitle_review_count');
+let review_count = document.querySelectorAll('.subtitle_review_count');
 
 
 
