@@ -8,7 +8,6 @@ const toggle_btn= document.querySelector('.toggle_btn');
 const toggle = new Toggle(toggle_box, toggle_btn,false);
  
 
- 
 
 const review_stars = document.querySelectorAll('.review_star')
 const evaluations = document.querySelectorAll('.evaluation');
@@ -20,6 +19,8 @@ const suer_evaluation = document.querySelectorAll('.user_evaluation')
 
 const average = document.querySelector('.average');
 const like = document.querySelector('.like');
+
+
 
 let review_data =   {
  
@@ -37,7 +38,51 @@ let review_data =   {
 
 
 let rating_data = new Array(5).fill(0);
+
+
+
+
+
+
+
+
+const progress_bar = document.querySelectorAll('.progress_bar');
+const total_star = document.querySelector('.star_count > span');
+const star_list = document.querySelectorAll('.star_list img');
  
+
+let stars = [];
+let review_count = document.querySelector('.subtitle_review_count');
+
+
+
+ 
+
+function calcStar(object){
+  let star1 = 0;
+  let star2 = 0;
+  let star3 = 0;
+  let star4 = 0;
+  let star5 = 0;
+
+  for(let i =0 ;i  < object.length ;i++){
+   
+      star1 += object[i].rating1;
+      star2 += object[i].rating2;
+      star3 += object[i].rating3;
+      star4 += object[i].rating4;
+      star5 += object[i].rating5;
+
+  }
+
+  
+  return [star1/object.length
+          ,star2/object.length
+          ,star3/object.length
+          ,star4/object.length
+          ,star5/object.length
+        ];
+}
 
 
 
@@ -303,7 +348,7 @@ window.onload = () => {
   }
   let url_prefix = "http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000";
   let BRANCH = [, "육군", "해군", "공군", "해병대"];
-  
+
   let data;
 
   let url = url_prefix + "/api/mos/" + pk;
@@ -321,10 +366,15 @@ window.onload = () => {
     .then(function (json) {
       console.log("리뷰 데이터: ", json);
       drawReview(json.result);
-      //for(let i=0 ;i < json.result.length; i++){
-        //여기에 평점 보기 기능 만들것임
-//}
-     
+      [stars[0],stars[1],stars[2],stars[3],stars[4]] = calcStar(json.result);
+      console.log('평균평점',stars);
+      console.log(progress_bar.length)
+      progress_bar.forEach((e,key)=>{
+        e.style.width = `${stars[key]*20}%`;
+        review_count[key].innerText = stars[key];
+      })
+
+   
     });
 
   let like_data;

@@ -73,11 +73,11 @@
     text-align: center;
 }
 
-@keyframes slide{
+/* @keyframes slide{
     100%{
         width: 50%;
     }
-}
+} */
 
 
 .write_box{
