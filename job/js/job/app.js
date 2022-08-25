@@ -303,6 +303,7 @@ window.onload = () => {
   }
   let url_prefix = "http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000";
   let BRANCH = [, "육군", "해군", "공군", "해병대"];
+  
   let data;
 
   let url = url_prefix + "/api/mos/" + pk;

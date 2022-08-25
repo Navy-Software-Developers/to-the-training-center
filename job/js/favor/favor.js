@@ -2,6 +2,8 @@ let url_prefix = "http://api.xn--o39a35bw4ff5gp5m354a.xn--3e0b707e:8000";
 import { Toggle } from '../job/toggle.js';
 
 const favor_list = document.querySelector('.favor_list');
+const del_btn = document.querySelector('.delete_btn');
+const del_wrap = document.querySelector('.delete_favorite');
 
 
 function update(positionName) {
@@ -22,7 +24,26 @@ function update(positionName) {
 
 }
 
+function delUpdate(positionName) {
+  let html =
 
+    `<div class="item_list delete"> 
+        <div class="position_name">
+             ${positionName}
+        </div>
+        <div class="del">
+        해제
+      </div>
+        <div class="toggle">
+           <div class="toggle_box">
+           <div class="toggle_btn"></div>
+        </div>
+      </div>
+    </div>
+        `
+  return html;
+
+}
 
 function getCookie(name) {
   let matches = document.cookie.match(
@@ -72,13 +93,27 @@ async function deletFavor(pk) { // 관심목록 삭제 함수 (인자 삭제할 
   });
   return response.json();
 }
-
+function removeAllchild(div) {
+  while (div.hasChildNodes()) {
+      div.removeChild(div.firstChild);
+  }
+}
 
 window.onload = () => {
   getFavorData()
     .then((response) => {
       // 즐겨찾기 데이터
       console.log(response)
+      if(response.length === 0){
+        favor_list.className += ' favor_no';
+        favor_list.innerHTML += ` <p>아직 즐겨찾기를 추가 하지 않았습니다!</p>`;
+        console.log('no data')
+        return 0;
+      }
+
+      del_wrap.style.display = 'grid';
+    
+
       for (let favorite of response) {
         favor_list.innerHTML += update(favorite.get_mos_name);
       }
@@ -86,7 +121,8 @@ window.onload = () => {
 
       const toggle_box = document.querySelectorAll('.toggle_box');
       const toggle_btn = document.querySelectorAll('.toggle_btn');
-    
+      const position_name= document.querySelectorAll('.position_name');
+      const item_list = document.querySelectorAll('.item_list');
 
       let toggle = new Array();
 
@@ -99,12 +135,18 @@ window.onload = () => {
           )
         )
       }
+      
+    
 
-
-
+      position_name.forEach((e,key)=>{
+        let url = `./job.html#${response[key].mos}`
+        e.onclick = ()=>{
+          location.href = url;
+        }
+      })
    
 
-
+      //토글 이벤트 처리 구간
       toggle_box.forEach((e, key) => {
         e.addEventListener('click', () => {
           let t = toggle[key];
@@ -118,6 +160,30 @@ window.onload = () => {
  
         })
       })
+
+
+      del_btn.onclick = ()=>{
+        if(del_btn.innerText === '완료'){
+          location.reload();
+          return;
+        }
+
+        del_btn.innerText = '완료'
+        removeAllchild(favor_list);
+       for (let favorite of response) {
+          favor_list.innerHTML += delUpdate(favorite.get_mos_name);
+        }
+        const favor_del = document.querySelectorAll('.del');
+        favor_del.forEach((e,key)=>{
+          e.onclick = ()=>{
+            e.innerText = '해제 됨'
+            deletFavor(response[key].mos);
+          }
+        })
+      }
+
+
+
     }).catch((err) => {
       alert('로그인을 해주세요!')
     })

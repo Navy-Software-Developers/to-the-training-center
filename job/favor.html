@@ -13,11 +13,76 @@
   <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
   <title>즐겨찾기</title>
   <style>
+    body{
+      height: 100vh;
+    }
     .toggle_box{
       height: 50%;
     }
     .item_list{
       height: 4rem;
+    }
+
+    .position_name{
+      width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    }
+    .delete_favorite{
+      display: none;
+      width:  90%;
+      grid-template-columns: 1fr;
+      justify-items: right;
+      height: 5vh;
+    }
+    
+    .delete_favorite span {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      width: 20%;
+      height: 100%;
+      border-radius: 10px;
+      background-color: rgba(250, 100, 100, 0.2);
+      color: rgba(250, 100, 100,1);
+    }
+    
+    .job_contents{
+      display: grid;
+      grid-template-rows: 0.5fr 7fr 0.5fr;
+      gap: 1%;
+    }
+   
+    .favor_box{
+      margin: 0;
+      height: 50vh;
+      overflow-y: scroll;
+      
+    }
+
+    .delete{
+      grid-template-columns: 6fr 1fr 1fr;
+      gap: 2%;
+    }
+    .del{
+      width: 100%;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      height: 60%;
+      border-radius: 10px;
+      background-color: rgba(250, 100, 100, 0.2);
+      color: rgba(250, 100, 100,1);
+    }
+
+    .favor_no{
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      color: rgb(155, 155, 155);
     }
   </style>
 </head>
@@ -41,7 +106,17 @@
     </div>
 
     <div class="info favor_box">
-      <div class="favor_list"></div>
+      <div class="favor_list">
+           
+      </div>
+
+      </div>
+    </div>
+
+    <div class="delete_favorite">
+      <span class="delete_btn">
+        즐겨찾기 해제
+      </span>
     </div>
   </div>
   <script src="../js/nav/nav.js"></script>
