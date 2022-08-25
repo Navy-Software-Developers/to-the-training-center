@@ -1,4 +1,12 @@
 import {getReveiewStarPosition,setReviewStar} from './review.js';
+import {Toggle} from './toggle.js';
+
+const toggle_box = document.querySelector('.toggle_box');
+const toggle_btn= document.querySelector('.toggle_btn');
+
+ 
+const toggle = new Toggle(toggle_box, toggle_btn,false);
+ 
 
  
 
@@ -350,18 +358,33 @@ window.onload = () => {
     console.log(like_data);
     //관심목록 유무 토글 변경
     if(like_data != "notLike"){
-      console.log("관심보직입니다.");
+      console.log("즐겨찾기입니다");
+      toggle.toggle_status = true;
+      toggle.update();
+ 
+      
     }else{
-      console.log("관심보직XX");
+      console.log("즐겨찾기 아님");
+      toggle.toggle_status = false;
+      toggle.update();
+    
     }
   }
 
-  function toggle_like() {
-    if(like_data != "notLike"){
-      request_method = 'DELETE';
-    }else{
-      request_method = 'POST';
+  //토글 껐다 켰다 처리
+  toggle_box.addEventListener('click',()=>{
+    let request_method = null;
+    if(toggle.toggle_status === false){
+      console.log(toggle.toggle_status);
+      toggle.toggleOff();
+       request_method = 'DELETE';
+    
+     }else if(toggle.toggle_status === true){
+      console.log(toggle.toggle_status);
+      toggle.toggleOn();
+       request_method = 'POST'; 
     }
+ 
     fetch(like_url, {
       method: request_method,
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -383,7 +406,43 @@ window.onload = () => {
         console.log("실패");
       }
     });
-  }
+
+
+  })
+
+  
+
+  // function toggle_like() {
+  //   if(like_data != "notLike"){
+  //     request_method = 'DELETE';
+  //     console.log('delete');
+  //   }else{
+  //     request_method = 'POST';
+  //     console.log('post')
+  //   }
+  //   console.log(like_data)
+  //   fetch(like_url, {
+  //     method: request_method,
+  //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+  //     credentials: "include", // include, *same-origin, omit
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: "Bearer " + getCookie("my-app-auth"),
+  //     },
+  //     redirect: "follow", // manual, *follow, error
+  //     referrerPolicy: "no-referrer",
+  //   }).then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (json) {
+  //     if(json.status == "success") {
+  //       console.log("정상 토글댐");
+  //       // 토글처리
+  //     }else{
+  //       console.log("실패");
+  //     }
+  //   });
+  // }
   
   function draw() {
     console.log("보직을 즐겨찾기에추가한 사람수: ", data.user_total);
