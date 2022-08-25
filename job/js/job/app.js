@@ -21,6 +21,7 @@ const average = document.querySelector('.average');
 const like = document.querySelector('.like');
 const review_people =document.querySelector('.review_people');
 
+const like_avg = document.querySelector('.like_avg span');
 
 let review_data =   {
  
@@ -198,6 +199,8 @@ window.onload = () => {
     writeReview(review_data).then(
       (res)=>{
         console.log(res);
+        alert('등록 완료!')
+        location.reload();
       }
     )
     
@@ -242,6 +245,12 @@ window.onload = () => {
 
   function drawReview(reviews) {
     let review_list = document.querySelector("#chart7 > div.write_box_list");
+    console.log('평점 여부 : ' , reviews.length);
+    if(reviews.length === 0){
+      review_list.className += ' rev';
+      review_list.innerHTML += `<p>아직 평가가 없습니다!</p>`;
+      return 0;
+    }
     review_list.innerHTML = "";
     for (let review of reviews) {
       let this_review = `<div class="write_box size">
@@ -364,17 +373,19 @@ window.onload = () => {
 
   getReviewData()
     .then(function (json) {
+      drawReview(json.result);
       console.log("리뷰 데이터: ", json);
       if(json.result.length === 0){
         return 0;
       }
       review_people.innerText = json.result.length;
-      drawReview(json.result);
+      
       [stars[0],stars[1],stars[2],stars[3],stars[4]] = calcStar(json.result);
       console.log('평균평점',stars);
       console.log(progress_bar.length)
       let result = (stars.reduce((a,b)=>{return a+b}))/5;
       total_star.innerText = result;
+      like_avg.innerText = result;
       // setReviewStar(star_list,result.toFixed(0));
       setReviewStar(star_list,result.toFixed(0));
       progress_bar.forEach((e,key)=>{

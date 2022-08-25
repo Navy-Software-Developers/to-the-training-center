@@ -188,7 +188,7 @@
       .then(function (json) {
         data = json;
         
-        console.log(data);
+        console.log('데이터',data);
         getMyPointsData()
             .then(function (response) {
             console.log("가산점 항목 데이터: ", response);
@@ -204,6 +204,7 @@
         function search(query) {
             points_div.innerHTML = '';
             let i = 0;
+           
             for (const element of data.points) {
                 if ((element.name.toLowerCase().includes(query))) {
                     let div_data = `<div class="license_item">
