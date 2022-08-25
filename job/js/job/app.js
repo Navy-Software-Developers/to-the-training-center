@@ -19,7 +19,7 @@ const suer_evaluation = document.querySelectorAll('.user_evaluation')
 
 const average = document.querySelector('.average');
 const like = document.querySelector('.like');
-
+const review_people =document.querySelector('.review_people');
 
 
 let review_data =   {
@@ -48,8 +48,8 @@ let rating_data = new Array(5).fill(0);
 
 const progress_bar = document.querySelectorAll('.progress_bar');
 const total_star = document.querySelector('.star_count > span');
-const star_list = document.querySelectorAll('.star_list img');
- 
+const star_list = document.querySelector('.star_list');
+
 
 let stars = [];
 let review_count = document.querySelectorAll('.subtitle_review_count');
@@ -365,10 +365,18 @@ window.onload = () => {
   getReviewData()
     .then(function (json) {
       console.log("리뷰 데이터: ", json);
+      if(json.result.length === 0){
+        return 0;
+      }
+      review_people.innerText = json.result.length;
       drawReview(json.result);
       [stars[0],stars[1],stars[2],stars[3],stars[4]] = calcStar(json.result);
       console.log('평균평점',stars);
       console.log(progress_bar.length)
+      let result = (stars.reduce((a,b)=>{return a+b}))/5;
+      total_star.innerText = result;
+      // setReviewStar(star_list,result.toFixed(0));
+      setReviewStar(star_list,result.toFixed(0));
       progress_bar.forEach((e,key)=>{
         e.style.width = `${stars[key]*20}%`;
         review_count[key].innerText = stars[key];
