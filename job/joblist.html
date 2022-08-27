@@ -130,6 +130,7 @@
       })
       .then(function (json) {
         data = json;
+        console.log(data);
         load();
         mili_btn.forEach((e, index) => {
           e.addEventListener('click', () => {
@@ -138,7 +139,7 @@
             idx.forEach((el) => {
               pickColor(el, index);
             })
-
+            
             function click_branch_btn(branch) {
               if (currentButton == branch) {
                 load();

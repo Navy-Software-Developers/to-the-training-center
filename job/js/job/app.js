@@ -16,6 +16,7 @@ const save_evaluation = document.querySelector('.save_evaluation');
 
 const user_star = document.querySelectorAll('.user_star');
 const suer_evaluation = document.querySelectorAll('.user_evaluation')
+const branch = ['육군','해군','공군','해병대']
 
 const average = document.querySelector('.average');
 const like = document.querySelector('.like');
@@ -50,7 +51,8 @@ let rating_data = new Array(5).fill(0);
 const progress_bar = document.querySelectorAll('.progress_bar');
 const total_star = document.querySelector('.star_count > span');
 const star_list = document.querySelector('.star_list');
-
+const branch_logo = document.querySelector('.branch_logo');
+const logo = ['./media/army.jfif', './media/navy.jfif', './media/airforce.jpg', './media/navy2.png'];
 
 let stars = [];
 let review_count = document.querySelectorAll('.subtitle_review_count');
@@ -513,11 +515,25 @@ window.onload = () => {
   //     }
   //   });
   // }
-  
+  function changeBranchStyle(el,branch){
+   
+  }
   function draw() {
     console.log("보직을 즐겨찾기에추가한 사람수: ", data.user_total);
     like.innerText = `즐겨찾기:${data.user_total}`
     console.log(data);
+    
+    if(data.branch === 1){
+      changeBranchStyle(branch_logo,branch[data.branch-1]);
+    }else if(data.branch === 2){
+      changeBranchStyle(branch_logo,branch[data.branch-1]);
+    }else if(data.branch === 3){
+      changeBranchStyle(branch_logo,branch[data.branch-1]);
+    }
+    else if(data.branch === 4){
+      changeBranchStyle(branch_logo,branch[data.branch-1]);
+    }
+    
     let point_table = document.querySelector("body > div > div > div.info.position");
     for (let i of data.points) {
       if (i.category != "전공"){
