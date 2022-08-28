@@ -5,7 +5,7 @@ body{
     width: 90%;
     height: auto;
     margin: 0 auto;
-    margin-top: 8%;
+    margin-top: 5rem;
 }
 
 .free_board{
@@ -17,14 +17,17 @@ body{
   margin-top: 3%;
   background-color: #fff;
   padding: 1%;
+  font-size: 1rem;
 }
 
 .board_col{
     width: 100%;
     height: 10%;
     /* border-top: 1px solid rgb(231, 231, 231); */
-    border-bottom: 1px solid rgba(150, 75,  0, 0.8);
-    color: rgba(150, 75,  0, 0.8);
+    /* border-bottom: 1px solid rgba(150, 75,  0, 0.8); */
+    border-bottom: 1px solid rgba(100, 100, 100, 0.5);
+    /*color: rgba(150, 75,  0, 0.8);*/
+    color:rgba(100,100,100,0.8);
     display: grid;
     grid-template-columns: 1fr 5fr 1.3fr 1.3fr 1.3fr;
     align-items: center;
@@ -47,8 +50,10 @@ body{
     grid-template-columns: 1fr 5fr 1.3fr 1.3fr 1.3fr ;
     align-items: center;
     justify-items: center;
-    border-bottom: 1px solid rgba(150, 75,  0, 0.2);   
-    color: rgba(150, 75,  0, 0.6);
+    /* border-bottom: 1px solid rgba(150, 75,  0, 0.2);   
+    color: rgba(150, 75,  0, 0.6); */
+    border-bottom: 1px solid rgba(100, 100,  100, 0.2);   
+    color: rgba(100, 100,  100, 0.6);
 }
  
 .row_item li:nth-child(2){
@@ -58,7 +63,7 @@ body{
 
 .write_board{
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     display: flex;
     justify-content: right;
 }
@@ -68,12 +73,23 @@ body{
     align-items: center;
     justify-content: center;
     padding: 1%;
-    background-color: rgba(100,255,100,0.2);
-    color: rgba(0,150,0,0.8);
-    border-radius: 10px;
+    background-color: rgba(100,100,100,0.1);
+    color: rgba(100,100,100,0.9);
+    /* font-size: 1rem; */
+    font-weight: bold;
+    /* border-radius: 10px; */
 }
 
 .board_title{
-    color: rgba(150, 75,  0, 0.8);
+    color: rgba(100, 100,  100, 0.7);
     font-size: 1.5rem;
 }
+
+
+/*1200px 이상일때*/
+@media screen and (min-width: 1200px) {
+    .contents{
+        width: 55%;
+        /* margin-top: 1.8rem; */
+    }
+  }
