@@ -57,6 +57,23 @@ const logo = ['./media/army.jfif', './media/navy.jfif', './media/airforce.jpg', 
 let stars = [];
 let review_count = document.querySelectorAll('.subtitle_review_count');
 
+const mili_color = [{
+  'color': 'rgb(89 175 46)',
+  'background': 'rgb(52 215 84 / 21%)'
+},
+{
+  'color': 'rgb(82 183 243)',
+  'background': 'rgb(52 166 215 / 21%)'
+},
+{
+  'color': 'rgb(146, 146, 146)',
+  'background': ' rgba(0, 0, 0, 0.1)'
+},
+{
+  'color': 'rgb(255 130 130)',
+  'background': 'rgb(255 51 51 / 10%)'
+}
+];
 
 
  
@@ -415,6 +432,7 @@ window.onload = () => {
   function load() {
     document.title = data.name;
     document.querySelector("#title").innerHTML = data.name;
+    branch_logo.style.display = 'flex';
     document.querySelectorAll('.skeleton').forEach((e)=>{
       e.style.display = 'none';
     })
@@ -515,8 +533,16 @@ window.onload = () => {
   //     }
   //   });
   // }
-  function changeBranchStyle(el,branch){
-   
+  function changeBranchStyle(el,branch_code){
+    let count = 0; 
+    for(let b of mili_color ){
+       if(count === branch.indexOf(branch_code)){
+        el.style.backgroundColor = b.background;
+        el.style.color = b.color;
+        el.innerText = branch_code;
+       } 
+       count++;
+     }
   }
   function draw() {
     console.log("보직을 즐겨찾기에추가한 사람수: ", data.user_total);

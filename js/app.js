@@ -17,10 +17,10 @@ let data = [
   },
   {
     src: "./media/go.svg",
-    contents: "입대 가즈아 !!",
-    subTitle: "STEP 5. 입대",
+    contents: "자유 게시판에서 소통!",
+    subTitle: "STEP 5. 자유 게시판",
     position: "left",
-    link: "#",
+    link: "./board/index.html",
   },
   {
     src: "./media/job.svg",
