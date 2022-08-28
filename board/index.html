@@ -66,11 +66,22 @@
         </div>
     </div>
     <div class="write_board">
-        <span>글쓰기</span>
+        <span class="write_btn">글쓰기</span>
     </div>
 
 </div>
+    <script>
+        document.querySelectorAll('.row_item').forEach((e)=>{
+            e.onclick = ()=>{
+                location.href = './board.html';
+            }
+        })
+
+        document.querySelector('.write_btn').onclick = ()=>{
+            location.href = './write.html';
+        }
+    </script>
     <script src="../js/nav/nav.js"></script>
-    <script type="module" src="./js/app.js"></script>
+    
 </body >
 </html>
