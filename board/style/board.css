@@ -75,7 +75,34 @@
     color: rgba(200,200,200,0.9);
     font-size: 0.9rem;
 }
-
+.reply_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.reply{
+    border: 1px solid rgba(100,100,100,0.5);   
+    width: 98%;
+    padding: 1%;
+    
+}
+.reply:active{
+    border: none;
+    outline: 1px solid rgba(100,100,100,0.9);
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    
+}
+.reply_btn{
+    width: 10%;
+    border:none;
+    padding: 1%;
+    margin-top: 0.5%;
+    background-color: rgba(200,200,200,0.5);
+}
 /*1200px 이상일때*/
 /* @media screen and (min-width: 1200px) {
  
