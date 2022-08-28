@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="./style/board.css">
     <link rel="stylesheet" href="../style/nav/nav.css">
+    <link rel="stylesheet" href="./style/write.css">
     <title>자유게시판</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
 
     <div class="free_board_text">
        <div id="main_title">
-            <h2>입대는 어떻게 하나?</h2>       
+           <input class="board_title" type="text" placeholder="제목을 입력해주세요">
             <div class="author">
                <span>
                 <p>작성자: </p>
@@ -38,33 +39,14 @@
        </div>
        
         <p class="main_text">
-         sw개발병으로 입대하고 싶은데 어떻게 해야하나요 ?? 컴퓨터를 잘해야 하나요 ? 할하는 기준이 무엇일까요 ㅜ
+            <textarea type="text" placeholder="내용을 입력하세요."></textarea>
         </p>
         
 
-        <div class="comments">
-            <div class="reply_box">
-           <textarea class="reply" name="" id="" cols="10" rows="3"></textarea>
-           <div class="button">
-           <button class="reply_btn">답글</button>
-           </div>
-            </div>
-
-            <li class="comment_user">
-                <span class="user_name">seongjin</span>
-               <p class="comment">sw 개발병으로 오시려면 컴퓨터를 진심으로 좋아하셔야하고 단순 편함을 위해서 오시는 거라면 절대 오실 수 없습니다   </p>
-               <span class="comment_time">
-               2022년 02월 21일
-               </span>
-            </li>
-            <li class="comment_user">
-                <span class="user_name">정섭</span>
-               <p class="comment">우선 보드게임을 잘하셔야 합니다   </p>
-               <span class="comment_time">
-               2022년 03월 28일
-               </span>
-            </li>
-        </div>
+     
+    </div>
+    <div class="save_box">
+        <button class="save_btn">등록하기</button>
     </div>
 
 </div>

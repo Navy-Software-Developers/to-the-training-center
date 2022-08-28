@@ -1,0 +1,29 @@
+.board_title{
+    padding: 1%;
+    width: 98%;
+    border: 1px solid rgba(100,100,100,0.3);
+}
+
+.main_text > textarea{
+    width: 98%;
+    height: 90%;
+    padding: 1%;
+    font-size: 1rem;
+    border: 1px solid rgba(100,100,100,0.3);
+}
+.save_box{
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.save_btn{
+    width: 10%;
+    padding: 1%;
+    font-size: 0.8rem;
+    background-color: rgba(100,100,100,0.2);
+    border: none;
+    color: rgba(40,40,40,0.8);
+}
