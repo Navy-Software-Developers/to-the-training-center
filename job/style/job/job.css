@@ -288,6 +288,12 @@
   color: rgb(115, 164, 255);
 }
 
+.lists_wrap{
+  width: 100%;
+  overflow-y: scroll;
+  height: 30vh;
+}
+
 .search_close:hover {
   background-color: rgba(255, 0, 0, 0.1);
   color: rgb(255, 0, 0);
@@ -364,6 +370,8 @@
   padding: 1%;
   border: 1px solid rgb(202, 202, 202);
   border-radius: 5px;
+  height: 30vh;
+  overflow-y: scroll;
 }
 /* 
 .row_box {

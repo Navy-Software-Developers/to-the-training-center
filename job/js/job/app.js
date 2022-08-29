@@ -560,7 +560,7 @@ window.onload = () => {
       changeBranchStyle(branch_logo,branch[data.branch-1]);
     }
     
-    let point_table = document.querySelector("body > div > div > div.info.position");
+    let point_table = document.querySelector(".lists_wrap");
     for (let i of data.points) {
       if (i.category != "전공"){
         point_table.innerHTML += `<div class="license_item_list">
