@@ -77,3 +77,8 @@
 body {
   padding-bottom: 10%;
 }
+
+.main_wrap{
+	width:85%;
+	margin:0 auto;
+}
