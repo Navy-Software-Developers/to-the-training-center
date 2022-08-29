@@ -10,6 +10,7 @@ function update(positionName) {
   let html =
 
     `<div class="item_list"> 
+    <span class="branch">육군</span>
         <div class="position_name">
              ${positionName}
         </div>
@@ -42,7 +43,6 @@ function delUpdate(positionName) {
     </div>
         `
   return html;
-
 }
 
 function getCookie(name) {
@@ -185,6 +185,9 @@ window.onload = () => {
 
 
     }).catch((err) => {
+      favor_list.className += ' favor_no';
+        favor_list.innerHTML += ` <p>로그인 후 즐겨찾기 이용 가능합니다!</p>`;
+        del_wrap.style.display = 'none'
       alert('로그인을 해주세요!')
     })
 
