@@ -6,8 +6,8 @@
 body{
     overflow: hidden;
     background-color: #f7f7f7;
+    font-family: 'Jua', sans-serif;
 }
-
 
 /* login box */
 .login_box{

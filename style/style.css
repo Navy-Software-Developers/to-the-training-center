@@ -9,7 +9,6 @@
   -ms-touch-action: pan-x pan-y;
 }
 
-
 input, textarea {
  
 -moz-user-select: auto;
@@ -26,6 +25,7 @@ body {
   overflow: scroll;
   position: relative;
   overflow-x: hidden;
+  font-family: 'Jua', sans-serif;
 }
 
 @font-face {
