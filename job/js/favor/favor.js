@@ -10,7 +10,7 @@ function update(positionName) {
   let html =
 
     `<div class="item_list"> 
-    <span class="branch">육군</span>
+ 
         <div class="position_name">
              ${positionName}
         </div>
