@@ -105,6 +105,9 @@ async function postData(url = "", data = {}) {
 
 login_activate();
 window.onload = () => {
+  if(location.protocol == 'https:') {
+      location.href = 'http://xn--o39a35bw4ff5gp5m354a.xn--3e0b707e';
+  }
   // https://www.flaticon.com/kr/free-icons/login      icon license
   const submit_btn = document.querySelector(".submit");
   const imgSrc = {
